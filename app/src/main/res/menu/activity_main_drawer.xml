@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_principal"
+            android:icon="@drawable/ic_home"
+            android:title="@string/Principal" />
+
+        <item
+            android:id="@+id/nav_fincas"
+            android:icon="@drawable/ic_list"
+            android:title="@string/gestionar_fincas" />
+        <item
+            android:id="@+id/nav_usuarios"
+            android:icon="@drawable/ic_people"
+            android:title="@string/gestionar_usuarios" />
+        <item
+            android:id="@+id/nav_proveedores"
+            android:icon="@drawable/ic_people"
+            android:title="@string/gestionar_proveedores" />
+        <item
+            android:id="@+id/nav_zonas"
+            android:icon="@drawable/ic_places"
+            android:title="@string/gestionar_zonas" />
+    </group>
+</menu>

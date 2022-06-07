@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_fincas">
+
+    <fragment
+        android:id="@+id/nav_fincas"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.FincasFragment"
+        android:label="@string/gestionar_fincas"
+        tools:layout="@layout/fragment_fincas" >
+        <action
+            android:id="@+id/action_nav_fincas_to_datosBasicosFragment"
+            app:destination="@id/datosBasicosFragment"
+            app:enterAnim="@anim/anim_fragment_button_to"
+            app:popEnterAnim="@anim/anim_fragment_button_to" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_usuarios"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionUsuarios.UsuariosFragment"
+        android:label="@string/gestionar_usuarios"
+        tools:layout="@layout/fragment_usuarios" />
+
+    <fragment
+        android:id="@+id/nav_proveedores"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionProveedores.ProveedoresFragment"
+        android:label="@string/gestionar_proveedores"
+        tools:layout="@layout/fragment_proveedores" />
+
+    <fragment
+        android:id="@+id/nav_principal"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.principal.PrincipalFragment"
+        android:label="@string/Principal"
+        tools:layout="@layout/fragment_principal" />
+    <fragment
+        android:id="@+id/nav_zonas"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionZonas.ZonasFragment"
+        android:label="fragment_zonas"
+        tools:layout="@layout/fragment_zonas" />
+    <fragment
+        android:id="@+id/datosBasicosFragment"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosBasicos.DatosBasicosFragment"
+        android:label="Datos Básicos"
+        tools:layout="@layout/fragment_datos_basicos" >
+        <action
+            android:id="@+id/action_datosBasicosFragment_to_casaFragment"
+            app:destination="@id/nav_datos_basicos" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_datos_basicos"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosCasa.CasaFragment"
+        android:label="nav_casa"
+        tools:layout="@layout/fragment_casa" >
+        <action
+            android:id="@+id/action_casaFragment_to_cocinaFragment"
+            app:destination="@id/cocinaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cocinaFragment"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosCasa.CocinaFragment"
+        android:label="fragment_cocina"
+        tools:layout="@layout/fragment_cocina" >
+        <action
+            android:id="@+id/action_cocinaFragment_to_datosSocialesFragment"
+            app:destination="@id/datosSocialesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/datosSocialesFragment"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosSociales.DatosSocialesFragment"
+        android:label="fragment_datos_sociales"
+        tools:layout="@layout/fragment_datos_sociales" >
+        <action
+            android:id="@+id/action_datosSocialesFragment_to_datosProductivosFragment"
+            app:destination="@id/datosProductivosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/datosProductivosFragment"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosProductivos.DatosProductivosFragment"
+        android:label="fragment_datos_productivos"
+        tools:layout="@layout/fragment_datos_productivos" >
+        <action
+            android:id="@+id/action_datosProductivosFragment_to_produccionFragment"
+            app:destination="@id/produccionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/produccionFragment"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosProductivos.ProduccionFragment"
+        android:label="fragment_produccion"
+        tools:layout="@layout/fragment_produccion" >
+        <action
+            android:id="@+id/action_produccionFragment_to_animalesFragment"
+            app:destination="@id/animalesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/animalesFragment"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosProductivos.AnimalesFragment"
+        android:label="fragment_animales"
+        tools:layout="@layout/fragment_animales" >
+        <action
+            android:id="@+id/action_animalesFragment_to_trabajadoresFragment"
+            app:destination="@id/trabajadoresFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trabajadoresFragment"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosProductivos.TrabajadoresFragment"
+        android:label="fragment_trabajadores"
+        tools:layout="@layout/fragment_trabajadores" >
+        <action
+            android:id="@+id/action_trabajadoresFragment_to_datosAmbientalesFragment"
+            app:destination="@id/datosAmbientalesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/datosAmbientalesFragment"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosAmbientales.DatosAmbientalesFragment"
+        android:label="fragment_datos_ambientales"
+        tools:layout="@layout/fragment_datos_ambientales" >
+        <action
+            android:id="@+id/action_datosAmbientalesFragment_to_nav_fincas"
+            app:destination="@id/nav_fincas" />
+    </fragment>
+</navigation>

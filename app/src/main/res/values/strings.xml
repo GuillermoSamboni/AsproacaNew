@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">AsproacaNew</string>
+    <string name="asproaca">ASPROACA</string>
+    <string name="siglasExplicadas">Asociación de productores agropecuarios de Cajibio</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="correo_electronico">Correo electrónico</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="patrocinador">patrocinador</string>
+    <string name="guardar_sesion">Guardar sesión</string>
+    <string name="title_activity_principal">PrincipalActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="configuraciones">configuraciones</string>
+
+    <string name="usuarioNoExiste">Asegurase de contar con credenciales de acceso, Si ya cuenta con un usuario, asegurase de ingresar el correo y contraseña correctamente, si el problema persiste, por favor revise su conexión a internet o intentelo más tarde</string>
+
+    <string name="aceptar">Aceptar</string>
+    <string name="error">Error!</string>
+    <string name="gestionar_fincas">Gestionar fincas</string>
+    <string name="gestionar_usuarios">Gestionar Usuarios</string>
+    <string name="gestionar_proveedores">Gestionar Proveedores</string>
+    <string name="gestionar_zonas">Gestionar Zonas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Principal">Principal</string>
+    <string name="listadoFincas">Listado de fincas</string>
+    <string name="datos_basicos">Datos Básicos</string>
+    <string name="seleccionar_zona">Seleccionar zona</string>
+
+
+    <string name="textDelete">lorem insum lorem insum lorem insum lorem insum lorem insum lorem insum</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="creando_usuario">Creando Usuario</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="title_home">Gráficas</string>
+    <string name="title_dashboard">Fincas</string>
+    <string name="title_notifications">Perfil</string>
+    <string name="nombre_de_la_finca">Nombre de la finca</string>
+    <string name="nombre_del_propietario">Nombre del propietario</string>
+    <string name="registrar_finca">Registrar Finca</string>
+    <string name="apellido">Apellido</string>
+    <string name="nombre">Nombre Completo</string>
+    <string name="genero">Genero</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
+    <string name="continuar_proceso">Continuar Proceso</string>
+    <string name="identificaci_n">Número de identificación</string>
+    <string name="correo_electr_nico">Correo electrónico</string>
+    <string name="tel_fono">Teléfono</string>
+    <string name="edad">Edad</string>
+    <string name="a_adir">Añadir</string>
+    <string name="correo">Correo</string>
+    <string name="todo">Registrar nuevo usuario</string>
+    <string name="administardor">Administardor</string>
+    <string name="modificar">Modificar</string>
+    <string name="vereda">Vereda</string>
+    <string name="direcci_n">Dirección</string>
+    <string name="tama_o_de_la_finca">Tamaño de la finca</string>
+    <string name="antiguedad_de_la_finca">Antiguedad de la finca</string>
+    <string name="fecha_nacimiento">Fecha Nacimiento</string>
+    <string name="rol_familiar">Rol Familiar</string>
+    <string name="area_productiva_total">Área Productiva Total</string>
+    <string name="buscar_finca">Nombre de la Finca</string>
+    <string name="lugar_de_expedici_n">Lugar de expedición</string>
+    <string name="tel_fono_principal">Teléfono Principal</string>
+    <string name="tel_fono_secundario">Teléfono Secundario</string>
+    <string name="actualmente_esta_estudiando">¿Actualmente esta estudiando?</string>
+    <string name="tiene_alguna_discapacidad">¿Tiene alguna discapacidad?</string>
+    <string name="activo">Activo</string>
+    <string name="inactivo">Inactivo</string>
+    <string name="qu_nivel_de_estudio_tiene">¿Qué nivel de estudio tiene?</string>
+    <string name="superior">Superior</string>
+    <string name="media_superior">Media superior</string>
+    <string name="b_sica">Básica</string>
+    <string name="sabe_leer">¿Sabe leer?</string>
+    <string name="sabe_escribir">¿Sabe escribir?</string>
+    <string name="maneja_redes_sociales">¿Maneja redes sociales?</string>
+    <string name="alto">Alto</string>
+    <string name="medio">Medio</string>
+    <string name="bajo">Bajo</string>
+    <string name="nivel_de_manejo_de_dispositivos">Nivel de manejo de dispositivos</string>
+    <string name="seleccionar_tipo_persona">Seleccionar tipo persona:</string>
+    <string name="seleccionar_tipo_poblaci_n">Seleccionar tipo población:</string>
+    <string name="seleccionar_una_opci_n">Seleccionar una opción</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="guardar_sesi_n">Guardar sesión</string>
+    <string name="es_un_producto_certificado">¿Es un producto certificado?</string>
+    <string name="cu_ntos_a_os_lleva_en_esta_finca">¿Cuántos años lleva en esta finca?</string>
+    <string name="est_en_zona_de_riesgo">¿Está en zona de riesgo?</string>
+    <string name="seleccionar_municipio">Seleccionar municipio</string>
+    <string name="cuantas_personas_viven_en_la_finca">¿Cuantas personas viven en la finca?</string>
+    <string name="existe_cobertura_de_suelos">¿Existe cobertura de suelos?</string>
+    <string name="existen_reas_con_erosi_n">¿Existen áreas con erosión?</string>
+
+
+</resources>

@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:elevation="8dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:gravity="top">
+                    <!--
+                                    <ImageButton
+                                        android:layout_gravity="start|center"
+                                        android:id="@+id/idBtnBack"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:background="@drawable/boton_redondo"
+                                        android:src="@drawable/ic_back"
+                                        app:tint="@color/white" />
+                    -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/registrar_finca"
+                            android:textColor="@color/blackmode"
+                            android:textSize="31sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Datos del núcleo familiar"
+                            android:textColor="@color/blackmode"
+                            android:textSize="18sp"
+                            android:textStyle="italic" />
+                    </LinearLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+
+
+                <!--Form-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="Datos del núcleo familiar"
+                        android:textAlignment="center"
+                        android:textColor="@color/color_primary"
+                        android:textSize="31sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/idLayoutNombreCompleto"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            app:boxBackgroundMode="outline"
+                            app:boxCornerRadiusBottomEnd="8dp"
+                            app:boxCornerRadiusBottomStart="8dp"
+                            app:boxCornerRadiusTopEnd="8dp"
+                            app:boxCornerRadiusTopStart="8dp"
+                            app:endIconMode="clear_text"
+                            app:hintTextColor="@color/color_primary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/nombre"
+                            android:textColorHint="@color/color_primary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/idTxtNombreCompletoA"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:maxLength="90" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:id="@+id/idErrorFechaNac"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Selecionar fecha nacimiento"
+                            android:textAlignment="center"
+                            android:textColor="@color/color_red"
+                            android:textSize="12sp"
+                            android:textStyle="normal"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/margin_vertical_global"
+                                android:maxLines="1"
+                                android:text="Fecha de nacimiento:"
+                                android:textColor="@color/blackmode"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/idTxtFecha_nacimientoA"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="dd/mmm/aaaa"
+                                android:textColor="@color/blackmode"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end">
+
+                                <ImageButton
+                                    android:id="@+id/idBtnFechaNacimientoA"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginEnd="@dimen/margin_vertical_global"
+                                    android:background="@color/color_transparent"
+                                    android:src="@drawable/ic_calendar" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/idLayoutIdentificacion"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            app:boxBackgroundMode="outline"
+                            app:boxCornerRadiusBottomEnd="8dp"
+                            app:boxCornerRadiusBottomStart="8dp"
+                            app:boxCornerRadiusTopEnd="8dp"
+                            app:boxCornerRadiusTopStart="8dp"
+                            app:endIconMode="clear_text"
+                            app:hintTextColor="@color/color_primary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/identificaci_n"
+                            android:textColorHint="@color/color_primary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/idIdentificacionPersonaA"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:maxLength="11" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/idLayoutLugarExpedicion"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            app:boxBackgroundMode="outline"
+                            app:boxCornerRadiusBottomEnd="8dp"
+                            app:boxCornerRadiusBottomStart="8dp"
+                            app:boxCornerRadiusTopEnd="8dp"
+                            app:boxCornerRadiusTopStart="8dp"
+                            app:endIconMode="clear_text"
+                            app:hintTextColor="@color/color_primary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/lugar_de_expedici_n"
+                            android:textColorHint="@color/color_primary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/idTxtLugarExpedicionA"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="60" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/seleccionar_tipo_persona"
+                                android:textColor="@color/blackmode"
+                                android:textStyle="bold" />
+
+                            <Spinner
+                                android:id="@+id/idSpinerTipoPersonaA"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="Seleccionar"
+                                android:backgroundTint="@color/color_green" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/idLayoutTelefonoPrincipal"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            app:boxBackgroundMode="outline"
+                            app:boxCornerRadiusBottomEnd="8dp"
+                            app:boxCornerRadiusBottomStart="8dp"
+                            app:boxCornerRadiusTopEnd="8dp"
+                            app:boxCornerRadiusTopStart="8dp"
+                            app:endIconMode="clear_text"
+                            app:hintTextColor="@color/color_primary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/tel_fono_principal"
+                            android:textColorHint="@color/color_primary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/idTelefonoPrincipalA"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="phone"
+                                android:maxLength="11" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            app:boxBackgroundMode="outline"
+                            app:boxCornerRadiusBottomEnd="8dp"
+                            app:boxCornerRadiusBottomStart="8dp"
+                            app:boxCornerRadiusTopEnd="8dp"
+                            app:boxCornerRadiusTopStart="8dp"
+                            app:endIconMode="clear_text"
+                            app:hintTextColor="@color/color_primary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/tel_fono_secundario"
+                            android:textColorHint="@color/color_primary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/idTelefonoSecundarioA"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="phone"
+                                android:maxLength="11" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/idLayoutCorreo"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            app:boxBackgroundMode="outline"
+                            app:boxCornerRadiusBottomEnd="8dp"
+                            app:boxCornerRadiusBottomStart="8dp"
+                            app:boxCornerRadiusTopEnd="8dp"
+                            app:boxCornerRadiusTopStart="8dp"
+                            app:endIconMode="clear_text"
+                            app:hintTextColor="@color/color_primary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/correo_electr_nico"
+                            android:textColorHint="@color/color_primary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/idTxtCorreoA"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textEmailAddress"
+                                android:maxLength="80" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/actualmente_esta_estudiando"
+                                android:textColor="@color/blackmode"
+                                android:textStyle="bold" />
+
+                            <androidx.legacy.widget.Space
+                                android:layout_width="13dp"
+                                android:layout_height="match_parent" />
+
+                            <TextView
+                                android:id="@+id/idErrorEstudiandoA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/seleccionar_una_opci_n"
+                                android:textAlignment="center"
+                                android:textColor="@color/color_red"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+
+                        <RadioGroup
+                            android:id="@+id/idRadioGroupEstudiandoA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/idSiEstudiaA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/idNoEstudiaA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/tiene_alguna_discapacidad"
+                                android:textColor="@color/blackmode"
+                                android:textStyle="bold" />
+
+                            <androidx.legacy.widget.Space
+                                android:layout_width="13dp"
+                                android:layout_height="match_parent" />
+
+                            <TextView
+                                android:id="@+id/idErrorDiscapacidadA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/seleccionar_una_opci_n"
+                                android:textAlignment="center"
+                                android:textColor="@color/color_red"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/idRadioGroupDiscapacidadA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/idSiDiscapacidadA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/idNoDiscapacidadA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/idLayoutDiscapacidad"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            app:boxBackgroundMode="outline"
+                            app:boxCornerRadiusBottomEnd="8dp"
+                            app:boxCornerRadiusBottomStart="8dp"
+                            app:boxCornerRadiusTopEnd="8dp"
+                            app:boxCornerRadiusTopStart="8dp"
+                            app:endIconMode="clear_text"
+                            app:hintTextColor="@color/color_primary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Discapacidad"
+                            android:textColorHint="@color/color_primary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/idTxtDiscapacidadA"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="120" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Estado"
+                                android:textColor="@color/blackmode"
+                                android:textStyle="bold" />
+
+                            <androidx.legacy.widget.Space
+                                android:layout_width="13dp"
+                                android:layout_height="match_parent" />
+
+                            <TextView
+                                android:id="@+id/idErrorEstadoA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/seleccionar_una_opci_n"
+                                android:textAlignment="center"
+                                android:textColor="@color/color_red"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/idRadioGroupEstadoA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/idEstadoActivoA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/activo" />
+
+                            <androidx.legacy.widget.Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <RadioButton
+                                android:id="@+id/idEstadoInactivoA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/inactivo" />
+
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/seleccionar_tipo_poblaci_n"
+                                android:textColor="@color/blackmode"
+                                android:textStyle="bold" />
+
+                            <Spinner
+                                android:id="@+id/idSpinerTipoPoblacionA"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="Seleccionar"
+                                android:backgroundTint="@color/color_green"
+                                android:foregroundTint="@color/color_red" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/qu_nivel_de_estudio_tiene"
+                                android:textColor="@color/blackmode"
+                                android:textStyle="bold" />
+
+                            <androidx.legacy.widget.Space
+                                android:layout_width="13dp"
+                                android:layout_height="match_parent" />
+
+                            <TextView
+                                android:id="@+id/idErrorNivelEstudioA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/seleccionar_una_opci_n"
+                                android:textAlignment="center"
+                                android:textColor="@color/color_red"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+
+                        <RadioGroup
+                            android:id="@+id/idRadioGroupNivelEstudioA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RadioButton
+                                android:id="@+id/idEstudioBasicaA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/b_sica" />
+
+                            <RadioButton
+                                android:id="@+id/idEstudioMediaSuperiorA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/media_superior" />
+
+                            <RadioButton
+                                android:id="@+id/idEstudioSuperiorA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/superior" />
+
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sabe_leer"
+                                android:textColor="@color/blackmode"
+                                android:textStyle="bold" />
+
+                            <androidx.legacy.widget.Space
+                                android:layout_width="13dp"
+                                android:layout_height="match_parent" />
+
+                            <TextView
+                                android:id="@+id/idErrorLeerA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/seleccionar_una_opci_n"
+                                android:textAlignment="center"
+                                android:textColor="@color/color_red"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/idRadioGroupSabeLeerA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/idSiLee"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/idNoLeeA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sabe_escribir"
+                                android:textColor="@color/blackmode"
+                                android:textStyle="bold" />
+
+                            <androidx.legacy.widget.Space
+                                android:layout_width="13dp"
+                                android:layout_height="match_parent" />
+
+                            <TextView
+                                android:id="@+id/idErrorEscribirA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/seleccionar_una_opci_n"
+                                android:textAlignment="center"
+                                android:textColor="@color/color_red"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/idRadioGroupSabeEscribirA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/idSiEscribeA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/idNoEscribeA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nivel_de_manejo_de_dispositivos"
+                                android:textColor="@color/blackmode"
+                                android:textStyle="bold" />
+
+                            <androidx.legacy.widget.Space
+                                android:layout_width="13dp"
+                                android:layout_height="match_parent" />
+
+                            <TextView
+                                android:id="@+id/idErrorManejoDispositivosA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/seleccionar_una_opci_n"
+                                android:textAlignment="center"
+                                android:textColor="@color/color_red"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/idRadioGroupNivelManejoDispositivosA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RadioButton
+                                android:id="@+id/idBajoA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/bajo" />
+
+
+                            <RadioButton
+                                android:id="@+id/idMedioA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/medio" />
+
+                            <RadioButton
+                                android:id="@+id/idAltoA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/alto" />
+                        </RadioGroup>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/maneja_redes_sociales"
+                                android:textColor="@color/blackmode"
+                                android:textStyle="bold" />
+
+                            <androidx.legacy.widget.Space
+                                android:layout_width="13dp"
+                                android:layout_height="match_parent" />
+
+                            <TextView
+                                android:id="@+id/idErrorManejoRedesSocialesA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/seleccionar_una_opci_n"
+                                android:textAlignment="center"
+                                android:textColor="@color/color_red"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/idRadioGroupRedesSocialesA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/idSiRedesA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/idNoRedesA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            app:boxBackgroundMode="outline"
+                            app:boxCornerRadiusBottomEnd="8dp"
+                            app:boxCornerRadiusBottomStart="8dp"
+                            app:boxCornerRadiusTopEnd="8dp"
+                            app:boxCornerRadiusTopStart="8dp"
+                            app:endIconMode="clear_text"
+                            app:hintTextColor="@color/color_primary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Redes Sociales"
+                            android:textColorHint="@color/color_primary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/idRedesSocialesA"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/idBtnAddNewPersonA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_button_global"
+                            android:layout_marginBottom="@dimen/margin_button_global"
+                            android:text="@string/continuar_proceso"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

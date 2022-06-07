@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".diseño.principal.ui.principal.PrincipalFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/margenGlobal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="𝑹𝒆𝒑𝒐𝒓𝒕𝒆𝒔 𝒅𝒆 𝒅𝒂𝒕𝒐𝒔"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tituloSplash"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/circulo"
+                    android:gravity="center"
+                    android:padding="@dimen/margenGlobal">
+
+                    <TextView
+                        android:id="@+id/idNumeroDeFincas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="𝟨𝟢"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/tituloSplash" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="
+𝑻𝒐𝒕𝒂𝒍 𝒅𝒆 𝒇𝒊𝒏𝒄𝒂𝒔 𝒓𝒆𝒈𝒊𝒔𝒕𝒓𝒂𝒅𝒂𝒔, 𝒍𝒐𝒔 𝒏𝒖𝒆𝒗𝒐𝒔 𝒓𝒆𝒈𝒊𝒔𝒕𝒓𝒐𝒔 𝒔𝒆 𝒗𝒆𝒓𝒂𝒏 𝒓𝒆𝒇𝒍𝒆𝒋𝒂𝒅𝒐𝒔 𝒆𝒏 𝒆𝒔𝒕𝒆 𝒂𝒑𝒂𝒓𝒕𝒂𝒅𝒐 𝒆𝒏 𝒇𝒐𝒓𝒎𝒂 𝒅𝒆 𝒄𝒐𝒏𝒕𝒆𝒐"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/margenGlobal"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margenGlobal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="𝑻𝒐𝒕𝒂𝒍 𝒅𝒆 𝒉𝒆𝒄𝒕á𝒓𝒆𝒂𝒔 𝒓𝒆𝒈𝒊𝒔𝒕𝒓𝒂𝒅𝒂𝒔, 𝒔𝒊 𝒆𝒙𝒊𝒔𝒕𝒆𝒏 𝒏𝒖𝒆𝒗𝒂𝒔 𝒇𝒊𝒏𝒄𝒂𝒔 𝒓𝒆𝒈𝒊𝒔𝒕𝒓𝒂𝒅𝒂𝒔 𝒆𝒍 𝒄𝒐𝒏𝒕𝒆𝒐 𝒅𝒆 𝒉𝒆𝒄𝒕á𝒓𝒆𝒂𝒔 𝒂𝒖𝒎𝒆𝒏𝒕𝒂𝒓𝒂 𝒓𝒆𝒔𝒑𝒆𝒄𝒕𝒊𝒗𝒂𝒎𝒆𝒏𝒕𝒆"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/margenGlobal"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/circulo"
+                    android:gravity="center"
+                    android:padding="@dimen/margenGlobal">
+
+                    <TextView
+                        android:id="@+id/idTxtHectareasTotales"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="12"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/tituloSplash" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margenGlobal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/circulo"
+                    android:gravity="center"
+                    android:padding="@dimen/margenGlobal">
+
+                    <TextView
+                        android:id="@+id/idPromedioAntiguedad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1𝟨𝟢"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/tituloSplash" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="𝑷𝒓𝒐𝒎𝒆𝒅𝒊𝒐 𝒅𝒆 𝒂𝒏𝒕𝒊𝒈ü𝒆𝒅𝒂𝒅, 𝒃𝒂𝒔𝒂𝒅𝒐 𝒆𝒏 𝒆𝒍 𝒕𝒐𝒕𝒂𝒍 𝒅𝒆 𝒇𝒊𝒏𝒄𝒂𝒔 𝒓𝒆𝒈𝒊𝒔𝒕𝒓𝒂𝒅𝒂𝒔 𝒔𝒆 𝒄𝒂𝒍𝒄𝒖𝒍𝒂 𝒆𝒍 𝒑𝒓𝒊𝒎𝒆𝒅𝒊𝒐 𝒅𝒆 𝒂𝒏𝒕𝒊𝒈𝒖𝒆𝒅𝒂𝒅 𝒅𝒆 𝒍𝒂𝒔 𝒇𝒊𝒏𝒄𝒂𝒔"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/margenGlobal"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "160889217986",
+    "project_id": "campocolombiano-7ce79",
+    "storage_bucket": "campocolombiano-7ce79.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160889217986:android:001997a557e8dc45ca2c5b",
+        "android_client_info": {
+          "package_name": "com.asproaca.asproaca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160889217986-un38sq4477a8p6cdja74ftssqlr0e5dp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx6_K0yaoo_9xG-eNC9exhpKcovTwHQq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160889217986-un38sq4477a8p6cdja74ftssqlr0e5dp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160889217986:android:0599dbf8c01773f9ca2c5b",
+        "android_client_info": {
+          "package_name": "com.campo.campocolombiano"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160889217986-un38sq4477a8p6cdja74ftssqlr0e5dp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx6_K0yaoo_9xG-eNC9exhpKcovTwHQq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160889217986-un38sq4477a8p6cdja74ftssqlr0e5dp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
