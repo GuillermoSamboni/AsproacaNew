@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/idnavigation"
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item
+        <!--<item
             android:id="@+id/nav_principal"
             android:icon="@drawable/ic_home"
-            android:title="@string/Principal" />
+            android:title="@string/Principal" />-->
 
         <item
             android:id="@+id/nav_fincas"
@@ -25,5 +26,10 @@
             android:id="@+id/nav_zonas"
             android:icon="@drawable/ic_places"
             android:title="@string/gestionar_zonas" />
+
+        <item
+            android:id="@+id/idCerrarSesion"
+            android:icon="@drawable/ic_exit_to_app"
+            android:title="@string/cerrar_sesi_n" />
     </group>
 </menu>

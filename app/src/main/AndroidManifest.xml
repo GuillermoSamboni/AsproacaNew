@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.asproaca.asproaca" >
+    package="com.asproaca.asproaca">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -18,15 +18,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AsproacaNew" >
+        android:theme="@style/Theme.AsproacaNew">
         <activity
             android:name=".diseño.principal.PrincipalActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_principal"
-            android:theme="@style/Theme.AsproacaNew.NoActionBar" />
+            android:theme="@style/Theme.AsproacaNew.NoActionBar">
+
+        </activity>
         <activity
-            android:name=".diseño.autenticacion.MainActivity"
-            android:exported="true" >
+            android:name="com.asproaca.asproaca.diseño.principal.ui.autenticacion.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,7 +37,10 @@
         </activity>
         <activity
             android:name=".SplashActivity"
-            android:exported="true" />
+            android:exported="true">
+
+
+        </activity>
     </application>
 
 </manifest>

@@ -15,13 +15,29 @@
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable/ic_places.xml" value="0.1565" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable/side_nav_bar.xml" value="0.1565" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable/spiner_personalizado.xml" value="0.1565" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-1280x1920/activity_splash.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-1440x2560/activity_splash.xml" value="0.13984375" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-2340x1080/activity_splash.xml" value="0.152991452991453" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-2960x1440/activity_splash.xml" value="0.12094594594594595" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-480x800/activity_splash.xml" value="0.4475" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-480x800/alert_custom_delete.xml" value="0.4475" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-480x800/alert_custom_modify.xml" value="0.4475" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-480x800/custom_carga.xml" value="0.4475" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-480x800/formulario_proveedor.xml" value="0.4475" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-480x800/formulario_zonas.xml" value="0.4475" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-480x800/item_proveedores.xml" value="0.4475" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-480x800/item_zonas.xml" value="0.4475" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-480x800/users_adapter.xml" value="0.4475" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-720x1280/activity_splash.xml" value="0.2796875" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/activity_main.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/activity_principal.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/activity_splash.xml" value="0.2" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/alert_anadir_persona.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/alert_anadir_productivos.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/alerta_animales.xml" value="0.18645833333333334" />
-        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/alerta_integrantes.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/alerta_eliminar_finca.xml" value="0.33" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/alerta_integrantes.xml" value="0.33" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/alerta_lotes.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/app_bar_principal.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/content_principal.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/error_iniciarsesion.xml" value="0.18645833333333334" />
@@ -31,17 +47,21 @@
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_cocina.xml" value="0.33" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_datos_ambientales.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_datos_basicos.xml" value="0.33" />
-        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_datos_productivos.xml" value="0.33" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_datos_productivos.xml" value="0.22" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_datos_sociales.xml" value="0.25" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_fincas.xml" value="0.2231920199501247" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_principal.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_produccion.xml" value="0.25" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_proveedores.xml" value="0.17314814814814813" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_registrar_usuario.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_trabajadores.xml" value="0.25" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_usuarios.xml" value="0.16" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_zonas.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/item_fincas.xml" value="0.2" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/item_municipios.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/nav_header_principal.xml" value="0.18645833333333334" />
-        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/menu/activity_main_drawer.xml" value="0.5" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/menu/principal.xml" value="0.18645833333333334" />
       </map>
     </option>

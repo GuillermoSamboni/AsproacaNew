@@ -5,6 +5,8 @@ import android.content.Context
 class Preferencias(val context: Context) {
     val nombrePreferencia = "preferencia"
     val nombreUsuario = "nombreUsuario"
+    val idUsuario = "idUsuario"
+    val rolUser = "rol"
 
     val almacenamiento = context.getSharedPreferences(nombrePreferencia, 0)
 
@@ -16,27 +18,46 @@ class Preferencias(val context: Context) {
         return almacenamiento.getString(nombreUsuario, "")!!
     }
 
+    fun guardarIdUsuario(id: String): Boolean {
+        almacenamiento.edit().putString(idUsuario, id).apply()
+        return true
+    }
+
+    fun obtenerIdUsuario(): String {
+        return almacenamiento.getString(idUsuario, "")!!
+    }
+
+    fun guardarRol(rolUserParam: String):Boolean {
+        almacenamiento.edit().putString(rolUser, rolUserParam).apply()
+        return true
+    }
+
+    fun obtenerRol(): String {
+        return almacenamiento.getString(rolUser, "")!!
+    }
+
     fun borrarPreferencias() {
         almacenamiento.edit().clear().apply()
     }
 
-    fun esPrimeraVezEnPrincipal(context: Context):Boolean{
-        val shp= almacenamiento
+    fun esPrimeraVezEnPrincipal(context: Context): Boolean {
+        val shp = almacenamiento
         val shap = context.getSharedPreferences(nombrePreferencia, 0)
-        val firstTime=shp.getBoolean("primeraVezPrincipal",true)
+        val firstTime = shp.getBoolean("primeraVezPrincipal", true)
 
-        if(firstTime) shp.edit().putBoolean("primeraVezPrincipal",false).apply()
+        if (firstTime) shp.edit().putBoolean("primeraVezPrincipal", false).apply()
 
         return firstTime
     }
 
-    fun esPrimeraVezEnFincas(context: Context):Boolean{
-        val shp= almacenamiento
+    fun esPrimeraVezEnFincas(context: Context): Boolean {
+        val shp = almacenamiento
         val shap = context.getSharedPreferences(nombrePreferencia, 0)
-        val firstTime=shp.getBoolean("primeraVezFinca",true)
+        val firstTime = shp.getBoolean("primeraVezFinca", true)
 
-        if(firstTime) shp.edit().putBoolean("primeraVezFinca",false).apply()
+        if (firstTime) shp.edit().putBoolean("primeraVezFinca", false).apply()
 
         return firstTime
     }
+
 }

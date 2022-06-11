@@ -5,21 +5,27 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
-import com.asproaca.asproaca.diseño.autenticacion.MainActivity
+import com.asproaca.asproaca.databinding.ActivitySplashBinding
+import com.asproaca.asproaca.diseño.principal.ui.autenticacion.MainActivity
 
 class SplashActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySplashBinding
     private val timeSplash: Long = 3000
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
-        setContentView(R.layout.activity_splash)
-        this.window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+        binding = ActivitySplashBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        splashScreen()
+        binding.idBtnContinuar.setOnClickListener {
+            splashScreen()
+        }
 
+        /*
+            this.window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )*/
     }
 
     private fun splashScreen() {

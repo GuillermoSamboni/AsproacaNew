@@ -99,7 +99,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:text="¿Cuenta con servicio de alcantarillado?"
                         android:textColor="@color/blackmode"
                         android:textStyle="bold" />
@@ -113,7 +112,6 @@
                         android:id="@+id/idErrorAlcantarillado"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:text="@string/seleccionar_una_opci_n"
                         android:textAlignment="center"
                         android:textColor="@color/color_red"
@@ -152,7 +150,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:text="¿Cuenta con servicio de energía eléctrica?"
                         android:textColor="@color/blackmode"
                         android:textStyle="bold" />
@@ -165,7 +162,6 @@
                         android:id="@+id/idErrorElectrico"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:text="@string/seleccionar_una_opci_n"
                         android:textAlignment="center"
                         android:textColor="@color/color_red"
@@ -204,7 +200,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:text="¿Cuenta con servicio de internet?"
                         android:textColor="@color/blackmode"
                         android:textStyle="bold" />
@@ -218,7 +213,6 @@
                         android:id="@+id/idErrorInternet"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:text="@string/seleccionar_una_opci_n"
                         android:textAlignment="center"
                         android:textColor="@color/color_red"
@@ -251,13 +245,12 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Seleccionar tipo de techo: "
+                        android:text="Seleccionar tipo de techo"
                         android:textColor="@color/blackmode"
                         android:textStyle="bold" />
 
@@ -278,7 +271,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Seleccionar tipo de pared: "
+                        android:text="Seleccionar tipo de pared"
                         android:textColor="@color/blackmode"
                         android:textStyle="bold" />
 
@@ -316,13 +309,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Seleccionar tipo de piso: "
+                        android:text="Seleccionar tipo de piso"
                         android:textColor="@color/blackmode"
                         android:textStyle="bold" />
 

@@ -89,6 +89,7 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         val spinerNatuAcuaticos = binding.idSpinerEcosistemaNatural
         val itemsNatuAcuaticos = arrayOf(
             "NACIMIENTOS",
+            "AGUA SUBTERRÁNEAS",
             "QUEBRADAS", "RIOS"
         )
         val arrayAdapterNatuAcuaticos = ArrayAdapter(

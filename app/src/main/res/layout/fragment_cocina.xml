@@ -63,24 +63,31 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="@dimen/margenGlobal"
                     android:layout_marginEnd="5dp"
-                    android:text="DATOS DE COCINA"
+                    android:text="RECURSOS DE COCINA"
                     android:textAlignment="center"
                     android:textColor="@color/color_primary"
                     android:textSize="31sp"
                     android:textStyle="bold" />
 
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¿Qué sistema para la cocción de alimentos utiliza?"
+                    android:textColor="@color/blackmode"
+                    android:textStyle="bold" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Seleccionar tipo de estufa: "
+                        android:text="@string/seleccionar_una_opci_n"
                         android:textColor="@color/blackmode"
-                        android:textStyle="bold" />
+                        android:textStyle="normal" />
 
                     <Spinner
                         android:backgroundTintMode="add"
@@ -95,7 +102,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="¿Qué fuente de energía utliza para tareas domestícas?"
+                    android:text="¿Qué fuente de energía utiliza para tareas domesticas?"
                     android:textColor="@color/blackmode"
                     android:textStyle="bold" />
 
@@ -125,7 +132,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="¿Qué fuente de energía utliza para tareas industriales? "
+                    android:text="¿Qué fuente de energía utiliza para tareas industriales? "
                     android:textColor="@color/blackmode"
                     android:textStyle="bold" />
 
@@ -182,7 +189,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="¿Qué fuente de agua utliza para el cosumo industrial?"
+                    android:text="¿Qué fuente de agua utiliza para el cosumo industrial?"
                     android:textColor="@color/blackmode"
                     android:textStyle="bold" />
 

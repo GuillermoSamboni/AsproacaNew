@@ -9,7 +9,7 @@
         android:id="@+id/nav_fincas"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.FincasFragment"
         android:label="@string/gestionar_fincas"
-        tools:layout="@layout/fragment_fincas" >
+        tools:layout="@layout/fragment_fincas">
         <action
             android:id="@+id/action_nav_fincas_to_datosBasicosFragment"
             app:destination="@id/datosBasicosFragment"
@@ -21,7 +21,11 @@
         android:id="@+id/nav_usuarios"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionUsuarios.UsuariosFragment"
         android:label="@string/gestionar_usuarios"
-        tools:layout="@layout/fragment_usuarios" />
+        tools:layout="@layout/fragment_usuarios" >
+        <action
+            android:id="@+id/action_nav_usuarios_to_registrarUsuarioFragment"
+            app:destination="@id/registrarUsuarioFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_proveedores"
@@ -37,13 +41,13 @@
     <fragment
         android:id="@+id/nav_zonas"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionZonas.ZonasFragment"
-        android:label="fragment_zonas"
+        android:label="Zonas"
         tools:layout="@layout/fragment_zonas" />
     <fragment
         android:id="@+id/datosBasicosFragment"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosBasicos.DatosBasicosFragment"
         android:label="Datos Básicos"
-        tools:layout="@layout/fragment_datos_basicos" >
+        tools:layout="@layout/fragment_datos_basicos">
         <action
             android:id="@+id/action_datosBasicosFragment_to_casaFragment"
             app:destination="@id/nav_datos_basicos" />
@@ -51,8 +55,8 @@
     <fragment
         android:id="@+id/nav_datos_basicos"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosCasa.CasaFragment"
-        android:label="nav_casa"
-        tools:layout="@layout/fragment_casa" >
+        android:label="Vivienda"
+        tools:layout="@layout/fragment_casa">
         <action
             android:id="@+id/action_casaFragment_to_cocinaFragment"
             app:destination="@id/cocinaFragment" />
@@ -60,8 +64,8 @@
     <fragment
         android:id="@+id/cocinaFragment"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosCasa.CocinaFragment"
-        android:label="fragment_cocina"
-        tools:layout="@layout/fragment_cocina" >
+        android:label="Cocina"
+        tools:layout="@layout/fragment_cocina">
         <action
             android:id="@+id/action_cocinaFragment_to_datosSocialesFragment"
             app:destination="@id/datosSocialesFragment" />
@@ -69,8 +73,8 @@
     <fragment
         android:id="@+id/datosSocialesFragment"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosSociales.DatosSocialesFragment"
-        android:label="fragment_datos_sociales"
-        tools:layout="@layout/fragment_datos_sociales" >
+        android:label="Núcleo familiar"
+        tools:layout="@layout/fragment_datos_sociales">
         <action
             android:id="@+id/action_datosSocialesFragment_to_datosProductivosFragment"
             app:destination="@id/datosProductivosFragment" />
@@ -78,26 +82,17 @@
     <fragment
         android:id="@+id/datosProductivosFragment"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosProductivos.DatosProductivosFragment"
-        android:label="fragment_datos_productivos"
-        tools:layout="@layout/fragment_datos_productivos" >
+        android:label="Producción agrícola"
+        tools:layout="@layout/fragment_datos_productivos">
         <action
-            android:id="@+id/action_datosProductivosFragment_to_produccionFragment"
-            app:destination="@id/produccionFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/produccionFragment"
-        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosProductivos.ProduccionFragment"
-        android:label="fragment_produccion"
-        tools:layout="@layout/fragment_produccion" >
-        <action
-            android:id="@+id/action_produccionFragment_to_animalesFragment"
+            android:id="@+id/action_datosProductivosFragment_to_animalesFragment2"
             app:destination="@id/animalesFragment" />
     </fragment>
     <fragment
         android:id="@+id/animalesFragment"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosProductivos.AnimalesFragment"
         android:label="fragment_animales"
-        tools:layout="@layout/fragment_animales" >
+        tools:layout="@layout/fragment_animales">
         <action
             android:id="@+id/action_animalesFragment_to_trabajadoresFragment"
             app:destination="@id/trabajadoresFragment" />
@@ -106,7 +101,7 @@
         android:id="@+id/trabajadoresFragment"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosProductivos.TrabajadoresFragment"
         android:label="fragment_trabajadores"
-        tools:layout="@layout/fragment_trabajadores" >
+        tools:layout="@layout/fragment_trabajadores">
         <action
             android:id="@+id/action_trabajadoresFragment_to_datosAmbientalesFragment"
             app:destination="@id/datosAmbientalesFragment" />
@@ -115,9 +110,14 @@
         android:id="@+id/datosAmbientalesFragment"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosAmbientales.DatosAmbientalesFragment"
         android:label="fragment_datos_ambientales"
-        tools:layout="@layout/fragment_datos_ambientales" >
+        tools:layout="@layout/fragment_datos_ambientales">
         <action
             android:id="@+id/action_datosAmbientalesFragment_to_nav_fincas"
             app:destination="@id/nav_fincas" />
     </fragment>
+    <fragment
+        android:id="@+id/registrarUsuarioFragment"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionUsuarios.RegistrarUsuarioFragment"
+        android:label="fragment_registrar_usuario"
+        tools:layout="@layout/fragment_registrar_usuario" />
 </navigation>

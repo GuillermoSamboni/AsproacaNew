@@ -13,7 +13,7 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="configuraciones">configuraciones</string>
+    <string name="configuraciones">Mis datos</string>
 
     <string name="usuarioNoExiste">Asegurase de contar con credenciales de acceso, Si ya cuenta con un usuario, asegurase de ingresar el correo y contraseña correctamente, si el problema persiste, por favor revise su conexión a internet o intentelo más tarde</string>
 
@@ -93,6 +93,13 @@
     <string name="cuantas_personas_viven_en_la_finca">¿Cuantas personas viven en la finca?</string>
     <string name="existe_cobertura_de_suelos">¿Existe cobertura de suelos?</string>
     <string name="existen_reas_con_erosi_n">¿Existen áreas con erosión?</string>
+    <string name="n_mero_de_rbolesx">Número de árboles</string>
+    <string name="edad_del_lote">Edad del lote</string>
+    <string name="cerrar_sesi_n">Cerrar sesión</string>
+    <string name="introproyecto">" Adopción de prácticas sostenibles, bajas en carbono y con medidas de adaptación al cambio climático en 74 fincas cafeteras "</string>
+    <string name="introproyecto2">"SISTEMA DE INFORMACIÓN  ORGANIZACIONAL (SIA) "</string>
+    <string name="continuar">Continuar</string>
+    <string name="listado_de_usuarios">Listado de Usuarios</string>
 
 
 </resources>

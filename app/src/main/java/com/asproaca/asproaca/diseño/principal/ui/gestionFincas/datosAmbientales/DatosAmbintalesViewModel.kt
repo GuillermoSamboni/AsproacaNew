@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.asproaca.asproaca.Preferencias
 import com.asproaca.asproaca.modelos.*
 import com.campo.campocolombiano.design.constantes.Constantes2
 import com.google.firebase.firestore.SetOptions
@@ -13,7 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class DatosAmbintalesViewModel: ViewModel() {
+class DatosAmbintalesViewModel : ViewModel() {
     private var dataBase = Firebase.firestore
     private val _rsultRegister = MutableLiveData<Boolean?>()
     val resultRegister: LiveData<Boolean?> get() = _rsultRegister
@@ -46,7 +47,6 @@ class DatosAmbintalesViewModel: ViewModel() {
             Constantes2.servicio_alcantarillado,
             Constantes2.servicio_electrico,
             Constantes2.servicio_internet,
-            Constantes2.casa_costruida,
             Constantes2.tipo_techo,
             Constantes2.tipo_pared,
             Constantes2.numero_banios,
@@ -54,21 +54,8 @@ class DatosAmbintalesViewModel: ViewModel() {
             datos_cocina
         )
 
-        /*
-        val produccionFinca = Produccion(
-            Constantes2.fertilizantes_usados,
-            Constantes2.agroquimicos_usados,
-            Constantes2.equipo_proteccion,
-            Constantes2.equipo_proteccion_estado,
-            Constantes2.cuenta_con_infraestructura,
-            Constantes2.estado_infraestrcutura,
-            Constantes2.tipo_de_secado_de_cafe,
-            Constantes2.equipos_industriales,
-            Constantes2.numero_lavados,
-        )
-        */
-        /*
-        val datosTrabajadores = TrabajadorFinca(
+
+        val datosTrabajadores = DatosTrabajadorres(
             Constantes2.cantidad_trabajadores_contratados,
             Constantes2.tipo_contratacion,
             Constantes2.cant_pago_dinero,
@@ -78,45 +65,7 @@ class DatosAmbintalesViewModel: ViewModel() {
             Constantes2.alojamiento_trabajadores,
             Constantes2.estado_alojamiento_trabajadores,
         )
-        */
-        /*
-        val datos_productivos_poscosecha = Produccion_poscosecha(
-            Constantes2.fertilizantes_usados,
-            Constantes2.agroquimicos_usados,
-            Constantes2.equipo_proteccion,
-            Constantes2.equipo_proteccion_estado,
-            Constantes2.cuenta_con_infraestructura,
-            Constantes2.estado_infraestrcutura,
-            Constantes2.equipos_industriales,
-            Constantes2.numero_lavados,
-        )*/
 
-        val datos_productivos = DatosProductivos(
-            Constantes2.listaProductivos,
-
-            Constantes2.fertilizantes_usados,
-            Constantes2.agroquimicos_usados,
-            Constantes2.equipo_proteccion,
-            Constantes2.equipo_proteccion_estado,
-            Constantes2.cuenta_con_infraestructura,
-            Constantes2.estado_infraestrcutura,
-            Constantes2.tipo_de_secado_de_cafe,
-            Constantes2.equipos_industriales,
-            Constantes2.numero_lavados,
-            Constantes2.listaAnimales,
-
-            Constantes2.cantidad_trabajadores_contratados,
-            Constantes2.tipo_contratacion,
-            Constantes2.cant_pago_dinero,
-            Constantes2.cant_pago_especie,
-            Constantes2.horario_laboral,
-            Constantes2.descripcion_adicional,
-            Constantes2.alojamiento_trabajadores,
-            Constantes2.estado_alojamiento_trabajadores,
-
-            )
-
-        val datosEconomicos = DatosEconomicos()
 
         val datosAmbientales = DatosAmbientales(
             Constantes2.tiene_ecosistema_acuaticos_naturales,
@@ -137,7 +86,24 @@ class DatosAmbintalesViewModel: ViewModel() {
             Constantes2.captacion_agua_lluvia,
         )
 
+        val datosSociales = DatosSociales(
+            Constantes2.nombre,
+            Constantes2.identificacion,
+            Constantes2.fechaNacimiento,
+            Constantes2.telefono,
+            Constantes2.correoElectronico,
+            Constantes2.tipoPoblacion,
+            Constantes2.genero,
+            Constantes2.nivelAcademico,
+            Constantes2.numeroIntegrantes,
+            Constantes2.nivelAcademico,
+            Constantes2.listaIntegrantes
+        )
         val datos_finca = Finca(
+            Constantes2.nombre_finca,
+            Constantes2.idUsuario,
+            Constantes2.encargadoRegistro,
+            false,
             Constantes2.nombre_finca,
             Constantes2.coordenada_x,
             Constantes2.coordenada_y,
@@ -153,21 +119,20 @@ class DatosAmbintalesViewModel: ViewModel() {
             Constantes2.tenencia_de_la_tierra,
             Constantes2.area_total,
             datos_casa,
-            //ver esto
-            Constantes2.listaPersonas,
-            datos_productivos,
-            //Constantes2.listaProductivos,
-
-            datosEconomicos,
+            datosSociales,
+            Constantes2.listaProductivos,
+            Constantes2.listaAnimales,
+            datosTrabajadores,
             datosAmbientales,
         )
-
         dataBase.collection("Fincas").document(Constantes2.nombre_finca.toString())
             .set(datos_finca, SetOptions.merge()).addOnCompleteListener { task ->
                 status = task.isSuccessful
             }.addOnFailureListener {
                 status = false
             }
+
+
         return status
     }
 

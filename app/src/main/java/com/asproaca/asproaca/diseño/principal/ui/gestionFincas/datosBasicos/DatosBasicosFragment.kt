@@ -2,21 +2,17 @@ package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosBasicos
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.asproaca.asproaca.R
 import com.asproaca.asproaca.databinding.FragmentDatosBasicosBinding
 import com.asproaca.asproaca.modelos.Municipios
+import com.asproaca.asproaca.modelos.ZonasModel
 import com.campo.campocolombiano.design.constantes.Constantes2
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.concurrent.thread
 
 
 class DatosBasicosFragment : Fragment(R.layout.fragment_datos_basicos) {
@@ -24,8 +20,6 @@ class DatosBasicosFragment : Fragment(R.layout.fragment_datos_basicos) {
     private lateinit var nombre_finca: String
     private lateinit var coordenada_x: String
     private lateinit var coordenada_y: String
-    private var departamento: String? = null
-    private var nombre: String? = null
     private lateinit var municipio: String
 
     private lateinit var vereda_finca: String
@@ -35,13 +29,10 @@ class DatosBasicosFragment : Fragment(R.layout.fragment_datos_basicos) {
     private var realiza_quema: String = ""
     private lateinit var creado: String
     private lateinit var certificaciones: String
-    private lateinit var cantidad_viviendas: String
     private var zona_riesgo: String = ""
     private var tenencia_de_la_tierra: String = ""
     private lateinit var area_total: String
     private lateinit var dateInString: String
-    private lateinit var listaMunicipios: MutableList<Municipios>
-    private var itemMunicipios = mutableListOf<String>()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,7 +43,6 @@ class DatosBasicosFragment : Fragment(R.layout.fragment_datos_basicos) {
 
         coordenada_x = binding.idTxtCordenadaX.setText(Constantes2.coordenada_x).toString()
         coordenada_y = binding.idTxtCordenadaY.setText(Constantes2.coordenada_y).toString()
-
 
         val date = getCurrentDateTime()
         dateInString = date.toString("yyyy/MM/dd HH:mm:ss")
@@ -82,12 +72,11 @@ class DatosBasicosFragment : Fragment(R.layout.fragment_datos_basicos) {
             Constantes2.antiguedad_finca = antiguedad_finca
             Constantes2.historia_finca = historia_finca
             Constantes2.realiza_quema = realiza_quema
+            Constantes2.area_total = area_total
             Constantes2.creado = dateInString
             Constantes2.certificaciones = certificaciones
-            Constantes2.cantidad_viviendas = cantidad_viviendas
             Constantes2.zona_riesgo = zona_riesgo
             Constantes2.tenencia_de_la_tierra = tenencia_de_la_tierra
-            Constantes2.area_total = area_total
 
             findNavController().navigate(R.id.action_datosBasicosFragment_to_casaFragment)
 
@@ -99,40 +88,44 @@ class DatosBasicosFragment : Fragment(R.layout.fragment_datos_basicos) {
         nombre_finca = binding.idTxtNombreFinca.text.toString()
 
         val spinerMunicipios = binding.idSpinerMunicipio
-        itemMunicipios = itemMunicipios
-
         val arrayAdapter = ArrayAdapter(
             requireContext(),
             com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
-            itemMunicipios
+            Constantes2.listaMunicipios!!
         )
         spinerMunicipios.adapter = arrayAdapter
-        try {
-            municipio = spinerMunicipios.selectedItem.toString()
-        } catch (e: Exception) {
-            Toast.makeText(requireContext(), "${e.message}", Toast.LENGTH_LONG).show()
-        }
+        //municipio = spinerMunicipios.selectedItem.toString()
+
+        val spinerZonas = binding.idSpinerZona
+        val arrayAdapterZonas = ArrayAdapter(
+            requireContext(),
+            com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
+            Constantes2.listaZonas!!
+        )
+        spinerZonas.adapter = arrayAdapterZonas
+        zona = spinerZonas.selectedItem.toString()
 
         vereda_finca = binding.idTxtVeredaFinca.text.toString()
-        zona = binding.idTxtZonaFinca.text.toString()
+
         antiguedad_finca = binding.idAntiguedadFinca.text.toString()
         historia_finca = binding.idHistoriaFinca.text.toString()
 
-        val radioGruupQuema = binding.idRadioGroupQuema
-        radioGruupQuema.setOnCheckedChangeListener { group, checkedid ->
-            when (checkedid) {
-                R.id.idSiQuema -> {
-                    realiza_quema = "Si"
-                }
-                R.id.idNoQuema -> {
-                    realiza_quema = "No"
-                }
-            }
-        }
+        val spinerQuemas = binding.idSpinerQuemas
+        val itemsQuema = arrayOf(
+            "QUEMAS DE RESIDUOS",
+            "LIMPIEZA DE SUELOS",
+            "OTRO TIPO DE QUEMAS EN LA FINCA",
+            "NO REALIZA QUEMAS"
+        )
+        val arrayAdapterTipoTecho = ArrayAdapter(
+            requireContext(),
+            com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
+            itemsQuema
+        )
+        spinerQuemas.adapter = arrayAdapterTipoTecho
+        realiza_quema = spinerQuemas.selectedItem.toString()
 
         certificaciones = binding.idTxtCertificaciones.text.toString()
-        cantidad_viviendas = binding.idTxtCantidadViviendas.text.toString()
-
         val radioGroupZonaRiesgo = binding.idRadioGroupRiesgo
         radioGroupZonaRiesgo.setOnCheckedChangeListener { group, checkedid ->
             when (checkedid) {
@@ -160,9 +153,6 @@ class DatosBasicosFragment : Fragment(R.layout.fragment_datos_basicos) {
             }
         }
         area_total = binding.idTxtAreaTotal.text.toString()
-
-        obtenerMunicipios()
-
     }
 
     private fun validarFormulario(): Boolean {
@@ -177,11 +167,6 @@ class DatosBasicosFragment : Fragment(R.layout.fragment_datos_basicos) {
             binding.idTxtVeredaFinca.error = "Campo requerido"
         } else binding.idTxtVeredaFinca.error = null
 
-        if (TextUtils.isEmpty(zona)) {
-            binding.idTxtZonaFinca.error = "Campo requerido"
-            nextAction = false
-        } else binding.idTxtZonaFinca.error = null
-
         if (TextUtils.isEmpty(antiguedad_finca)) {
             nextAction = false
             binding.idAntiguedadFinca.error = "Campo requerido"
@@ -192,23 +177,10 @@ class DatosBasicosFragment : Fragment(R.layout.fragment_datos_basicos) {
             nextAction = false
         } else binding.idHistoriaFinca.error = null
 
-        if (!(binding.idSiQuema.isChecked || binding.idNoQuema.isChecked)) {
-            nextAction = false
-            binding.idErrorQuema.visibility = View.VISIBLE
-
-        } else {
-            binding.idErrorQuema.visibility = View.GONE
-        }
-
         if (TextUtils.isEmpty(certificaciones)) {
             binding.idTxtCertificaciones.error = "Campo requerido"
             nextAction = false
         } else binding.idTxtCertificaciones.error = null
-
-        if (TextUtils.isEmpty(cantidad_viviendas)) {
-            nextAction = false
-            binding.idTxtCantidadViviendas.error = "Campo requerido"
-        } else binding.idTxtCantidadViviendas.error = null
 
         if (!(binding.idSiRiesgo.isChecked || binding.idNoRiesgo.isChecked)) {
             nextAction = false
@@ -223,7 +195,6 @@ class DatosBasicosFragment : Fragment(R.layout.fragment_datos_basicos) {
             binding.idErrorTenencia.visibility = View.VISIBLE
         } else {
             binding.idErrorTenencia.visibility = View.GONE
-
         }
 
         if (TextUtils.isEmpty(area_total)) {
@@ -235,21 +206,4 @@ class DatosBasicosFragment : Fragment(R.layout.fragment_datos_basicos) {
     }
 
 
-    private fun obtenerMunicipios() {
-        Firebase.firestore.collection("Municipios").get().addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                listaMunicipios = task.result.toObjects(Municipios::class.java)
-                listaMunicipios.forEach {
-                    val muni = Municipios(
-                        it.depto,
-                        it.nombre
-                    )
-                    itemMunicipios.addAll(listOf(muni.nombre.toString()))
-                }
-                //itemMunicipios.addAll(listOf(listaMunicipios.toString()))
-            }
-        }.addOnFailureListener {
-            //
-        }
-    }
 }

@@ -15,40 +15,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:gravity="top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="Registrar Finca"
-                        android:textColor="@color/blackmode"
-                        android:textSize="31sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Datos productivos de la finca"
-                        android:textColor="@color/blackmode"
-                        android:textSize="18sp"
-                        android:textStyle="italic" />
-                </LinearLayout>
-
-            </androidx.appcompat.widget.Toolbar>
 
             <!--Form-->
             <LinearLayout
@@ -61,11 +27,12 @@
 
 
                 <TextView
+                    android:layout_marginTop="@dimen/margenGlobal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    android:text="Datos de trabajadores"
+                    android:text="DATOS DE LOS TRABAJADORES"
                     android:textAlignment="center"
                     android:textColor="@color/color_primary"
                     android:textSize="31sp"

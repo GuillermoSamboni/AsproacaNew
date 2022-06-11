@@ -51,7 +51,7 @@ class ProduccionFragment : Fragment(R.layout.fragment_produccion) {
             Constantes2.equipos_industriales = equipos_industriales
             Constantes2.numero_lavados = numero_lavados
 
-            findNavController().navigate(R.id.action_produccionFragment_to_animalesFragment)
+            //findNavController().navigate(R.id.action_produccionFragment_to_animalesFragment)
         }
     }
 
@@ -73,9 +73,9 @@ class ProduccionFragment : Fragment(R.layout.fragment_produccion) {
 
         val spinerEstadoProteccion = binding.idSpinerEstadoEquiposProteccion
         val itemsEstadoProteccion = arrayOf(
-            "Malo",
-            "Regular",
-            "Bueno"
+            "MALO",
+            "REGULAR",
+            "BUENO"
         )
         val arrayAdapterEstadoProteccion = ArrayAdapter(
             requireContext(),
@@ -99,9 +99,9 @@ class ProduccionFragment : Fragment(R.layout.fragment_produccion) {
 
         val spinerEstadoInfraestructura = binding.idSpinerEstadoEquiposInfraestructura
         val itemsEstadoInfraestructura = arrayOf(
-            "Malo",
-            "Regular",
-            "Bueno"
+            "MALO",
+            "REGULAR",
+            "BUENO"
         )
         val arrayAdapterEstadoInfraestructura = ArrayAdapter(
             requireContext(),

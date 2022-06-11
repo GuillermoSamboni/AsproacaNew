@@ -205,18 +205,52 @@
                             android:maxLength="3" />
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="¿Qué nivel de manejo de dispositivos tecnológicos tiene?"
+                        android:textColor="@color/blackmode"
+                        android:textStyle="bold" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Seleccionar tipo de población "
+                            android:text="@string/seleccionar_una_opci_n"
                             android:textColor="@color/blackmode"
-                            android:textStyle="bold" />
+                            android:textStyle="normal" />
+
+                        <Spinner
+                            android:id="@+id/idSpinerNivelManejoDispositivos"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/color_green"
+                            android:backgroundTintMode="add" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="¿Cuál es el tipo de población?"
+                        android:textColor="@color/blackmode"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/seleccionar_una_opci_n"
+                            android:textColor="@color/blackmode"
+                            android:textStyle="normal" />
 
                         <Spinner
                             android:id="@+id/idSpinerTipoPoblacion"
@@ -227,18 +261,24 @@
 
                     </LinearLayout>
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="¿Cuál es el género?"
+                        android:textColor="@color/blackmode"
+                        android:textStyle="bold" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Seleccionar género "
+                            android:text="@string/seleccionar_una_opci_n"
                             android:textColor="@color/blackmode"
-                            android:textStyle="bold" />
+                            android:textStyle="normal" />
 
                         <Spinner
                             android:id="@+id/idSpinerGenero"
@@ -249,18 +289,24 @@
 
                     </LinearLayout>
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="¿Cuál es el nivel académico máximo alcanzado?"
+                        android:textColor="@color/blackmode"
+                        android:textStyle="bold" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Seleccionar nivel académico"
+                            android:text="@string/seleccionar_una_opci_n"
                             android:textColor="@color/blackmode"
-                            android:textStyle="bold" />
+                            android:textStyle="normal" />
 
                         <Spinner
                             android:id="@+id/idSpineNivelAcademico"
@@ -282,6 +328,7 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:hint="Número integrantes"
                         android:textColorHint="@color/color_primary"
                         app:boxBackgroundMode="outline"
                         app:boxCornerRadiusBottomEnd="8dp"
@@ -295,7 +342,8 @@
                             android:id="@+id/idTxtNumeroIntegrantes"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number" />
+                            android:inputType="number"
+                            android:text="0" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.button.MaterialButton

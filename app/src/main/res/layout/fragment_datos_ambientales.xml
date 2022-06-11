@@ -15,41 +15,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:gravity="top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="Registrar Finca"
-                        android:textColor="@color/blackmode"
-                        android:textSize="31sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Este es el segundo paso del proceso"
-                        android:textColor="@color/blackmode"
-                        android:textSize="18sp"
-                        android:textStyle="italic" />
-                </LinearLayout>
-
-            </androidx.appcompat.widget.Toolbar>
-
             <!--Form-->
             <LinearLayout
                 android:layout_width="match_parent"

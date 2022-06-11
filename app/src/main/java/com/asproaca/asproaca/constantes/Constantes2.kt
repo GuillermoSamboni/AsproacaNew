@@ -1,12 +1,16 @@
 package com.campo.campocolombiano.design.constantes
 
-import com.asproaca.asproaca.modelos.Animales
-import com.asproaca.asproaca.modelos.Persona
-import com.asproaca.asproaca.modelos.Productivos
+import com.asproaca.asproaca.modelos.*
 
 
 class Constantes2 {
     companion object {
+        var listaMunicipios: MutableList<String>? = null
+        var listaZonas: MutableList<String>? = null
+        var listaProveedores: MutableList<String>? = null
+        var idUsuario:String?=null
+        var encargadoRegistro:String?=null
+        var EstadoActualizar:Boolean?=null
         /**
          * Datos Básicos
          * */
@@ -52,31 +56,26 @@ class Constantes2 {
         var tratamiento_agua_residual: String? = null
 
         /**
-         * Datos Persona Familia
+         * Datos SOCIALES
          * */
-
-        var listaPersonas: MutableList<Persona>? = null
+        var nombre: String? = null
+        var identificacion: String? = null
+        var fechaNacimiento: String? = null
+        var telefono: String? = null
+        var correoElectronico: String? = null
+        var tipoPoblacion: String? = null
+        var genero: String? = null
+        var nivelAcademico: String? = null
+        var numeroIntegrantes: String? = null
+        var listaIntegrantes: MutableList<IntegrantesFamilia>? = null
 
         /**
          * Datos Productivos
          * */
         var listaProductivos: MutableList<Productivos>? = null
+        var listaLotes: MutableList<LotesProduccion>? = null
+
         var listaAnimales: MutableList<Animales>? = null
-
-        var bodega_agroquimicos: String? = null
-        var nombre_producto: String? = null
-        var area_productiva_total: String? = null
-        var producto_certificado: String? = null
-        var certificado: String? = null
-        var proveedor_semilla: String? = null
-        var semilla_modificada: String? = null
-        var edad_producto: String? = null
-        var tipo_plagas: String? = null
-
-        // Datos Productivos Animales
-        var nombre_animal: String? = null
-        var cantidad_animal: String? = null
-        var area_crianza_animal: String? = null
 
         // Datos Productivos Produccion
         var fertilizantes_usados: String? = null

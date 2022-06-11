@@ -14,6 +14,9 @@ import androidx.navigation.fragment.findNavController
 import com.asproaca.asproaca.R
 import com.asproaca.asproaca.databinding.AlertaIntegrantesBinding
 import com.asproaca.asproaca.databinding.FragmentDatosSocialesBinding
+import com.asproaca.asproaca.modelos.DatosSociales
+import com.asproaca.asproaca.modelos.IntegrantesFamilia
+import com.campo.campocolombiano.design.constantes.Constantes2
 
 
 class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
@@ -23,19 +26,21 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
     private var identificacion: String? = null
     private var fechaNacimiento: String? = null
     private var telefono: String? = null
-    private var correo: String? = null
+    private var correoElectronico: String? = null
     private var edad: String? = null
+    private var nivelManejoDispositivos: String? = null
     private var tipoPoblacion: String? = null
     private var genero: String? = null
     private var nivelAcademico: String? = null
-    private var numeroDeIntegrantes: String? = null
-
+    private var numeroDeIntegrantes = "0"
+    private var listIntegrantes = mutableListOf<IntegrantesFamilia>()
     var contIntegrantes = 0
 
     private var edadA: String? = null
     private var generoA: String? = null
     private var nivelAcademicoA: String? = null
     private var tieneDiscapacidad: String? = null
+    private var discapacidad: String? = null
     private var esValidoAlerta: Boolean? = true
 
     private lateinit var alerta_integrante: AlertDialog
@@ -51,7 +56,6 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
                 numeroIntegrantes()
             }
         }
-
     }
 
     private fun referenciaDatosFormulario() {
@@ -62,8 +66,21 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
             showDatePickerDialog()
         }
         telefono = binding.idTxtTelefono.text.toString()
-        correo = binding.idTxtCorreo.text.toString()
+        correoElectronico = binding.idTxtCorreo.text.toString()
         edad = binding.idTxtEdad.text.toString()
+
+        val spinerNivelManejoDispositivos = binding.idSpinerNivelManejoDispositivos
+        val itemManejoDispositivos = arrayOf(
+            "ALTO", "MEDIO", "BAJO"
+        )
+        val arrayAdapterManejoDispositivos = ArrayAdapter(
+            requireContext(),
+            com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
+            itemManejoDispositivos
+        )
+        spinerNivelManejoDispositivos.adapter = arrayAdapterManejoDispositivos
+        nivelManejoDispositivos = spinerNivelManejoDispositivos.selectedItem.toString()
+
 
         val spinerTipoPoblacion = binding.idSpinerTipoPoblacion
         val itemTipoPoblacion = arrayOf(
@@ -90,9 +107,8 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
         genero = spinerGenero.selectedItem.toString()
 
         val spinerNivelAcademico = binding.idSpineNivelAcademico
-        val itemNivelAcademico = arrayOf(
-            "PRIMARIA", "SECUNDARIA", "PREGRADO", "POSGRADO"
-        )
+        val itemNivelAcademico =
+            arrayOf("PRIMARIA", "SECUNDARIA", "PREGRADO", "POSGRADO", "UNIVERSITARIO", "TECNICO")
         val arrayAdapterNivelAcademico = ArrayAdapter(
             requireContext(),
             com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
@@ -167,7 +183,6 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
             binding.idTxtNumeroIntegrantes.error = null
             esValido = true
         }
-
         return esValido
     }
 
@@ -175,12 +190,32 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
         if (numeroDeIntegrantes!!.toInt() > 0) {
             mostrarAlertaIntegrantes()
         } else {
+            pasarDatosFormulario()
             findNavController().navigate(R.id.action_datosSocialesFragment_to_datosProductivosFragment)
         }
     }
 
-    private fun mostrarAlertaIntegrantes() {
+    private fun pasarDatosFormulario() {
+        referenciaDatosFormulario()
+        if (validarFormulario()) {
+            if (numeroDeIntegrantes == "0" || numeroDeIntegrantes == "") {
+                Constantes2.nombre = nombreCompleto
+                Constantes2.identificacion = identificacion
+                Constantes2.fechaNacimiento = fechaNacimiento
+                Constantes2.telefono = telefono
+                Constantes2.correoElectronico = correoElectronico
+                Constantes2.tipoPoblacion = tipoPoblacion
+                Constantes2.genero = genero
+                Constantes2.nivelAcademico = nivelAcademico
+                Constantes2.numeroIntegrantes = numeroDeIntegrantes
+                Constantes2.listaIntegrantes = listIntegrantes
+            } else if (numeroDeIntegrantes != "0") {
+                mostrarAlertaIntegrantes()
+            }
+        }
+    }
 
+    private fun mostrarAlertaIntegrantes() {
         dialogBinding = AlertaIntegrantesBinding.inflate(LayoutInflater.from(context))
         alerta_integrante = AlertDialog.Builder(requireContext()).apply {
             setView(dialogBinding.root)
@@ -188,23 +223,32 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
         instanciaFormularioAlerta()
 
         dialogBinding.idConteoAlerta.setText(numeroDeIntegrantes)
-        dialogBinding.idConteoRegistradosAlerta.setText(contIntegrantes.toString())
-
         dialogBinding.idBtnAgregarIntegranteAlerta.setOnClickListener {
-            it.apply {
-                val conteo = 0
-                contIntegrantes = conteo + 1
+            if (validarFormularioAlerta()) {
+                val numeroIntegrantes = IntegrantesFamilia(
+                    edadA,
+                    generoA,
+                    nivelAcademicoA,
+                    tieneDiscapacidad,
+                    discapacidad
+                )
+                listIntegrantes.addAll(listOf(numeroIntegrantes))
+                Constantes2.listaIntegrantes = listIntegrantes
+                dialogBinding.idTxtEdadOtroIntegrante.setText("")
+
+                contIntegrantes = contIntegrantes + 1
+                dialogBinding.idConteoRegistradosAlerta.text = contIntegrantes.toString()
+                if (contIntegrantes == numeroDeIntegrantes.toInt()) {
+                    alerta_integrante.dismiss()
+                    findNavController().navigate(R.id.action_datosSocialesFragment_to_datosProductivosFragment)
+                }
             }
-            dialogBinding.idConteoRegistradosAlerta.text = contIntegrantes.toString()
         }
-
-
         alerta_integrante.show()
     }
 
     private fun instanciaFormularioAlerta() {
         edadA = dialogBinding.idTxtEdadOtroIntegrante.text.toString()
-
         val spinerGenero = dialogBinding.idSpinerGeneroOtroIntegrante
         val itemGenero = arrayOf("MUJER", "HOMBRE")
         val arrayAdapterGenero = ArrayAdapter(
@@ -214,7 +258,6 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
         )
         spinerGenero.adapter = arrayAdapterGenero
         generoA = spinerGenero.selectedItem.toString()
-        nivelAcademicoA
 
         val spinerNivelAcademico = dialogBinding.idSpineNivelAcademicoOtroIntegrante
         val itemNivelAcademico = arrayOf("PRIMARIA", "SECUNDARIA", "PREGRADO", "POSGRADO")
@@ -226,7 +269,6 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
         spinerNivelAcademico.adapter = arrayAdapterNivelAcademico
         nivelAcademicoA = spinerNivelAcademico.selectedItem.toString()
 
-
         val discapacidadRadioGroup = dialogBinding.idRadioGroupDiscapacidad
         discapacidadRadioGroup.setOnCheckedChangeListener { radioGroup, idRadioGruoup ->
             when (idRadioGruoup) {
@@ -234,14 +276,12 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
                     tieneDiscapacidad = "Si"
                     dialogBinding.idLayoutDiscapacidad.visibility = View.VISIBLE
                     esValidoAlerta = false
-
                     if (dialogBinding.idTxtDiscapacidadOtroIntegrante.text!!.isEmpty()) {
                         dialogBinding.idTxtDiscapacidadOtroIntegrante.error = "Campo requerido"
                         esValidoAlerta = false
                     } else {
                         dialogBinding.idTxtDiscapacidadOtroIntegrante.error = null
                     }
-
                 }
                 R.id.idNoDiscapacidadAlerta -> {
                     tieneDiscapacidad = "No"
@@ -249,27 +289,29 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
                     esValidoAlerta = true
                 }
             }
-        }
-
-        dialogBinding.idBtnAgregarIntegranteAlerta.setOnClickListener {
-            validarFormularioAlerta()
-            if (esValidoAlerta == true) {
-                Toast.makeText(requireContext(), "Hola", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(requireContext(), "no Hola", Toast.LENGTH_SHORT).show()
-            }
+            discapacidad = dialogBinding.idTxtDiscapacidadOtroIntegrante.text.toString()
         }
     }
 
-    private fun validarFormularioAlerta() {
+    private fun validarFormularioAlerta(): Boolean {
         instanciaFormularioAlerta()
-        esValidoAlerta = true
-        if (TextUtils.isEmpty(edadA)) {
-            dialogBinding.idTxtEdadOtroIntegrante.error = "Campo requerido"
-            esValidoAlerta = false
+        var esValidoAlertaAA = true
+
+        if (!(dialogBinding.idSiDiscapacidadAlerta.isChecked || dialogBinding.idNoDiscapacidadAlerta.isChecked)) {
+            dialogBinding.idErrorDiscapacidad.visibility = View.VISIBLE;
+            esValidoAlertaAA = false
         } else {
-            dialogBinding.idTxtEdadOtroIntegrante.error = null
-            esValidoAlerta = true
+            dialogBinding.idErrorDiscapacidad.visibility = View.GONE;
+            esValidoAlertaAA = true
         }
+
+        if (TextUtils.isEmpty(edadA)) {
+            esValidoAlertaAA = false
+            dialogBinding.idTxtEdadOtroIntegrante.error = "Campo requerido"
+        } else {
+            esValidoAlertaAA = true
+            dialogBinding.idTxtEdadOtroIntegrante.error = null
+        }
+        return esValidoAlertaAA
     }
 }

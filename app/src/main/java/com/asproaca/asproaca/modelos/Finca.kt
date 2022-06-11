@@ -1,6 +1,10 @@
 package com.asproaca.asproaca.modelos
 
 data class Finca(
+    val idFinca: String? = null,
+    val idUsuario: String? = null,
+    val encargadoRegistro: String? = null,
+    val estadoActualizar: Boolean? = null,
     val nombre_finca: String? = null,
     val coordenada_x: String? = null,
     val coordenada_y: String? = null,
@@ -15,13 +19,10 @@ data class Finca(
     val zona_riesgo: String? = null,
     val tenencia_de_la_tierra: String? = null,
     val area_total: String? = null,
-
     val datos_casa: Casa? = null,
-
-    val datos_sociales: MutableList<Persona>? = null,
-
-    val datos_productivos: DatosProductivos? = null,
-
-    val datos_economicos: DatosEconomicos? = null,
+    val datos_sociales: DatosSociales? = null,
+    val datos_productivos: MutableList<Productivos>? = null,
+    val datos_animal: MutableList<Animales>? = null,
+    val datos_trabajadores: DatosTrabajadorres? = null,
     val datos_ambientales: DatosAmbientales? = null,
 )
