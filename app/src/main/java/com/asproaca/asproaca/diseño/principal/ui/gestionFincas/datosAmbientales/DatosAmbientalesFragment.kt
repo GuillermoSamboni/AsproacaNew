@@ -18,6 +18,7 @@ import com.asproaca.asproaca.databinding.FragmentDatosAmbientalesBinding
 import com.campo.campocolombiano.design.constantes.Constantes2
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 
 class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
@@ -63,6 +64,7 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
     private fun registrarFinca() {
         instanciaDatosFormulario()
         if (validarCamposFormulario()) {
+            //Constantes2.idFinca = UUID.randomUUID().toString()
             viewModel.clickRegistroFinca()
             viewModel.resultRegister.observe(this@DatosAmbientalesFragment.requireActivity(),
                 Observer { success ->

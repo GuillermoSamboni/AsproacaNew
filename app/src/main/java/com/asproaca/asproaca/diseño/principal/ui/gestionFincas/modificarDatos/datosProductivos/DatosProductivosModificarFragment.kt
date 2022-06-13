@@ -1,6 +1,7 @@
 package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosProductivos
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -10,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +19,8 @@ import com.asproaca.asproaca.R
 import com.asproaca.asproaca.adaptadores.IntegrantesAdapter
 import com.asproaca.asproaca.adaptadores.ProduccionAgicolaAdapter
 import com.asproaca.asproaca.databinding.*
+import com.asproaca.asproaca.diseño.principal.PrincipalActivity
+import com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosAmbientales.DatosAmbintalesModificarViewModel
 import com.asproaca.asproaca.modelos.IntegrantesFamilia
 import com.asproaca.asproaca.modelos.LotesProduccion
 import com.asproaca.asproaca.modelos.Productivos
@@ -26,6 +30,7 @@ class DatosProductivosModificarFragment : Fragment(R.layout.fragment_datos_produ
     private lateinit var binding: FragmentDatosProductivosModificarBinding
     private lateinit var myProductivosAdapter: ProduccionAgicolaAdapter
     private lateinit var idRecyclerView: RecyclerView
+    private lateinit var viewModel: DatosAmbintalesModificarViewModel
 
     private lateinit var nombre_producto: String
     private var bodega_agroquimicos: String = ""
@@ -63,7 +68,7 @@ class DatosProductivosModificarFragment : Fragment(R.layout.fragment_datos_produ
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDatosProductivosModificarBinding.bind(view)
-
+        viewModel = ViewModelProvider(this)[DatosAmbintalesModificarViewModel::class.java]
         initRecyclerView()
 
         /**try {
@@ -864,6 +869,10 @@ class DatosProductivosModificarFragment : Fragment(R.layout.fragment_datos_produ
             requireContext()
         )
         idRecyclerView.adapter = myProductivosAdapter
+
+        binding.IdBtnActualizarDatos.setOnClickListener {
+            findNavController().navigate(R.id.action_datosProductivosFragment_to_datosPecuariosModificarFragment)
+        }
 
     }
 }

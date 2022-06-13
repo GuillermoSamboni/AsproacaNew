@@ -113,6 +113,16 @@ class PrincipalActivity : AppCompatActivity() {
         }
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+            R.id.cerrarSesion -> {
+                Toast.makeText(this, "Cerrada", Toast.LENGTH_SHORT).show()}
+            }
+
+        return super.onOptionsItemSelected(item)
+    }
+
     private fun obtenerMunicipios() {
         Firebase.firestore.collection("Municipios").get().addOnCompleteListener { task ->
             if (task.isSuccessful) {

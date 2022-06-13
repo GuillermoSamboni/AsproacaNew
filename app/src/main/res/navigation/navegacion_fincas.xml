@@ -50,6 +50,9 @@
         <action
             android:id="@+id/action_datosProductivosFragment_to_animalesFragment2"
             app:destination="@id/animalesFragment" />
+        <action
+            android:id="@+id/action_datosProductivosFragment_to_datosPecuariosModificarFragment"
+            app:destination="@id/datosPecuariosModificarFragment" />
     </fragment>
     <fragment
         android:id="@+id/animalesFragment"
@@ -74,4 +77,9 @@
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosAmbientales.DatosAmbientalesMdificarFragment"
         android:label="fragment_datos_ambientales"
         tools:layout="@layout/fragment_datos_ambientales" />
+    <fragment
+        android:id="@+id/datosPecuariosModificarFragment"
+        android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosPecuarios.DatosPecuariosModificarFragment"
+        android:label="fragment_datos_pecuarios_modificar"
+        tools:layout="@layout/fragment_datos_pecuarios_modificar" />
 </navigation>

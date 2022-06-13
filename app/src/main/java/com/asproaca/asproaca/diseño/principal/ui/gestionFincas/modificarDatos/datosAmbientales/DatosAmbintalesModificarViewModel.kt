@@ -1,5 +1,6 @@
 package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosAmbientales
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -180,8 +181,10 @@ class DatosAmbintalesModificarViewModel : ViewModel() {
                 )
             ).addOnCompleteListener { task ->
                 status = task.isSuccessful
+                Log.e("ASASDF","SuccessFull")
                 Constantes2.idFinca = ""
             }.addOnFailureListener {
+                Log.e("ASASDF","Failed Ecxecute")
                 status = false
             }
 
