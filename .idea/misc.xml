@@ -7,6 +7,7 @@
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable/circulo.xml" value="0.1565" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable/ic_add.xml" value="0.1565" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable/ic_anadir.xml" value="0.1985" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable/ic_eye.xml" value="0.1985" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1565" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable/ic_menu_camera.xml" value="0.1565" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.1565" />
@@ -29,13 +30,15 @@
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-480x800/item_zonas.xml" value="0.4475" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-480x800/users_adapter.xml" value="0.4475" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-720x1280/activity_splash.xml" value="0.2796875" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout-v28/fragment_datos_basicos.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/activity_main.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/activity_modificar_finca.xml" value="0.1671875" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/activity_principal.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/activity_splash.xml" value="0.2" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/alert_anadir_persona.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/alert_anadir_productivos.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/alerta_animales.xml" value="0.18645833333333334" />
-        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/alerta_eliminar_finca.xml" value="0.33" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/alerta_eliminar_finca.xml" value="0.22" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/alerta_integrantes.xml" value="0.33" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/alerta_lotes.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/app_bar_principal.xml" value="0.18645833333333334" />
@@ -46,9 +49,11 @@
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_casa.xml" value="0.25" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_cocina.xml" value="0.33" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_datos_ambientales.xml" value="0.18645833333333334" />
-        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_datos_basicos.xml" value="0.33" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_datos_basicos.xml" value="0.18" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_datos_basicos_modificar.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_datos_productivos.xml" value="0.22" />
-        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_datos_sociales.xml" value="0.25" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_datos_productivos_modificar.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_datos_sociales.xml" value="0.22" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_fincas.xml" value="0.2231920199501247" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_principal.xml" value="0.18645833333333334" />
@@ -60,6 +65,7 @@
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/fragment_zonas.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/item_fincas.xml" value="0.2" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/item_municipios.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/item_productivos.xml" value="0.11574074074074074" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/nav_header_principal.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/menu/principal.xml" value="0.18645833333333334" />

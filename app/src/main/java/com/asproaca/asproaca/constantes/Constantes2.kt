@@ -8,9 +8,12 @@ class Constantes2 {
         var listaMunicipios: MutableList<String>? = null
         var listaZonas: MutableList<String>? = null
         var listaProveedores: MutableList<String>? = null
-        var idUsuario:String?=null
-        var encargadoRegistro:String?=null
-        var EstadoActualizar:Boolean?=null
+        var idUsuario: String? = null
+        var encargadoRegistro: String? = null
+        var EstadoActualizar: Boolean? = null
+        var listaDatosFinca: Finca? = null
+        var idFinca: String? = null
+
         /**
          * Datos Básicos
          * */
@@ -24,7 +27,6 @@ class Constantes2 {
         var realiza_quema: String? = null
         var creado: String? = null
         var certificaciones: String? = null
-        var cantidad_viviendas: String? = null
         var zona_riesgo: String? = null
         var tenencia_de_la_tierra: String? = null
         var area_total: String? = null
@@ -63,10 +65,12 @@ class Constantes2 {
         var fechaNacimiento: String? = null
         var telefono: String? = null
         var correoElectronico: String? = null
+        var edad: String? = null
         var tipoPoblacion: String? = null
         var genero: String? = null
         var nivelAcademico: String? = null
         var numeroIntegrantes: String? = null
+        var nivelManejoDispositivos: String? = null
         var listaIntegrantes: MutableList<IntegrantesFamilia>? = null
 
         /**

@@ -27,6 +27,7 @@
 
 
                 <TextView
+                    android:id="@+id/textView2"
                     android:layout_marginTop="@dimen/margenGlobal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

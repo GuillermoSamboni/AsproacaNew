@@ -15,7 +15,6 @@ data class Finca(
     val realiza_quema: String? = null,
     val creado: String? = null,
     val certificaciones: String? = null,
-    val cantidad_viviendas: String? = null,
     val zona_riesgo: String? = null,
     val tenencia_de_la_tierra: String? = null,
     val area_total: String? = null,

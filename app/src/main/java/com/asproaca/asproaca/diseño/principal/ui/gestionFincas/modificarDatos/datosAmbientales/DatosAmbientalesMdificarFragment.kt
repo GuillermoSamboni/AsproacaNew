@@ -1,28 +1,23 @@
-package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosAmbientales
+package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosAmbientales
 
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.asproaca.asproaca.Preferencias
 import com.asproaca.asproaca.R
-import com.asproaca.asproaca.databinding.FragmentAnimalesBinding
 import com.asproaca.asproaca.databinding.FragmentDatosAmbientalesBinding
 import com.campo.campocolombiano.design.constantes.Constantes2
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
-class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
+class DatosAmbientalesMdificarFragment : Fragment(R.layout.fragment_datos_ambientales) {
     private lateinit var binding: FragmentDatosAmbientalesBinding
-    private lateinit var viewModel: DatosAmbintalesViewModel
+    private lateinit var viewModel: DatosAmbintalesModificarViewModel
 
     private var tiene_ecosistema_acuaticos_naturales: String? = null
     private lateinit var ecosistemas_naturales_acuaticos: String
@@ -41,7 +36,6 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
     private var areas_con_evidencias_remocion: String? = null
     private var animales_silvestres_en_cautivero: String? = null
     private var captacion_agua_lluvia: String? = null
-    private var preferencias: Preferencias? = null
 
     private var dataBase = Firebase.firestore
 
@@ -49,14 +43,100 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDatosAmbientalesBinding.bind(view)
 
-        viewModel = ViewModelProvider(this)[DatosAmbintalesViewModel::class.java]
+        viewModel = ViewModelProvider(this)[DatosAmbintalesModificarViewModel::class.java]
         dataBase.firestoreSettings.isPersistenceEnabled
         dataBase.firestoreSettings.cacheSizeBytes
 
         instanciaDatosFormulario()
-
+        ponerDatos()
         binding.idBtnFinalizaregistro.setOnClickListener {
             registrarFinca()
+        }
+    }
+
+    private fun ponerDatos() {
+        if (Constantes2.listaDatosFinca!!.datos_ambientales!!.tiene_ecosistema_acuaticos_naturales == "Si") {
+            binding.idSiEcosistemasNaturales.isChecked = true
+            tiene_ecosistema_acuaticos_naturales = "Si"
+        } else {
+            binding.idSiEcosistemasNaturales.isChecked = true
+            tiene_ecosistema_acuaticos_naturales = "No"
+        }
+        if (Constantes2.listaDatosFinca!!.datos_ambientales!!.tiene_ecosistema_acuaticos_artificiales == "Si") {
+            binding.idSiEcosistemasArtifiales.isChecked = true
+            tiene_ecosistema_acuaticos_artificiales = "Si"
+        } else {
+            binding.idSiEcosistemasArtifiales.isChecked = true
+            tiene_ecosistema_acuaticos_artificiales = "No"
+        }
+        if (Constantes2.listaDatosFinca!!.datos_ambientales!!.tiene_ecositemas_terrestes_naturales == "Si") {
+            binding.idSiTerrestreNatural.isChecked = true
+            tiene_ecositemas_terrestes_naturales = "Si"
+        } else {
+            binding.idNoTerrestreNatural.isChecked = true
+            tiene_ecositemas_terrestes_naturales = "No"
+        }
+        //ecosistemas_artificial_acuaticos
+        //ecosistemas_terrestre_natural
+
+        area_ecosistemas_terrestre_natural =
+            binding.idTxtAreaEcosistemaTerrestreaNATURAL.setText(Constantes2.listaDatosFinca!!.datos_ambientales!!.area_ecosistemas_terrestre_natural.toString())
+                .toString()
+        consesion_agua =
+            binding.idTxtConsesionAgua.setText(Constantes2.listaDatosFinca!!.datos_ambientales!!.consesion_agua.toString())
+                .toString()
+        tipo_arboles_descripcion =
+            binding.idTxtTipoArboles.setText(Constantes2.listaDatosFinca!!.datos_ambientales!!.tipo_arboles_descripcion.toString())
+                .toString()
+
+        if (Constantes2.listaDatosFinca!!.datos_ambientales!!.tratamiento_basura == "Si") {
+            binding.idSiTratamientoBasura.isChecked = true
+            tratamiento_basura = "Si"
+        } else {
+            binding.idSiTratamientoBasura.isChecked = true
+            tratamiento_basura = "No"
+        }
+        if (Constantes2.listaDatosFinca!!.datos_ambientales!!.separacion_basura == "Si") {
+            binding.idSiSeparaBasura.isChecked = true
+            separacion_basura = "Si"
+        } else {
+            binding.idNoSeparaBasura.isChecked = true
+            separacion_basura = "No"
+        }
+        if (Constantes2.listaDatosFinca!!.datos_ambientales!!.cobertura_suelos == "Si") {
+            binding.idSiCoverturaSuelos.isChecked = true
+            cobertura_suelos = "Si"
+        } else {
+            binding.idSiCoverturaSuelos.isChecked = true
+            cobertura_suelos = "No"
+        }
+        if (Constantes2.listaDatosFinca!!.datos_ambientales!!.areas_con_erosion == "Si") {
+            binding.idSiAreasErocion.isChecked = true
+            areas_con_erosion = "Si"
+        } else {
+            binding.idNoAreasErocion.isChecked = true
+            areas_con_erosion = "No"
+        }
+        if (Constantes2.listaDatosFinca!!.datos_ambientales!!.areas_con_evidencias_remocion == "Si") {
+            binding.idSiAreasRemcion.isChecked = true
+            areas_con_evidencias_remocion = "Si"
+        } else {
+            binding.idNoAreasRemcion.isChecked = true
+            areas_con_evidencias_remocion = "No"
+        }
+        if (Constantes2.listaDatosFinca!!.datos_ambientales!!.animales_silvestres_en_cautivero == "Si") {
+            binding.idSiAnimalesEnCautiverio.isChecked = true
+            animales_silvestres_en_cautivero = "Si"
+        } else {
+            binding.idNoAnimalesEnCautiverio.isChecked = true
+            animales_silvestres_en_cautivero = "No"
+        }
+        if (Constantes2.listaDatosFinca!!.datos_ambientales!!.captacion_agua_lluvia == "Si") {
+            binding.idSiCaptacionAguaLluvia.isChecked = true
+            captacion_agua_lluvia = "Si"
+        } else {
+            binding.idNoCaptacionAguaLluvia.isChecked = true
+            captacion_agua_lluvia = "No"
         }
     }
 
@@ -64,7 +144,7 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         instanciaDatosFormulario()
         if (validarCamposFormulario()) {
             viewModel.clickRegistroFinca()
-            viewModel.resultRegister.observe(this@DatosAmbientalesFragment.requireActivity(),
+            viewModel.resultRegister.observe(this@DatosAmbientalesMdificarFragment.requireActivity(),
                 Observer { success ->
                     if (success == true) {
                         findNavController().navigate(R.id.action_datosAmbientalesFragment_to_nav_fincas)
@@ -258,9 +338,7 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         Constantes2.areas_con_evidencias_remocion = areas_con_evidencias_remocion
         Constantes2.animales_silvestres_en_cautivero = animales_silvestres_en_cautivero
         Constantes2.captacion_agua_lluvia = captacion_agua_lluvia
-        preferencias = Preferencias(requireContext())
-        Constantes2.idUsuario = preferencias!!.obtenerIdUsuario()
-        Constantes2.encargadoRegistro = preferencias!!.obtenerRol()
+
     }
 
     private fun validarCamposFormulario(): Boolean {
@@ -335,9 +413,6 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         } else {
             binding.idErrorCapturaAguaLluvia.visibility = View.GONE
         }
-
-
-
 
         if (TextUtils.isEmpty(area_ecosistemas_terrestre_natural)) {
             esValido = false

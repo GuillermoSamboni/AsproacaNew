@@ -10,7 +10,6 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <application
         android:name=".AsproacaNewAplication"
         android:allowBackup="true"
@@ -20,14 +19,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AsproacaNew">
         <activity
+            android:name=".diseño.principal.ui.gestionFincas.ModificarFincaActivity"
+            android:exported="false" />
+        <activity
             android:name=".diseño.principal.PrincipalActivity"
             android:exported="true"
             android:label="@string/title_activity_principal"
-            android:theme="@style/Theme.AsproacaNew.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.AsproacaNew.NoActionBar"></activity>
         <activity
-            android:name="com.asproaca.asproaca.diseño.principal.ui.autenticacion.MainActivity"
+            android:name=".diseño.principal.ui.autenticacion.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,10 +37,7 @@
         </activity>
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
-
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

@@ -22,6 +22,7 @@
             android:visibility="visible">
 
             <TextView
+                android:id="@+id/idTituloOtros"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="OTROS INTEGRANTES"
@@ -32,6 +33,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
+                android:id="@+id/idConteoOtros"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">

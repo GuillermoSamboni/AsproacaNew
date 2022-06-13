@@ -1,9 +1,14 @@
 package com.asproaca.asproaca.diseño.principal.ui.gestionFincas
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +18,7 @@ import com.asproaca.asproaca.AsproacaNewAplication.Companion.preferencia
 import com.asproaca.asproaca.R
 import com.asproaca.asproaca.adaptadores.FincasAdapter
 import com.asproaca.asproaca.databinding.FragmentFincasBinding
+import com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosAmbientales.DatosAmbintalesViewModel
 import com.asproaca.asproaca.modelos.Finca
 import com.campo.campocolombiano.design.constantes.Constantes2
 import com.getkeepsafe.taptargetview.TapTarget
@@ -22,6 +28,9 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.*
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class FincasFragment : Fragment(R.layout.fragment_fincas) {
@@ -32,12 +41,15 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
     private var _fincasArrayList = mutableListOf<Finca>()
     private lateinit var dataBase: FirebaseFirestore
     private lateinit var myAdapter: FincasAdapter
+    private lateinit var viewModel: FincasViewModel
 
     var swipeRefreshLayout: SwipeRefreshLayout? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentFincasBinding.bind(view)
+        viewModel = ViewModelProvider(this)[FincasViewModel::class.java]
+
 
         initRecyclerView()
         buscarFinca()
@@ -74,6 +86,7 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
     }
 
     private fun initRecyclerView() {
+
         recyclerView = binding.idRecyclerViewFincas
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
@@ -86,13 +99,32 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
             val position = binding.idRecyclerViewFincas.getChildAdapterPosition(it)
             val event = listaFincas[position]
 
+            val intent = Intent(context, ModificarFincaActivity::class.java)
+            Constantes2.listaDatosFinca = event
+            Constantes2.idFinca = event.idFinca
+            startActivity(intent)
         }
+        //obtenerFincas()
         eventChangeListener()
     }
 
+    /**
+    private fun obtenerFincas() {
+    viewModel.clickResultadoFinca()
+    viewModel.resultdoConsulta.observe(this@FincasFragment.requireActivity(),
+    Observer { success ->
+    if (success == true) {
+    recargarDatos()
+    } else {
+    //
+    }
+    })
+    }*/
+
     private fun eventChangeListener() {
         dataBase = FirebaseFirestore.getInstance()
-        dataBase.collection("Fincas").whereEqualTo("idUsuario", preferencia.obtenerIdUsuario())
+        dataBase.collection("Fincas").document("Fincas").collection("ActualizacionFinca")
+            .whereEqualTo("idUsuario", preferencia.obtenerIdUsuario())
             .addSnapshotListener(
                 MetadataChanges.INCLUDE,
                 object : EventListener<QuerySnapshot> {
@@ -119,7 +151,6 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
                                 }
                             }
                             myAdapter.notifyDataSetChanged()
-
                         }
                         _fincasArrayList.clear()
                         _fincasArrayList.addAll(listaFincas)
@@ -203,6 +234,5 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
             mostrarTarjetas()
         }
     }
-
 
 }

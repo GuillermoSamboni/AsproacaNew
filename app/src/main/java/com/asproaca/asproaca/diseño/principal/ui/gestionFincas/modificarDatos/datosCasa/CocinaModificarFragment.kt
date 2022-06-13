@@ -1,4 +1,4 @@
-package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosCasa
+package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosCasa
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.asproaca.asproaca.R
 import com.asproaca.asproaca.databinding.FragmentCocinaBinding
 import com.campo.campocolombiano.design.constantes.Constantes2
 
 
-class CocinaFragment : Fragment(R.layout.fragment_cocina) {
+class CocinaModificarFragment : Fragment(R.layout.fragment_cocina) {
     private lateinit var binding: FragmentCocinaBinding
 
     private lateinit var tipo_estufa: String
@@ -29,6 +30,10 @@ class CocinaFragment : Fragment(R.layout.fragment_cocina) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCocinaBinding.bind(view)
         instanciaDatosFormulario()
+
+        binding.idTextView2.setText("MODIFICAR RECURSOS DE COCINA")
+        ponerDatos()
+
 
         binding.idBtnContinuarProceso.setOnClickListener {
             pasarDatosCocina()
@@ -182,7 +187,7 @@ class CocinaFragment : Fragment(R.layout.fragment_cocina) {
             Constantes2.tratamiento_lavaplatos = tratamiento_agua_lavaplatos
             Constantes2.tratamiento_agua_residual =
                 tratamiento_agua_residual
-            findNavController().navigate(R.id.action_cocinaFragment_to_datosSocialesFragment2)
+            findNavController().navigate(R.id.action_cocinaFragment_to_datosSocialesFragment)
         }
     }
 
@@ -219,5 +224,47 @@ class CocinaFragment : Fragment(R.layout.fragment_cocina) {
         }
 
         return esValido2
+    }
+
+    private fun ponerDatos() {
+        if (Constantes2.listaDatosFinca!!.datos_casa!!.datos_cocina!!.tratamiento_agua_ducha == "Si") {
+            binding.idSiTratamientoDucha.isChecked = true
+            tratamiento_agua_ducha = "Si"
+        } else {
+            binding.idNoTratamientoDucha.isChecked = true
+            tratamiento_agua_ducha = "No"
+        }
+        if (Constantes2.listaDatosFinca!!.datos_casa!!.datos_cocina!!.tratamiento_agua_lavadero == "Si") {
+            binding.idSiTratamientoLavadero.isChecked = true
+            tratamiento_agua_lavadero = "Si"
+        } else {
+            binding.idNoTratamientoLavadero.isChecked = true
+            tratamiento_agua_lavadero = "No"
+        }
+        if (Constantes2.listaDatosFinca!!.datos_casa!!.datos_cocina!!.tratamiento_agua_lavaplatos == "Si") {
+            binding.idSiTratamientoLavaPlatos.isChecked = true
+            tratamiento_agua_lavaplatos = "Si"
+        } else {
+            binding.idNoTratamientoLavaPlatos.isChecked = true
+            tratamiento_agua_lavaplatos = "No"
+        }
+        if (Constantes2.listaDatosFinca!!.datos_casa!!.datos_cocina!!.tratamiento_agua_residual == "Si") {
+            binding.idSiTratamientoAguaResidual.isChecked = true
+            tratamiento_agua_residual = "Si"
+        } else {
+            binding.idNoTratamientoAguaResidual.isChecked = true
+            tratamiento_agua_residual = "No"
+        }
+
+        Constantes2.tipo_estufa = tipo_estufa
+        Constantes2.tipo_combustible_alimentos = tipo_combustible_alimentos
+        Constantes2.tipo_combustible_industriales = tipo_combustible_industriales
+        Constantes2.fuente_comsumo_domestico = fuente_agua_consumo_domestico
+        Constantes2.fuente_comsumo_industrial = fuente_agua_consumo_industrial
+        Constantes2.tratamiento_agua_ducha = tratamiento_agua_ducha
+        Constantes2.tratamiento_lavadero = tratamiento_agua_lavadero
+        Constantes2.tratamiento_lavaplatos = tratamiento_agua_lavaplatos
+        Constantes2.tratamiento_agua_residual =
+            tratamiento_agua_residual
     }
 }

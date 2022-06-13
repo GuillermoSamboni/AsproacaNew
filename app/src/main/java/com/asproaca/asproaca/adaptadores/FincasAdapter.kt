@@ -2,12 +2,14 @@ package com.asproaca.asproaca.adaptadores
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.recyclerview.widget.RecyclerView
 import com.asproaca.asproaca.Preferencias
@@ -15,8 +17,11 @@ import com.asproaca.asproaca.R
 import com.asproaca.asproaca.databinding.AlertCustomDeleteBinding
 import com.asproaca.asproaca.databinding.AlertaEliminarFincaBinding
 import com.asproaca.asproaca.databinding.ItemFincasBinding
+import com.asproaca.asproaca.diseño.principal.ui.autenticacion.MainActivity
+import com.asproaca.asproaca.diseño.principal.ui.gestionFincas.ModificarFincaActivity
 import com.asproaca.asproaca.modelos.Finca
 import com.campo.campocolombiano.design.constantes.Constantes2
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
@@ -49,6 +54,7 @@ class FincasAdapter(private val listFarm: ArrayList<Finca>, val context: Context
             binding.idTxtAntiguedadFinca.text = event.antiguedad_finca
             binding.idTxtAreaTotal.text = event.area_total
             try {
+                /*
                 if (Constantes2.encargadoRegistro == "Administrador") {
                     binding.idModificarUsuario.visibility = View.VISIBLE
                     binding.idEliminarUsuario.visibility = View.VISIBLE
@@ -56,6 +62,7 @@ class FincasAdapter(private val listFarm: ArrayList<Finca>, val context: Context
                     binding.idModificarUsuario.visibility = View.GONE
                     binding.idEliminarUsuario.visibility = View.GONE
                 }
+                */
 
                 if (event.estadoActualizar == true) {
                     binding.idBtnActualizarDatosNuevo.visibility = View.VISIBLE
@@ -73,14 +80,23 @@ class FincasAdapter(private val listFarm: ArrayList<Finca>, val context: Context
                     custom_alertDelete.idTitulo.setText(event.nombre_finca)
 
                     custom_alertDelete.idBtnAliminar.setOnClickListener {
-                        Firebase.firestore.collection("Fincas")
-                            .document()
-                            .delete().addOnCompleteListener {task->
+                        database = FirebaseFirestore.getInstance()
+                        database!!.collection("Fincas")
+                            .document("${event.idFinca}")
+                            .delete().addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
                                     alertDialog.dismiss()
-                                    Toast.makeText(context, "Finca eliminada exitosamente", Toast.LENGTH_SHORT).show()
-                                }else{
-                                    Toast.makeText(context, "No se ha eliminado exitosamente", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(
+                                        context,
+                                        "Finca eliminada exitosamente",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                } else {
+                                    Toast.makeText(
+                                        context,
+                                        "No se ha eliminado exitosamente",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                                 }
                             }.addOnFailureListener {
                                 alertDialog.dismiss()
@@ -92,12 +108,15 @@ class FincasAdapter(private val listFarm: ArrayList<Finca>, val context: Context
 
                     alertDialog.show()
                 }
+
+
             } catch (e: Exception) {
                 Log.e("Errorrrr", e.toString())
             }
         }
 
         var preferencias1: Preferencias? = null
+        var database: FirebaseFirestore? = null
     }
 
     override fun getItemCount(): Int {
@@ -106,6 +125,7 @@ class FincasAdapter(private val listFarm: ArrayList<Finca>, val context: Context
 
     fun setOnClickListener(listener: View.OnClickListener) {
         clickLIstener = listener
+
     }
 
     override fun onClick(p0: View?) {

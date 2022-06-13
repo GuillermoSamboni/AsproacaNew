@@ -94,7 +94,7 @@ class DatosBasicosFragment : Fragment(R.layout.fragment_datos_basicos) {
             Constantes2.listaMunicipios!!
         )
         spinerMunicipios.adapter = arrayAdapter
-        //municipio = spinerMunicipios.selectedItem.toString()
+        municipio = spinerMunicipios.selectedItem.toString()
 
         val spinerZonas = binding.idSpinerZona
         val arrayAdapterZonas = ArrayAdapter(

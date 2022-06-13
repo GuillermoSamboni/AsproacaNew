@@ -1,14 +1,13 @@
-package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosSociales
+package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosSocialesModificar
 
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
-import com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosSocialesModificar.DatePickerModificarFragment
 import java.util.*
 
-class DatePickerFragment : DialogFragment() {
-    private var listener: DatePickerDialog.OnDateSetListener? = null
+class DatePickerModificarFragment : DialogFragment() {
+    var listener: DatePickerDialog.OnDateSetListener? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val c = Calendar.getInstance()

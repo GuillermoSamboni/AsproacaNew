@@ -6,6 +6,7 @@ data class DatosSociales(
     var fechaNacimiento: String? = null,
     var telefono: String? = null,
     var correoElectronico: String? = null,
+    var edad: String? = null,
     var tipoPoblacion: String? = null,
     var genero: String? = null,
     var nivelAcademico: String? = null,

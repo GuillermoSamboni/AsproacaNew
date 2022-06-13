@@ -1,4 +1,4 @@
-package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosSociales
+package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosSocialesModificar
 
 import android.app.AlertDialog
 import android.app.DatePickerDialog
@@ -7,20 +7,23 @@ import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.asproaca.asproaca.R
+import com.asproaca.asproaca.adaptadores.IntegrantesAdapter
 import com.asproaca.asproaca.databinding.AlertaIntegrantesBinding
 import com.asproaca.asproaca.databinding.FragmentDatosSocialesBinding
-import com.asproaca.asproaca.modelos.DatosSociales
+import com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosSociales.DatePickerFragment
 import com.asproaca.asproaca.modelos.IntegrantesFamilia
 import com.campo.campocolombiano.design.constantes.Constantes2
 
 
-class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
+class DatosSocialesModificarFragment : Fragment(R.layout.fragment_datos_sociales) {
     private lateinit var binding: FragmentDatosSocialesBinding
+    private lateinit var myIntegrantesFamiliaAdapter: IntegrantesAdapter
+    private lateinit var idRecyclerView: RecyclerView
 
     private var nombreCompleto: String? = null
     private var identificacion: String? = null
@@ -49,13 +52,75 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDatosSocialesBinding.bind(view)
+        ponerDatos()
         referenciaDatosFormulario()
+
+
+        binding.textView2.setText("MODIFICAR DATOS DEL NÚCLEO FAMILIAR")
 
         binding.idBtnContinuarProceso.setOnClickListener {
             if (validarFormulario()) {
                 numeroIntegrantes()
             }
         }
+    }
+
+    private fun ponerDatos() {
+        nombreCompleto =
+            binding.idTxtNombreCompleto.setText(Constantes2.listaDatosFinca!!.datos_sociales!!.nombre.toString()).toString()
+        Constantes2.nombre = nombreCompleto
+        identificacion =
+            binding.idTxtNumeroIdentificacion.setText(Constantes2.listaDatosFinca!!.datos_sociales!!.identificacion.toString())
+                .toString()
+        Constantes2.identificacion = identificacion
+        fechaNacimiento =
+            binding.idTxtFechaNacimiento.setText(Constantes2.listaDatosFinca!!.datos_sociales!!.fechaNacimiento.toString())
+                .toString()
+        Constantes2.fechaNacimiento = fechaNacimiento
+        telefono =
+            binding.idTxtTelefono.setText(Constantes2.listaDatosFinca!!.datos_sociales!!.telefono.toString())
+                .toString()
+        Constantes2.telefono = telefono
+        correoElectronico =
+            binding.idTxtCorreo.setText(Constantes2.listaDatosFinca!!.datos_sociales!!.correoElectronico.toString())
+                .toString()
+        Constantes2.correoElectronico = correoElectronico
+        edad = binding.idTxtEdad.setText(Constantes2.listaDatosFinca!!.datos_sociales!!.edad.toString())
+            .toString()
+        Constantes2.edad = edad
+
+        numeroDeIntegrantes =
+            binding.idTxtNumeroIntegrantes.setText(Constantes2.listaDatosFinca!!.datos_sociales!!.numeroIntegrantes.toString())
+                .toString()
+        Constantes2.numeroIntegrantes = numeroDeIntegrantes
+
+        if (Constantes2.listaDatosFinca!!.datos_sociales!!.numeroIntegrantes.toString() != "0") {
+            binding.idVerIntegrantes.visibility = View.VISIBLE
+            binding.idVerIntegrantes.setOnClickListener {
+                binding.idMostrarListadoIntegrantes.visibility = View.VISIBLE
+                initRecyclerView()
+            }
+        } else {
+            binding.idMostrarListadoIntegrantes.visibility = View.GONE
+        }
+        Constantes2.tipoPoblacion = tipoPoblacion
+        Constantes2.genero = genero
+        Constantes2.nivelAcademico = nivelAcademico
+        Constantes2.nivelManejoDispositivos = nivelManejoDispositivos
+        Constantes2.listaIntegrantes = listIntegrantes
+    }
+
+    private fun initRecyclerView() {
+        idRecyclerView = binding.idRecyclerViewIntegrantes
+        idRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        idRecyclerView.setHasFixedSize(true)
+
+        myIntegrantesFamiliaAdapter = IntegrantesAdapter(
+            Constantes2.listaDatosFinca!!.datos_sociales!!.otrosIntegrantes as ArrayList<IntegrantesFamilia>,
+            requireContext()
+        )
+        idRecyclerView.adapter = myIntegrantesFamiliaAdapter
+
     }
 
     private fun referenciaDatosFormulario() {
@@ -118,7 +183,6 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
         nivelAcademico = spinerNivelAcademico.selectedItem.toString()
 
         numeroDeIntegrantes = binding.idTxtNumeroIntegrantes.text.toString()
-
     }
 
     private fun showDatePickerDialog() {
@@ -191,7 +255,7 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
             mostrarAlertaIntegrantes()
         } else {
             pasarDatosFormulario()
-            findNavController().navigate(R.id.action_datosSocialesFragment_to_datosProductivosFragment2)
+            findNavController().navigate(R.id.action_datosSocialesFragment_to_datosProductivosFragment)
         }
     }
 
@@ -209,7 +273,6 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
                 Constantes2.genero = genero
                 Constantes2.nivelAcademico = nivelAcademico
                 Constantes2.numeroIntegrantes = numeroDeIntegrantes
-                Constantes2.nivelManejoDispositivos = nivelManejoDispositivos
                 Constantes2.listaIntegrantes = listIntegrantes
             } else if (numeroDeIntegrantes != "0") {
                 mostrarAlertaIntegrantes()
@@ -242,7 +305,8 @@ class DatosSocialesFragment : Fragment(R.layout.fragment_datos_sociales) {
                 dialogBinding.idConteoRegistradosAlerta.text = contIntegrantes.toString()
                 if (contIntegrantes == numeroDeIntegrantes.toInt()) {
                     alerta_integrante.dismiss()
-                    findNavController().navigate(R.id.action_datosSocialesFragment_to_datosProductivosFragment2)
+                    ponerDatos()
+                    findNavController().navigate(R.id.action_datosSocialesFragment_to_datosProductivosFragment)
                 }
             }
         }

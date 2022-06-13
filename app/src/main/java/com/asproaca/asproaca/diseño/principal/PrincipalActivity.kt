@@ -133,12 +133,12 @@ class PrincipalActivity : AppCompatActivity() {
         Firebase.firestore.collection("Proveedores").get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val listaProveedores = task.result.toObjects(Proveedor::class.java)
-                Constantes2.listaMunicipios = mutableListOf()
+                Constantes2.listaProveedores = mutableListOf()
                 listaProveedores.forEach {
                     val muni = Proveedor(
                         it.id_proveedor,
-                        it.nit_proveedor,
                         it.nombre_proveedor,
+                        it.nit_proveedor,
                         it.telefono_roveedor,
                     )
                     Constantes2.listaProveedores?.addAll(listOf(muni.nombre_proveedor.toString()))

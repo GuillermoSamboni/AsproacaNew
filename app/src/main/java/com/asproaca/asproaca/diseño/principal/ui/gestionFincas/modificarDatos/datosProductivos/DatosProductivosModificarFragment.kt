@@ -1,4 +1,4 @@
-package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosProductivos
+package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosProductivos
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -11,21 +11,24 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.asproaca.asproaca.R
-import com.asproaca.asproaca.databinding.AlertAnadirProductivosBinding
-import com.asproaca.asproaca.databinding.AlertaIntegrantesBinding
-import com.asproaca.asproaca.databinding.AlertaLotesBinding
-import com.asproaca.asproaca.databinding.FragmentDatosProductivosBinding
+import com.asproaca.asproaca.adaptadores.IntegrantesAdapter
+import com.asproaca.asproaca.adaptadores.ProduccionAgicolaAdapter
+import com.asproaca.asproaca.databinding.*
 import com.asproaca.asproaca.modelos.IntegrantesFamilia
 import com.asproaca.asproaca.modelos.LotesProduccion
 import com.asproaca.asproaca.modelos.Productivos
 import com.campo.campocolombiano.design.constantes.Constantes2
 
-class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
-    private lateinit var binding: FragmentDatosProductivosBinding
+class DatosProductivosModificarFragment : Fragment(R.layout.fragment_datos_productivos_modificar) {
+    private lateinit var binding: FragmentDatosProductivosModificarBinding
+    private lateinit var myProductivosAdapter: ProduccionAgicolaAdapter
+    private lateinit var idRecyclerView: RecyclerView
 
-    private var bodega_agroquimicos: String = ""
     private lateinit var nombre_producto: String
+    private var bodega_agroquimicos: String = ""
     private lateinit var area_productiva_total: String
     private var proveedor_semilla: String = ""
     private var semilla_modificada: String = ""
@@ -34,7 +37,6 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
     private lateinit var plagas: String
     private var a_tenido_enfermedades: String = ""
     private lateinit var enfermedades: String
-
     private lateinit var fertilizantes_usados: String
     private lateinit var agroquimicos_usados: String
     private var equipo_proteccion: String? = null
@@ -46,35 +48,109 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
     private lateinit var numero_lavados: String
     private var cantidadLotes = "0"
     private var listLotes = mutableListOf<LotesProduccion>()
-
     private lateinit var lotes: LotesProduccion
     private lateinit var numero_de_arboles: String
     private lateinit var edad_del_lote: String
     private lateinit var variedad: String
     var contLotes = 0
-
     private val listaProductos = mutableListOf<Productivos>()
-
     private lateinit var datosProductivos: Productivos
-
     private lateinit var alert_anadir: AlertDialog
-    private lateinit var alert_anadirProductivos: AlertDialog
     private lateinit var dialogBinding: AlertaLotesBinding
     private lateinit var productivosBinding: AlertAnadirProductivosBinding
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentDatosProductivosBinding.bind(view)
-        try {
-            instanciaDatosFormulario()
-        }catch (e:Exception){
-            Toast.makeText(requireContext(), "${e.message}", Toast.LENGTH_SHORT).show()
+        binding = FragmentDatosProductivosModificarBinding.bind(view)
+
+        initRecyclerView()
+
+        /**try {
+        instanciaDatosFormulario()
+        ponerDatos()
+        } catch (e: Exception) {
+        Toast.makeText(requireContext(), "${e.message}", Toast.LENGTH_SHORT).show()
         }
 
         binding.idBtnContinuarProceso.setOnClickListener {
-            pasarDatosProductivos()
+        pasarDatosProductivos()
+        }*/
+    }
+/*
+    private fun ponerDatos() {
+        //nombre_producto = binding.idTxt toString()
+        Constantes2.listaDatosFinca!!.datos_productivos!!.forEach {
+            area_productiva_total =
+                binding.idTxtAreaProductivaTota.setText(it.area_productiva_total).toString()
+            edad_producto = binding.idTxtEdadProducto.setText(it.edad_producto).toString()
+
+            if (it.bodega_agroquimicos == "Si") {
+                binding.idSiTieneAgroquimicos.isChecked = true
+                bodega_agroquimicos = "Si"
+            } else {
+                binding.idSiTieneAgroquimicos.isChecked = true
+                bodega_agroquimicos = "No"
+            }
+            //proveedor_semilla = binding.toString()
+
+            if (it.bodega_agroquimicos == "Si") {
+                binding.idSiSemillasModificadas.isChecked = true
+                semilla_modificada = "Si"
+            } else {
+                binding.idNoSemillasModificadas.isChecked = true
+                semilla_modificada = "No"
+            }
+
+            if (it.tiene_plagas == "Si") {
+                binding.idSiATenidoPlagas.isChecked = true
+                a_tenido_plagas = "Si"
+            } else {
+                binding.idNoATenidoPlagas.isChecked = true
+                a_tenido_plagas = "No"
+            }
+            plagas = binding.idTxtTipoPlagas.setText(it.plagas).toString()
+
+            if (it.tiene_plagas == "Si") {
+                binding.idSiEnfermedades.isChecked = true
+                a_tenido_enfermedades = "Si"
+            } else {
+                binding.idNoEnfermedades.isChecked = true
+                a_tenido_enfermedades = "No"
+            }
+            enfermedades = binding.idTxtEnfermedades.setText(it.enfermedades).toString()
+            fertilizantes_usados =
+                binding.idTxtFertilizantesUsados.setText(it.fertilizantes).toString()
+            agroquimicos_usados =
+                binding.idTxtAgroquimicosUsados.setText(it.agroquimicos).toString()
+
+            if (it.usa_proteccion == "Si") {
+                binding.idSiEquiposProteccion.isChecked = true
+                equipo_proteccion = "Si"
+            } else {
+                binding.idNoEquiposProteccion.isChecked = true
+                equipo_proteccion = "No"
+            }
+
+            if (it.tiene_infraestructura == "Si") {
+                binding.idSiEquiposInfraestructura.isChecked = true
+                cuenta_con_infraestructura = "Si"
+            } else {
+                binding.idNoEquiposInfraestructura.isChecked = true
+                cuenta_con_infraestructura = "No"
+            }
+            //estado_infraestrcutura = binding.toString()
+
+            //tipo_de_secado_de_cafe = binding.toString()
+
+            equipos_industriales =
+                binding.idTxtEquiposIndustriales.setText(it.equipos_idustriales).toString()
+            numero_lavados = binding.idTxtNumeroLavadosCafe.setText(it.cantidad_lavados).toString()
+            cantidadLotes = binding.idTxtCantidadLotes.setText(it.cantidadLotes).toString()
+
         }
+
+
     }
 
     private fun instanciaDatosFormulario() {
@@ -274,14 +350,16 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
             listLotes
         )
         if (validarCamposFormulario()) {
-            if (cantidadLotes == "0" || cantidadLotes == "") {
-                listaProductos.addAll(listOf(datosProductivos))
-                Constantes2.listaProductivos = listaProductos
-                anadirOtroDatoAgricola()
+            Constantes2.listaDatosFinca!!.datos_productivos!!.forEach {
+                if (binding.idTxtCantidadLotes.text.toString() == it.cantidadLotes) {
+                    listaProductos.addAll(listOf(datosProductivos))
+                    Constantes2.listaProductivos = listaProductos
+                    anadirOtroDatoAgricola()
+                } else {
+                    anadirOtroDatoAgricola()
+                }
             }
-            if (cantidadLotes != "0") {
-                mostrarFormularioLotes()
-            }
+
         }
 
     }
@@ -315,8 +393,8 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
             if (cantidadLotes == "0") {
                 listaProductos.addAll(listOf(datosProductivos))
                 Constantes2.listaProductivos = listaProductos
-                alert_anadirProductivos.dismiss()
                 anadirOtroDatoAgricola()
+                Log.e("Informacion", Constantes2.listaProductivos.toString())
             }
             if (cantidadLotes != "0") {
                 mostrarFormularioLotes()
@@ -347,8 +425,7 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
         }
         alert_persona.setNegativeButton("No, Continuar") { _, _ ->
             alert_persona.setCancelable(true)
-            alert_anadirProductivos.dismiss()
-
+            //alert_anadir.dismiss()
             findNavController().navigate(R.id.action_datosProductivosFragment_to_animalesFragment2)
         }
         alert_persona.create().show()
@@ -357,15 +434,15 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
     private fun mostrarFormulario() {
 
         productivosBinding = AlertAnadirProductivosBinding.inflate(LayoutInflater.from(context))
-        alert_anadirProductivos = AlertDialog.Builder(requireContext()).apply {
+        alert_anadir = AlertDialog.Builder(requireContext()).apply {
             setView(productivosBinding.root)
         }.create()
         instanciaDatosFormularioAlerta()
 
-        alert_anadirProductivos.setCancelable(true)
-        alert_anadirProductivos.window?.setBackgroundDrawableResource(R.color.color_transparent)
+        alert_anadir.setCancelable(true)
+        alert_anadir.window?.setBackgroundDrawableResource(R.color.color_transparent)
 
-        alert_anadirProductivos.show()
+        alert_anadir.show()
     }
 
     private fun instanciaDatosFormularioAlerta() {
@@ -773,6 +850,21 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
             esValido = true
         }
         return esValido
+    }
+    */
+
+
+    private fun initRecyclerView() {
+        idRecyclerView = binding.idRecyclerrViewProductivos
+        idRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        idRecyclerView.setHasFixedSize(true)
+
+        myProductivosAdapter = ProduccionAgicolaAdapter(
+            Constantes2.listaDatosFinca!!.datos_productivos as ArrayList<Productivos>,
+            requireContext()
+        )
+        idRecyclerView.adapter = myProductivosAdapter
+
     }
 }
 

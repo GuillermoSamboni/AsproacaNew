@@ -67,7 +67,7 @@
         android:label="Cocina"
         tools:layout="@layout/fragment_cocina">
         <action
-            android:id="@+id/action_cocinaFragment_to_datosSocialesFragment"
+            android:id="@+id/action_cocinaFragment_to_datosSocialesFragment2"
             app:destination="@id/datosSocialesFragment" />
     </fragment>
     <fragment
@@ -76,7 +76,7 @@
         android:label="Núcleo familiar"
         tools:layout="@layout/fragment_datos_sociales">
         <action
-            android:id="@+id/action_datosSocialesFragment_to_datosProductivosFragment"
+            android:id="@+id/action_datosSocialesFragment_to_datosProductivosFragment2"
             app:destination="@id/datosProductivosFragment" />
     </fragment>
     <fragment
