@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/nav_datos_basicos"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosCasa.CasaModificarFragment"
-        android:label="Vivienda"
+        android:label="Modificar Datos Vivienda"
         tools:layout="@layout/fragment_casa">
         <action
             android:id="@+id/action_casaFragment_to_cocinaFragment"
@@ -27,7 +27,7 @@
     <fragment
         android:id="@+id/cocinaFragment"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosCasa.CocinaModificarFragment"
-        android:label="Cocina"
+        android:label="Modificar Datos Cocina"
         tools:layout="@layout/fragment_cocina">
         <action
             android:id="@+id/action_cocinaFragment_to_datosSocialesFragment"
@@ -36,7 +36,7 @@
     <fragment
         android:id="@+id/datosSocialesFragment"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosSocialesModificar.DatosSocialesModificarFragment"
-        android:label="Núcleo familiar"
+        android:label="Modificar Datos Núcleo Familiar"
         tools:layout="@layout/fragment_datos_sociales">
         <action
             android:id="@+id/action_datosSocialesFragment_to_datosProductivosFragment"
@@ -45,7 +45,7 @@
     <fragment
         android:id="@+id/datosProductivosFragment"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosProductivos.DatosProductivosModificarFragment"
-        android:label="Producción agrícola"
+        android:label="Modificar Datos Producción Agrícola"
         tools:layout="@layout/fragment_datos_productivos">
         <action
             android:id="@+id/action_datosProductivosFragment_to_animalesFragment2"
@@ -53,11 +53,14 @@
         <action
             android:id="@+id/action_datosProductivosFragment_to_datosPecuariosModificarFragment"
             app:destination="@id/datosPecuariosModificarFragment" />
+        <action
+            android:id="@+id/action_datosProductivosFragment_to_trabajadoresFragment"
+            app:destination="@id/trabajadoresFragment" />
     </fragment>
     <fragment
         android:id="@+id/animalesFragment"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosProductivos.AnimalesModificarFragment"
-        android:label="fragment_animales"
+        android:label="Modificar Datos Animales"
         tools:layout="@layout/fragment_animales">
         <action
             android:id="@+id/action_animalesFragment_to_trabajadoresFragment"
@@ -66,7 +69,7 @@
     <fragment
         android:id="@+id/trabajadoresFragment"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosProductivos.TrabajadoresModificarFragment"
-        android:label="fragment_trabajadores"
+        android:label="Modificar Datos Trabajadores"
         tools:layout="@layout/fragment_trabajadores">
         <action
             android:id="@+id/action_trabajadoresFragment_to_datosAmbientalesFragment"
@@ -75,11 +78,11 @@
     <fragment
         android:id="@+id/datosAmbientalesFragment"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosAmbientales.DatosAmbientalesMdificarFragment"
-        android:label="fragment_datos_ambientales"
+        android:label="Modificar Ambientales"
         tools:layout="@layout/fragment_datos_ambientales" />
     <fragment
         android:id="@+id/datosPecuariosModificarFragment"
         android:name="com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosPecuarios.DatosPecuariosModificarFragment"
-        android:label="fragment_datos_pecuarios_modificar"
+        android:label="Modificar Datos Pecuarios"
         tools:layout="@layout/fragment_datos_pecuarios_modificar" />
 </navigation>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".diseño.principal.ui.gestionFincas.datosAmbientales.DatosAmbientalesFragment">
 
     <ScrollView
@@ -29,8 +29,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
+                    android:layout_marginTop="@dimen/margenGlobal"
                     android:layout_marginEnd="5dp"
-                    android:text="Datos Ambientales"
+                    android:text="DATOS AMBIENTALES"
                     android:textAlignment="center"
                     android:textColor="@color/color_primary"
                     android:textSize="31sp"
@@ -82,7 +83,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Seleccionar ecosistema natural: "
+                        android:text="Seleccionar ecosistema natural"
                         android:textColor="@color/blackmode"
                         android:textStyle="bold" />
 
@@ -211,12 +212,20 @@
 
                 </LinearLayout>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Área ecosistema terrestre natural (Metros cuadrados)"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/idLayoutAreaEcosistemaTerrestreaNatural"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Area ecosistema terrestrea natural"
+                    android:hint="Área (metros cudrados)"
                     android:textColorHint="@color/color_primary"
                     app:boxBackgroundMode="outline"
                     app:boxCornerRadiusBottomEnd="8dp"
@@ -238,7 +247,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Consesion agua"
+                    android:hint="Consesión agua"
                     android:textColorHint="@color/color_primary"
                     app:boxBackgroundMode="outline"
                     app:boxCornerRadiusBottomEnd="8dp"
@@ -285,7 +294,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="¿Realiza tratamiento de basura?"
+                        android:text="¿Realiza tratamiento de residuos?"
                         android:textColor="@color/blackmode"
                         android:textStyle="bold" />
 
@@ -334,7 +343,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="¿Separa la basura?"
+                        android:text="¿Realiza separación de los residuos?"
                         android:textColor="@color/blackmode"
                         android:textStyle="bold" />
 
@@ -486,7 +495,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="¿Existen areas con evidencia de remoción de suelos?"
+                    android:text="¿Existen áreas con evidencia de remoción de suelos?"
                     android:textColor="@color/blackmode"
                     android:textStyle="bold" />
 

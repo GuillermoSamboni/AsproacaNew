@@ -193,7 +193,6 @@ class CocinaModificarFragment : Fragment(R.layout.fragment_cocina) {
 
     private fun validarCamposFormulario(): Boolean {
         var esValido = true
-        val esValido2 = true
 
         if (!(binding.idSiTratamientoDucha.isChecked || binding.idNoTratamientoDucha.isChecked)) {
             esValido = false
@@ -223,7 +222,7 @@ class CocinaModificarFragment : Fragment(R.layout.fragment_cocina) {
             binding.idErrorAguaResidual.visibility = View.GONE
         }
 
-        return esValido2
+        return esValido
     }
 
     private fun ponerDatos() {

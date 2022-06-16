@@ -22,8 +22,6 @@
     <color name="blackmode">#292828</color>
     <color name="blackmode_light">#504F4F</color>
     <color name="color_green">#127A35</color>
-
-
     <color name="color_red">#d40e0f</color>
 
     <color name="color_riesgo">#B61F13</color>
@@ -34,4 +32,5 @@
     <color name="color_transparent">#0000ffff</color>
     <color name="blue_dark">#00324d</color>
     <color name="blue_light">#4f92ff</color>
+    <color name="color_header">#C3C3C3</color>
 </resources>

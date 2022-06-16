@@ -15,7 +15,7 @@ import com.asproaca.asproaca.modelos.AnimalesFinca
 import com.campo.campocolombiano.design.constantes.Constantes2
 
 class TrabajadoresFragment : Fragment(R.layout.fragment_trabajadores) {
-    private lateinit var binding : FragmentTrabajadoresBinding
+    private lateinit var binding: FragmentTrabajadoresBinding
 
     //DatosTrabajador
     private lateinit var cantidad_trabajadores_contratados: String
@@ -24,7 +24,8 @@ class TrabajadoresFragment : Fragment(R.layout.fragment_trabajadores) {
     private lateinit var cant_pago_especie: String
     private lateinit var horario_laboral: String
     private lateinit var descripcion_adicional: String
-    private lateinit var alojamiento_trabajadores: String
+    private var tiene_alojamiento: String = ""
+    private var alojamiento_trabajadores: String = ""
     private lateinit var estado_alojamiento_trabajadores: String
 
     private val listaDatosAnimales = mutableListOf<AnimalesFinca>()
@@ -54,26 +55,13 @@ class TrabajadoresFragment : Fragment(R.layout.fragment_trabajadores) {
             Constantes2.cant_pago_especie = cant_pago_especie
             Constantes2.horario_laboral = horario_laboral
             Constantes2.descripcion_adicional = descripcion_adicional
+            Constantes2.tiene_alojamiento = tiene_alojamiento
             Constantes2.alojamiento_trabajadores = alojamiento_trabajadores
             Constantes2.estado_alojamiento_trabajadores = estado_alojamiento_trabajadores
 
             findNavController().navigate(R.id.action_trabajadoresFragment_to_datosAmbientalesFragment)
 
         }
-    }
-
-
-    private fun limpiarDatosFormulario() {
-        binding.idTxtCantidadTrabajadores.setText("")
-
-        binding.idTxtCantidadPagoTrabajadores.setText("")
-        binding.idTxtCantidadPagoEspecieTrabajadores.setText("")
-        binding.idTxtHorarioLavoral.setText("")
-
-        binding.idTxtDescripcionObservaciones.setText("")
-        binding.idTxtAlojamientoTrabajadores.setText("")
-
-
     }
 
     private fun instanciaDatosFormuario() {
@@ -97,10 +85,37 @@ class TrabajadoresFragment : Fragment(R.layout.fragment_trabajadores) {
 
         cant_pago_dinero = binding.idTxtCantidadPagoTrabajadores.text.toString()
         cant_pago_especie = binding.idTxtCantidadPagoEspecieTrabajadores.text.toString()
-        horario_laboral = binding.idTxtHorarioLavoral.text.toString()
+        val spinerHorarioLavoral = binding.idSpinerHorarioLavoral
+        val itemsHorarioLavoral = arrayOf(
+            "2", "4", "6",
+            "8", "OTRO"
+        )
+
+        val arrayAdapterHorariolavoral = ArrayAdapter(
+            requireContext(),
+            com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
+            itemsHorarioLavoral
+        )
+        spinerHorarioLavoral.adapter = arrayAdapterHorariolavoral
+        horario_laboral = spinerHorarioLavoral.selectedItem.toString()
 
         descripcion_adicional = binding.idTxtDescripcionObservaciones.text.toString()
-        alojamiento_trabajadores = binding.idTxtAlojamientoTrabajadores.text.toString()
+
+        val radioGroupAlojamiento = binding.idRadioGroupAlojamiento
+        radioGroupAlojamiento.setOnCheckedChangeListener { group, checkedid ->
+            when (checkedid) {
+                R.id.idSiAlojamiento -> {
+                    tiene_alojamiento = "Si"
+                    binding.idLayoutAlojamientoTrabajadores.visibility = View.VISIBLE
+                    alojamiento_trabajadores = binding.idTxtAlojamientoTrabajadores.text.toString()
+                }
+                R.id.idNoAlojamiento -> {
+                    tiene_alojamiento = "No"
+                    binding.idLayoutAlojamientoTrabajadores.visibility = View.GONE
+                    alojamiento_trabajadores = ""
+                }
+            }
+        }
 
 
         val spinerEstadoAlojamiento = binding.idSpinerEstadoAlojamientoTrabajadores
@@ -135,15 +150,13 @@ class TrabajadoresFragment : Fragment(R.layout.fragment_trabajadores) {
             esValido = false
         } else binding.idTxtCantidadPagoEspecieTrabajadores.error = null
 
-        if (TextUtils.isEmpty(horario_laboral)) {
-            binding.idTxtHorarioLavoral.error = "Campo requerido"
+        if (!(binding.idSiAlojamiento.isChecked || binding.idNoAlojamiento.isChecked)) {
             esValido = false
-        } else binding.idTxtHorarioLavoral.error = null
-
-        if (TextUtils.isEmpty(alojamiento_trabajadores)) {
-            binding.idTxtAlojamientoTrabajadores.error = "Campo requerido"
-            esValido = false
-        } else binding.idTxtAlojamientoTrabajadores.error = null
+            binding.idErrorAlojamiento.visibility = View.VISIBLE
+        } else {
+            esValido = true
+            binding.idErrorAlojamiento.visibility = View.GONE
+        }
 
         return esValido
     }

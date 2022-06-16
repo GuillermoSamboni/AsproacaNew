@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_two"
     tools:context=".SplashActivity">
 
     <ScrollView
@@ -111,10 +112,13 @@
 
 
                 <ImageView
-                    android:id="@+id/idButton4"
                     android:layout_width="70dp"
                     android:layout_height="80dp"
                     android:src="@drawable/pdet" />
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/logobin" />
             </LinearLayout>
 
             <ImageView

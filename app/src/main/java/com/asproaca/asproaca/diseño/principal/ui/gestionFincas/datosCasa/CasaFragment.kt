@@ -142,7 +142,6 @@ class CasaFragment : Fragment(R.layout.fragment_casa) {
 
     private fun validarCamposFormulario(): Boolean {
         var esValido = true
-        var esValido2 = true
 
         if (!(binding.idSiAcueducto.isChecked || binding.idNoAcueducto.isChecked)) {
             esValido = false
@@ -177,6 +176,6 @@ class CasaFragment : Fragment(R.layout.fragment_casa) {
             binding.idTxtNumeroBanios.error = "Campo requerido"
         } else binding.idTxtNumeroBanios.error = null
 
-        return esValido2
+        return esValido
     }
 }

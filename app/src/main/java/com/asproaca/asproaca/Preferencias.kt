@@ -39,6 +39,9 @@ class Preferencias(val context: Context) {
     fun borrarPreferencias() {
         almacenamiento.edit().clear().apply()
     }
+    fun borrarPreferenciasUser() {
+        almacenamiento.edit().clear().apply()
+    }
 
     fun esPrimeraVezEnPrincipal(context: Context): Boolean {
         val shp = almacenamiento

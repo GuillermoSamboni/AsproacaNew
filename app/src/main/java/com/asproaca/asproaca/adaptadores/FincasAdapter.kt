@@ -66,8 +66,10 @@ class FincasAdapter(private val listFarm: ArrayList<Finca>, val context: Context
 
                 if (event.estadoActualizar == true) {
                     binding.idBtnActualizarDatosNuevo.visibility = View.VISIBLE
+                    binding.idModificarUsuario.visibility = View.VISIBLE
                 } else {
                     binding.idBtnActualizarDatosNuevo.visibility = View.GONE
+                    binding.idModificarUsuario.visibility = View.GONE
                 }
 
                 binding.idEliminarUsuario.setOnClickListener {

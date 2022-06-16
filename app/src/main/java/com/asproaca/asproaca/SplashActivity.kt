@@ -18,7 +18,9 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.idBtnContinuar.setOnClickListener {
-            splashScreen()
+            //splashScreen()
+            val intentSplash = Intent(this, MainActivity::class.java)
+            startActivity(intentSplash)
         }
 
         /*
@@ -27,11 +29,11 @@ class SplashActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )*/
     }
-
+/*
     private fun splashScreen() {
         Handler().postDelayed(Runnable {
             val intentSplash = Intent(this, MainActivity::class.java)
             startActivity(intentSplash)
         }, timeSplash)
-    }
+    }*/
 }

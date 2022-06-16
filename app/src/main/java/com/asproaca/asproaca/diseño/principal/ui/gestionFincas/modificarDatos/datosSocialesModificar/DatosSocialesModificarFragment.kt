@@ -85,9 +85,6 @@ class DatosSocialesModificarFragment : Fragment(R.layout.fragment_datos_sociales
             binding.idTxtCorreo.setText(Constantes2.listaDatosFinca!!.datos_sociales!!.correoElectronico.toString())
                 .toString()
         Constantes2.correoElectronico = correoElectronico
-        edad = binding.idTxtEdad.setText(Constantes2.listaDatosFinca!!.datos_sociales!!.edad.toString())
-            .toString()
-        Constantes2.edad = edad
 
         numeroDeIntegrantes =
             binding.idTxtNumeroIntegrantes.setText(Constantes2.listaDatosFinca!!.datos_sociales!!.numeroIntegrantes.toString())
@@ -132,7 +129,6 @@ class DatosSocialesModificarFragment : Fragment(R.layout.fragment_datos_sociales
         }
         telefono = binding.idTxtTelefono.text.toString()
         correoElectronico = binding.idTxtCorreo.text.toString()
-        edad = binding.idTxtEdad.text.toString()
 
         val spinerNivelManejoDispositivos = binding.idSpinerNivelManejoDispositivos
         val itemManejoDispositivos = arrayOf(
@@ -158,29 +154,6 @@ class DatosSocialesModificarFragment : Fragment(R.layout.fragment_datos_sociales
         )
         spinerTipoPoblacion.adapter = arrayAdapterTipoPoblacion
         tipoPoblacion = spinerTipoPoblacion.selectedItem.toString()
-
-        val spinerGenero = binding.idSpinerGenero
-        val itemGenero = arrayOf(
-            "MUJER", "HOMBRE"
-        )
-        val arrayAdapterGenero = ArrayAdapter(
-            requireContext(),
-            com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
-            itemGenero
-        )
-        spinerGenero.adapter = arrayAdapterGenero
-        genero = spinerGenero.selectedItem.toString()
-
-        val spinerNivelAcademico = binding.idSpineNivelAcademico
-        val itemNivelAcademico =
-            arrayOf("PRIMARIA", "SECUNDARIA", "PREGRADO", "POSGRADO", "UNIVERSITARIO", "TECNICO")
-        val arrayAdapterNivelAcademico = ArrayAdapter(
-            requireContext(),
-            com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
-            itemNivelAcademico
-        )
-        spinerNivelAcademico.adapter = arrayAdapterNivelAcademico
-        nivelAcademico = spinerNivelAcademico.selectedItem.toString()
 
         numeroDeIntegrantes = binding.idTxtNumeroIntegrantes.text.toString()
     }
@@ -231,15 +204,6 @@ class DatosSocialesModificarFragment : Fragment(R.layout.fragment_datos_sociales
             binding.idTxtTelefono.error = null
             esValido = true
         }
-
-        if (TextUtils.isEmpty(edad)) {
-            binding.idTxtEdad.error = "Campo requerido"
-            esValido = false
-        } else {
-            binding.idTxtEdad.error = null
-            esValido = true
-        }
-
         if (TextUtils.isEmpty(numeroDeIntegrantes)) {
             binding.idTxtNumeroIntegrantes.error = "Campo requerido"
             esValido = false

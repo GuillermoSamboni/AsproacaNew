@@ -100,6 +100,7 @@
     <string name="introproyecto2">"SISTEMA DE INFORMACIÓN  ORGANIZACIONAL (SIA) "</string>
     <string name="continuar">Continuar</string>
     <string name="listado_de_usuarios">Listado de Usuarios</string>
+    <string name="cuenta_con_alojamiento_para_los_trabajadores">¿Cuenta con alojamiento para los trabajadores?</string>
 
 
 </resources>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".diseño.principal.ui.gestionFincas.datosProductivos.TrabajadoresFragment">
 
     <ScrollView
@@ -28,10 +28,10 @@
 
                 <TextView
                     android:id="@+id/textView2"
-                    android:layout_marginTop="@dimen/margenGlobal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
+                    android:layout_marginTop="@dimen/margenGlobal"
                     android:layout_marginEnd="5dp"
                     android:text="DATOS DE LOS TRABAJADORES"
                     android:textAlignment="center"
@@ -64,7 +64,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Cantidad de trabajadores"
+                    android:hint="Número de trabajadores"
                     android:textColorHint="@color/color_primary"
                     app:boxBackgroundMode="outline"
                     app:boxCornerRadiusBottomEnd="8dp"
@@ -75,11 +75,11 @@
                     app:hintTextColor="@color/color_primary">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:maxLength="12"
                         android:id="@+id/idTxtCantidadTrabajadores"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:maxLength="12" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -127,27 +127,34 @@
                         android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/idLayoutHorarioLavoral"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¿Cúal es el número de horas laboradas en el día?"
+                    android:textColor="@color/blackmode"
+                    android:textStyle="bold" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Horario laboral"
-                    android:textColorHint="@color/color_primary"
-                    app:boxBackgroundMode="outline"
-                    app:boxCornerRadiusBottomEnd="8dp"
-                    app:boxCornerRadiusBottomStart="8dp"
-                    app:boxCornerRadiusTopEnd="8dp"
-                    app:boxCornerRadiusTopStart="8dp"
-                    app:endIconMode="clear_text"
-                    app:hintTextColor="@color/color_primary">
+                    android:orientation="horizontal">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/idTxtHorarioLavoral"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/seleccionar_una_opci_n"
+                        android:textColor="@color/blackmode"
+                        android:textStyle="normal" />
+
+                    <Spinner
+                        android:id="@+id/idSpinerHorarioLavoral"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:backgroundTint="@color/color_green" />
+
+                </LinearLayout>
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -165,7 +172,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Descripcion u Observaciones"
+                    android:hint="Descripción u observaciones"
                     android:textColorHint="@color/color_primary"
                     app:boxBackgroundMode="outline"
                     app:boxCornerRadiusBottomEnd="8dp"
@@ -182,6 +189,41 @@
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <TextView
+                    android:id="@+id/idErrorAlojamiento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/seleccionar_una_opci_n"
+                    android:textColor="@color/color_red"
+                    android:visibility="gone" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cuenta_con_alojamiento_para_los_trabajadores"
+                    android:textColor="@color/blackmode"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/idRadioGroupAlojamiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/idSiAlojamiento"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Si" />
+
+                    <RadioButton
+                        android:id="@+id/idNoAlojamiento"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No" />
+                </RadioGroup>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/idLayoutAlojamientoTrabajadores"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -189,6 +231,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Alojamiento trabajadores"
                     android:textColorHint="@color/color_primary"
+                    android:visibility="gone"
                     app:boxBackgroundMode="outline"
                     app:boxCornerRadiusBottomEnd="8dp"
                     app:boxCornerRadiusBottomStart="8dp"

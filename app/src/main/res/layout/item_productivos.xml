@@ -127,7 +127,7 @@
                     android:text="No" />
 
             </RadioGroup>
-
+<!--
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
                     android:backgroundTint="@color/color_green" />
 
             </LinearLayout>
-
+-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -430,7 +430,7 @@
                         android:text="No" />
 
                 </RadioGroup>
-
+<!--
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -457,7 +457,7 @@
                         android:backgroundTint="@color/color_green" />
 
                 </LinearLayout>
-
+-->
 
                 <TextView
                     android:id="@+id/idErrorUsaEquiposPoscosecha"
@@ -518,7 +518,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
-
+<!--
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -538,7 +538,6 @@
                         android:backgroundTint="@color/color_green" />
 
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -558,6 +557,7 @@
                         android:backgroundTint="@color/color_green" />
 
                 </LinearLayout>
+-->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -649,7 +649,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
-
+<!--
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/idBtnContinuarProceso"
                 android:layout_width="match_parent"
@@ -658,7 +658,7 @@
                 android:layout_marginBottom="@dimen/margin_button_global"
                 android:text="@string/continuar_proceso"
                 android:textColor="@color/white" />
-
+-->
         </LinearLayout>
 
     </ScrollView>

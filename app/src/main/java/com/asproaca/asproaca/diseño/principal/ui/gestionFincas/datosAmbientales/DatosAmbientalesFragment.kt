@@ -95,7 +95,7 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         val itemsNatuAcuaticos = arrayOf(
             "NACIMIENTOS",
             "AGUA SUBTERRÁNEAS",
-            "QUEBRADAS", "RIOS"
+            "QUEBRADAS", "RIOS", "NO"
         )
         val arrayAdapterNatuAcuaticos = ArrayAdapter(
             requireContext(),
@@ -120,7 +120,7 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         val spinerAcuaArtificiales = binding.idSpinerEcosistemaArtificial
         val itemsAcuaArtificiales = arrayOf(
             "POZO",
-            "PECES", "RESERVORIO DE AGUA", "OTRO"
+            "PECES", "RESERVORIO DE AGUA", "OTRO", "NO"
         )
         val arrayAdapterAcuaArtificiales = ArrayAdapter(
             requireContext(),
@@ -143,7 +143,7 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         }
 
         val spinerTerrestreNaturales = binding.idSpinerEcosistemaTerrestreNatural
-        val itemsTerrestreNaturales = arrayOf("BOSQUES", "GUADULAES", "RESERVAS")
+        val itemsTerrestreNaturales = arrayOf("BOSQUES", "GUADULES", "RESERVAS", "NO")
         val arrayAdapterTerrestreNaturales = ArrayAdapter(
             requireContext(),
             com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,

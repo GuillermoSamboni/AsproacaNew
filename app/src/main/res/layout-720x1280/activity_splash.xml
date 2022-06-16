@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@drawable/background_two"
     android:layout_height="match_parent">
 
     <ScrollView
@@ -111,12 +112,17 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:src="@drawable/pdet" />
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/logobin" />
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/idButton3"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/logo_ok_colores"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -124,11 +130,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
             <com.google.android.material.button.MaterialButton
-                android:layout_marginTop="@dimen/margenGlobal"
-                android:text="@string/continuar"
                 android:id="@+id/idBtnContinuar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margenGlobal"
+                android:text="@string/continuar" />
         </LinearLayout>
     </ScrollView>
 

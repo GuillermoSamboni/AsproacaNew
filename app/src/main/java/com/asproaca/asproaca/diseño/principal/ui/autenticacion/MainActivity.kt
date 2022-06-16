@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var correoElectronico: String
     private lateinit var contrasena: String
     private lateinit var idUsuario: String
+    private var rolePassContinue: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,7 +68,6 @@ class MainActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(correo, contrasena)
                 .addOnCompleteListener { respuesta ->
                     if (respuesta.isSuccessful) {
-                        idUsuario = respuesta.result.user!!.uid
                         if (binding.idTxtCheckBox.isChecked) {
                             preferencia.guardarUsuario(correo)
                             if (preferencia.guardarIdUsuario(respuesta.result.user!!.uid)) {
@@ -101,6 +101,7 @@ class MainActivity : AppCompatActivity() {
                 if (preferencia.guardarRol(document.data?.get("rol").toString())) {
                     Constantes2.idUsuario = uid
                     Constantes2.encargadoRegistro = document.data?.get("rol").toString()
+                    rolePassContinue = document.data?.get("rol").toString()
                     seObtuvo = true
                 } else {
                     seObtuvo = false

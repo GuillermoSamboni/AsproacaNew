@@ -42,7 +42,7 @@ class DatosAmbientalesMdificarFragment : Fragment(R.layout.fragment_datos_ambien
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDatosAmbientalesBinding.bind(view)
-
+        binding.idBtnFinalizaregistro.setText("MODIFICAR FINCA")
         viewModel = ViewModelProvider(this)[DatosAmbintalesModificarViewModel::class.java]
         dataBase.firestoreSettings.isPersistenceEnabled
         dataBase.firestoreSettings.cacheSizeBytes

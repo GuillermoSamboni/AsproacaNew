@@ -218,6 +218,6 @@ class CocinaFragment : Fragment(R.layout.fragment_cocina) {
             binding.idErrorAguaResidual.visibility = View.GONE
         }
 
-        return esValido2
+        return esValido
     }
 }

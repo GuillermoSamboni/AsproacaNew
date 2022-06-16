@@ -1,10 +1,15 @@
 package com.asproaca.asproaca.diseño.principal
 
 
+import android.app.Activity
+import android.app.Application
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -24,12 +29,16 @@ import com.asproaca.asproaca.modelos.Proveedor
 import com.asproaca.asproaca.modelos.ZonasModel
 import com.campo.campocolombiano.design.constantes.Constantes2
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.internal.ContextUtils.getActivity
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.math.absoluteValue
 
 
 class PrincipalActivity : AppCompatActivity() {
@@ -38,6 +47,7 @@ class PrincipalActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityPrincipalBinding
     lateinit var locationService: Localizacion
+    private lateinit var dataBase: FirebaseFirestore
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +60,8 @@ class PrincipalActivity : AppCompatActivity() {
         locationService = Localizacion(this)
         locationService.startRequest()
 
+        Constantes2.encargadoRegistro = preferencia.obtenerRol()
+
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
                 obtenerMunicipios()
@@ -57,7 +69,6 @@ class PrincipalActivity : AppCompatActivity() {
                 obtenerProveedores()
             }
         }
-
         setSupportActionBar(binding.appBarPrincipal.toolbar)
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
@@ -70,21 +81,12 @@ class PrincipalActivity : AppCompatActivity() {
                 R.id.nav_usuarios,
                 R.id.nav_proveedores,
                 R.id.nav_zonas,
-                R.id.idCerrarSesion,
+                R.id.nav_mis_datos,
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        if (preferencia.obtenerRol()
-                .isNotEmpty() && preferencia.obtenerRol() == "Super Administrador"
-        ) {
-            val botonAgregarFinca = findViewById<FloatingActionButton>(R.id.idBtnAnadirFica)
-            botonAgregarFinca.visibility = View.GONE
-        } else {
-            val botonAgregarFinca = findViewById<FloatingActionButton>(R.id.idBtnAnadirFica)
-            botonAgregarFinca.visibility = View.VISIBLE
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -115,11 +117,14 @@ class PrincipalActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        when(item.itemId){
+        when (item.itemId) {
             R.id.cerrarSesion -> {
-                Toast.makeText(this, "Cerrada", Toast.LENGTH_SHORT).show()}
+                preferencia.borrarPreferenciasUser()
+                Firebase.auth.signOut()
+                Constantes2.encargadoRegistro = ""
+                finishAffinity()
             }
-
+        }
         return super.onOptionsItemSelected(item)
     }
 

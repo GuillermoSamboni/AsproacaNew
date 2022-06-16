@@ -28,8 +28,9 @@
             android:title="@string/gestionar_zonas" />
 
         <item
-            android:id="@+id/idCerrarSesion"
-            android:icon="@drawable/ic_exit_to_app"
-            android:title="@string/cerrar_sesi_n" />
+            android:id="@+id/nav_mis_datos"
+            android:icon="@drawable/ic_person"
+            android:title="Mis Datos" />
+
     </group>
 </menu>

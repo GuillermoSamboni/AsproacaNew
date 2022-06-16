@@ -2,7 +2,9 @@ package com.asproaca.asproaca.diseño.principal.ui.gestionFincas
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -42,51 +44,49 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
     private lateinit var dataBase: FirebaseFirestore
     private lateinit var myAdapter: FincasAdapter
     private lateinit var viewModel: FincasViewModel
+    private lateinit var boton: Button
 
     var swipeRefreshLayout: SwipeRefreshLayout? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentFincasBinding.bind(view)
-        viewModel = ViewModelProvider(this)[FincasViewModel::class.java]
+        val botonAgregar = view.findViewById<FloatingActionButton>(R.id.idBtnAnadirFica)
+
+        Constantes2.encargadoRegistro = preferencia.obtenerRol()
 
 
-        initRecyclerView()
+        if (Constantes2.encargadoRegistro == "Super Administrador") {
+            botonAgregar.visibility = View.GONE
+        }
+        if (Constantes2.encargadoRegistro == "Administrador") {
+            initRecyclerViewAmin()
+        }
+
+        if (Constantes2.encargadoRegistro == "Super Administrador") {
+            initRecyclerViewSuperAdmin()
+        }
         buscarFinca()
         primerIngreso()
-
 
         binding.idBtnAnadirFica.setOnClickListener {
             findNavController().navigate(R.id.action_nav_fincas_to_datosBasicosFragment)
         }
 
-        binding.idBtnCerrar.setOnClickListener {
-            Firebase.auth.signOut()
-            preferencia.borrarPreferencias()
-        }
-
-        if (preferencia.obtenerRol()
-                .isNotEmpty() && preferencia.obtenerRol() == "Super Administrador"
-        ) {
-            val botonAgregar = view.findViewById<FloatingActionButton>(R.id.idBtnAnadirFica)
-            botonAgregar.visibility = View.GONE
-        } else {
-            val botonAgregar = view.findViewById<FloatingActionButton>(R.id.idBtnAnadirFica)
-            botonAgregar.visibility = View.VISIBLE
-        }
-
         swipeRefreshLayout = binding.swipeRefreshLayout
-
-        swipeRefreshLayout!!.setOnRefreshListener {
-            swipeRefreshLayout!!.setRefreshing(true);
-            if (recargarDatos()) {
-                swipeRefreshLayout!!.setRefreshing(false);
+        try {
+            swipeRefreshLayout!!.setOnRefreshListener {
+                swipeRefreshLayout!!.setRefreshing(true);
+                if (recargarDatos()) {
+                    swipeRefreshLayout!!.setRefreshing(false);
+                }
             }
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), "Que sera => ${e.message}", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun initRecyclerView() {
-
+    private fun initRecyclerViewAmin() {
         recyclerView = binding.idRecyclerViewFincas
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
@@ -104,24 +104,36 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
             Constantes2.idFinca = event.idFinca
             startActivity(intent)
         }
-        //obtenerFincas()
+
         eventChangeListener()
+
     }
 
-    /**
-    private fun obtenerFincas() {
-    viewModel.clickResultadoFinca()
-    viewModel.resultdoConsulta.observe(this@FincasFragment.requireActivity(),
-    Observer { success ->
-    if (success == true) {
-    recargarDatos()
-    } else {
-    //
+    private fun initRecyclerViewSuperAdmin() {
+        recyclerView = binding.idRecyclerViewFincas
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.setHasFixedSize(true)
+
+        listaFincas = arrayListOf()
+        myAdapter = FincasAdapter(_fincasArrayList as ArrayList<Finca>, requireContext())
+        recyclerView.adapter = myAdapter
+
+        myAdapter.setOnClickListener {
+            val position = binding.idRecyclerViewFincas.getChildAdapterPosition(it)
+            val event = listaFincas[position]
+
+            val intent = Intent(context, ModificarFincaActivity::class.java)
+            Constantes2.listaDatosFinca = event
+            Constantes2.idFinca = event.idFinca
+            startActivity(intent)
+        }
+
+        eventChangeListenerSuperAdmin()
+
     }
-    })
-    }*/
 
     private fun eventChangeListener() {
+        listaFincas = mutableListOf()
         dataBase = FirebaseFirestore.getInstance()
         dataBase.collection("Fincas").document("Fincas").collection("ActualizacionFinca")
             .whereEqualTo("idUsuario", preferencia.obtenerIdUsuario())
@@ -158,12 +170,53 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
                 })
     }
 
+    private fun eventChangeListenerSuperAdmin() {
+        listaFincas = mutableListOf()
+        dataBase = FirebaseFirestore.getInstance()
+        dataBase.collection("Fincas").document("Fincas").collection("ActualizacionFinca")
+            .addSnapshotListener(
+                MetadataChanges.INCLUDE,
+                object : EventListener<QuerySnapshot> {
+                    override fun onEvent(
+                        value: QuerySnapshot?,
+                        error: FirebaseFirestoreException?
+                    ) {
+                        if (error != null) {
+                            return
+                        }
+                        for (dc: DocumentChange in value?.documentChanges!!) {
+                            if (dc.type == DocumentChange.Type.ADDED) {
+                                try {
+                                    listaFincas.add(dc.document.toObject(Finca::class.java))
+                                    listaFincas.forEach {
+                                        Constantes2.EstadoActualizar = it.estadoActualizar
+                                    }
+                                } catch (e: Exception) {
+                                    Snackbar.make(
+                                        binding.root,
+                                        "Ha ocurrido un error, vuelva a intentarlo",
+                                        Snackbar.LENGTH_LONG
+                                    ).setAction("Action", null).show()
+                                }
+                            }
+                            myAdapter.notifyDataSetChanged()
+                        }
+                        _fincasArrayList.clear()
+                        _fincasArrayList.addAll(listaFincas)
+                    }
+                })
+
+    }
+
     private fun recargarDatos(): Boolean {
         swipeRefreshLayout!!.setRefreshing(false);
-        listaFincas = mutableListOf()
-        eventChangeListener()
+        if (Constantes2.encargadoRegistro == "Administrador") {
+            initRecyclerViewAmin()
+        }
+        if (Constantes2.encargadoRegistro == "Super Administrador") {
+            initRecyclerViewSuperAdmin()
+        }
         return true
-
     }
 
     private fun buscarFinca() {

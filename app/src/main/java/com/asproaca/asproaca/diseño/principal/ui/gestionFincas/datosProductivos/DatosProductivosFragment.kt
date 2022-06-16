@@ -347,8 +347,7 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
         }
         alert_persona.setNegativeButton("No, Continuar") { _, _ ->
             alert_persona.setCancelable(true)
-            alert_anadirProductivos.dismiss()
-
+            //alert_anadirProductivos.dismiss()
             findNavController().navigate(R.id.action_datosProductivosFragment_to_animalesFragment2)
         }
         alert_persona.create().show()

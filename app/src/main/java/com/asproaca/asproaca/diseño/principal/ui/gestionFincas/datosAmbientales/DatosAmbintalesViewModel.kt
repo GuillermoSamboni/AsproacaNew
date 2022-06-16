@@ -65,6 +65,7 @@ class DatosAmbintalesViewModel : ViewModel() {
             Constantes2.cant_pago_especie,
             Constantes2.horario_laboral,
             Constantes2.descripcion_adicional,
+            Constantes2.tiene_alojamiento,
             Constantes2.alojamiento_trabajadores,
             Constantes2.estado_alojamiento_trabajadores,
         )
@@ -95,10 +96,7 @@ class DatosAmbintalesViewModel : ViewModel() {
             Constantes2.fechaNacimiento,
             Constantes2.telefono,
             Constantes2.correoElectronico,
-            Constantes2.edad,
             Constantes2.tipoPoblacion,
-            Constantes2.genero,
-            Constantes2.nivelAcademico,
             Constantes2.numeroIntegrantes,
             Constantes2.nivelManejoDispositivos,
             Constantes2.listaIntegrantes,

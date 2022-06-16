@@ -115,55 +115,108 @@
                         android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
-                        <LinearLayout
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
+                            android:hint="Coordenada X"
+                            android:textColorHint="@color/color_primary"
+                            app:boxBackgroundMode="outline"
+                            app:boxCornerRadiusBottomEnd="8dp"
+                            app:boxCornerRadiusBottomStart="8dp"
+                            app:boxCornerRadiusTopEnd="8dp"
+                            app:boxCornerRadiusTopStart="8dp"
+                            app:endIconMode="clear_text"
+                            app:hintTextColor="@color/color_primary">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Coordenada X"
-                                android:textColor="@color/blackmode"
-                                android:textStyle="bold" />
-
-                            <TextView
+                            <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/idTxtCordenadaX"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="14521215"
-                                android:textColor="@color/blackmode"
-                                android:textStyle="normal" />
+                                android:inputType="text"
+                                android:maxLength="90" />
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                        </LinearLayout>
+                        <Space
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content" />
 
-                        <LinearLayout
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
+                            android:hint="Coordenada Y"
+                            android:textColorHint="@color/color_primary"
+                            app:boxBackgroundMode="outline"
+                            app:boxCornerRadiusBottomEnd="8dp"
+                            app:boxCornerRadiusBottomStart="8dp"
+                            app:boxCornerRadiusTopEnd="8dp"
+                            app:boxCornerRadiusTopStart="8dp"
+                            app:endIconMode="clear_text"
+                            app:hintTextColor="@color/color_primary">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Coordenada Y"
-                                android:textColor="@color/blackmode"
-                                android:textStyle="bold" />
-
-                            <TextView
+                            <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/idTxtCordenadaY"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="14545445"
-                                android:textColor="@color/blackmode"
-                                android:textStyle="normal" />
+                                android:inputType="text"
+                                android:maxLength="90" />
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                        </LinearLayout>
+                        <!--
+                                                <LinearLayout
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_gravity="center"
+                                                    android:layout_weight="1"
+                                                    android:gravity="center"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="Coordenada X"
+                                                        android:textColor="@color/blackmode"
+                                                        android:textStyle="bold" />
+
+                                                    <TextView
+                                                        android:id="@+id/idTxtCordenadaX"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="14521215"
+                                                        android:textColor="@color/blackmode"
+                                                        android:textStyle="normal" />
+
+                                                </LinearLayout>
+                                                <LinearLayout
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_gravity="center"
+                                                    android:layout_weight="1"
+                                                    android:gravity="center"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="Coordenada Y"
+                                                        android:textColor="@color/blackmode"
+                                                        android:textStyle="bold" />
+
+                                                    <TextView
+                                                        android:id="@+id/idTxtCordenadaY"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="14545445"
+                                                        android:textColor="@color/blackmode"
+                                                        android:textStyle="normal" />
+
+                                                </LinearLayout>
+                                                -->
+
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -280,8 +333,7 @@
                             android:id="@+id/idHistoria_finca"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:maxLength="12" />
+                            android:inputType="text" />
                     </com.google.android.material.textfield.TextInputLayout>
                     <!--
                                         <com.google.android.material.textfield.TextInputLayout
@@ -334,7 +386,7 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Area total de la finca (Has)"
+                        android:hint="Área total de la finca (Has)"
                         android:textColorHint="@color/color_primary"
                         app:boxBackgroundMode="outline"
                         app:boxCornerRadiusBottomEnd="8dp"

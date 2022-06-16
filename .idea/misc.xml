@@ -85,6 +85,49 @@
         <entry key="..\:/Users/jhonda/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/item_pecuarias.xml" value="0.3489583333333333" />
         <entry key="..\:/Users/jhonda/AndroidStudioProjects/AsproacaNew/app/src/main/res/layout/item_productivos.xml" value="0.3489583333333333" />
         <entry key="..\:/Users/jhonda/AndroidStudioProjects/AsproacaNew/app/src/main/res/menu/principal.xml" value="0.3489583333333333" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/drawable-v24/ic_okay.xml" value="0.102" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/drawable-v24/toast_modificacion_exitosa.xml" value="0.102" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout-1280x1920/activity_splash.xml" value="0.16296296296296298" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout-1440x2560/activity_splash.xml" value="0.11" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout-2340x1080/activity_splash.xml" value="0.1505466778805719" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout-2960x1440/activity_splash.xml" value="0.12094594594594595" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout-480x800/activity_splash.xml" value="0.4475" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout-480x800/alert_custom_delete.xml" value="0.4475" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout-480x800/alert_custom_modify.xml" value="0.4475" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout-480x800/custom_carga.xml" value="0.4475" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout-480x800/custom_toast_modificacion_exitosa.xml" value="0.43875" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout-480x800/item_proveedores.xml" value="0.33625" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout-480x800/item_zonas.xml" value="0.4475" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout-480x800/users_adapter.xml" value="0.19583333333333333" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout-720x1280/activity_splash.xml" value="0.33" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout-v28/nav_header_principal.xml" value="0.18645833333333334" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/activity_main.xml" value="0.11940298507462686" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/activity_principal.xml" value="0.1828125" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/activity_splash.xml" value="0.2" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/alert_anadir_productivos.xml" value="0.15092592592592594" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/alerta_animales.xml" value="0.18645833333333334" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/alerta_eliminar_finca.xml" value="0.11940298507462686" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/alerta_integrantes.xml" value="0.33" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/alerta_lotes.xml" value="0.18645833333333334" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/app_bar_principal.xml" value="0.1828125" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/fragment_animales.xml" value="0.18645833333333334" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/fragment_datos_ambientales.xml" value="0.25" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/fragment_datos_basicos.xml" value="0.18645833333333334" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/fragment_datos_basicos_modificar.xml" value="0.18645833333333334" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/fragment_datos_productivos.xml" value="0.18645833333333334" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/fragment_datos_sociales.xml" value="0.22" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/fragment_fincas.xml" value="0.18645833333333334" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/fragment_modificar_datos.xml" value="0.1" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/fragment_perfil.xml" value="0.18645833333333334" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/fragment_principal.xml" value="0.18645833333333334" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/fragment_produccion.xml" value="0.17083333333333334" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/fragment_trabajadores.xml" value="0.25" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/item_fincas.xml" value="0.25" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/item_pecuarias.xml" value="0.1828125" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/item_productivos.xml" value="0.18645833333333334" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/layout/nav_header_principal.xml" value="0.1828125" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/menu/activity_main_drawer.xml" value="0.18645833333333334" />
+        <entry key="..\:/holi/AsproacaNew/app/src/main/res/menu/principal.xml" value="0.18645833333333334" />
       </map>
     </option>
   </component>
