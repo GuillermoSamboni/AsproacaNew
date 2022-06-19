@@ -2,15 +2,11 @@ package com.asproaca.asproaca.diseño.principal.ui.gestionFincas
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,19 +16,14 @@ import com.asproaca.asproaca.AsproacaNewAplication.Companion.preferencia
 import com.asproaca.asproaca.R
 import com.asproaca.asproaca.adaptadores.FincasAdapter
 import com.asproaca.asproaca.databinding.FragmentFincasBinding
-import com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosAmbientales.DatosAmbintalesViewModel
 import com.asproaca.asproaca.modelos.Finca
 import com.campo.campocolombiano.design.constantes.Constantes2
+import com.campo.campocolombiano.design.constantes.Constantes2.Companion.crearNuevaFinca
 import com.getkeepsafe.taptargetview.TapTarget
 import com.getkeepsafe.taptargetview.TapTargetSequence
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.*
-import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 
 class FincasFragment : Fragment(R.layout.fragment_fincas) {
@@ -54,7 +45,7 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
         val botonAgregar = view.findViewById<FloatingActionButton>(R.id.idBtnAnadirFica)
 
         Constantes2.encargadoRegistro = preferencia.obtenerRol()
-
+        crearNuevaFinca = false
 
         if (Constantes2.encargadoRegistro == "Super Administrador") {
             botonAgregar.visibility = View.GONE
@@ -95,15 +86,16 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
         myAdapter = FincasAdapter(_fincasArrayList as ArrayList<Finca>, requireContext())
         recyclerView.adapter = myAdapter
 
+        /**
         myAdapter.setOnClickListener {
-            val position = binding.idRecyclerViewFincas.getChildAdapterPosition(it)
-            val event = listaFincas[position]
+        val position = binding.idRecyclerViewFincas.getChildAdapterPosition(it)
+        val event = listaFincas[position]
 
-            val intent = Intent(context, ModificarFincaActivity::class.java)
-            Constantes2.listaDatosFinca = event
-            Constantes2.idFinca = event.idFinca
-            startActivity(intent)
-        }
+        val intent = Intent(context, ModificarFincaActivity::class.java)
+        Constantes2.listaDatosFinca = event
+        Constantes2.idFinca = event.idFinca
+        startActivity(intent)
+        }*/
 
         eventChangeListener()
 

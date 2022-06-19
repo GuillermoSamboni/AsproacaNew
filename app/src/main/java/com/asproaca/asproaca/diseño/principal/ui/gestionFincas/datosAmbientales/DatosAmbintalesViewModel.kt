@@ -1,13 +1,9 @@
 package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosAmbientales
 
-import android.app.Activity
-import android.content.Context
-import androidx.core.app.ActivityCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.asproaca.asproaca.Preferencias
 import com.asproaca.asproaca.modelos.*
 import com.campo.campocolombiano.design.constantes.Constantes2
 import com.google.firebase.firestore.SetOptions
@@ -111,6 +107,7 @@ class DatosAmbintalesViewModel : ViewModel() {
             Constantes2.coordenada_y,
             Constantes2.vereda_finca,
             Constantes2.zona,
+            Constantes2.municipio,
             Constantes2.antiguedad_finca,
             Constantes2.historia_finca,
             Constantes2.realiza_quema,
@@ -130,6 +127,11 @@ class DatosAmbintalesViewModel : ViewModel() {
             .collection("ActualizacionFinca").document(Constantes2.nombre_finca.toString())
             .set(datos_finca, SetOptions.merge()).addOnCompleteListener { task ->
                 status = task.isSuccessful
+                Constantes2.coordenada_x = ""
+                Constantes2.coordenada_y = ""
+                Constantes2.idUsuario = ""
+                Constantes2.idFinca = ""
+                Constantes2.encargadoRegistro = ""
             }.addOnFailureListener {
                 status = false
             }

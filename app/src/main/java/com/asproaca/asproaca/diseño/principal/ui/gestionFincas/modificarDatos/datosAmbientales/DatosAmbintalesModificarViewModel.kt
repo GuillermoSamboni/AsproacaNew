@@ -5,10 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.asproaca.asproaca.Preferencias
-import com.asproaca.asproaca.modelos.*
 import com.campo.campocolombiano.design.constantes.Constantes2
-import com.google.firebase.firestore.SetOptions
+import com.campo.campocolombiano.design.constantes.Constantes2.Companion.crearNuevaFinca
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
@@ -23,106 +21,36 @@ class DatosAmbintalesModificarViewModel : ViewModel() {
     fun clickRegistroFinca() {
         viewModelScope.launch {
             _rsultRegister.value = withContext(Dispatchers.IO) {
-                registrarFinca()
+                if (crearNuevaFinca == false) {
+                    actualizarFincaFinca()
+                } else {
+                    rearNuevaFincaFinca()
+                }
+                true
             }
         }
     }
 
-    private fun registrarFinca(): Boolean {
+    private fun rearNuevaFincaFinca() {
+        dataBase.collection("Fincas").document("Fincas")
+            .collection("ActualizacionFinca").document("NuevaFincaPrueba").set(hashMapOf(
+                "Hola" to "hola"
+            ))
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    //se creo
+                    Log.e("siSeCreo", task.result .toString())
+                }else{
+                    Log.e("NOSeCreo", task.result .toString())
+                }
+            }.addOnFailureListener {
+                Log.e("ErrorCreacion", it.message.toString())
+            }
+    }
+
+    private fun actualizarFincaFinca(): Boolean {
         var status = true
 
-        val datos_cocina = CocinaCasa(
-            Constantes2.tipo_estufa,
-            Constantes2.tipo_combustible_alimentos,
-            Constantes2.tipo_combustible_industriales,
-            Constantes2.fuente_comsumo_domestico,
-            Constantes2.fuente_comsumo_industrial,
-            Constantes2.tratamiento_agua_ducha,
-            Constantes2.tratamiento_lavadero,
-            Constantes2.tratamiento_lavaplatos,
-            Constantes2.tratamiento_agua_residual
-        )
-
-        val datos_casa = Casa(
-            Constantes2.servicio_acueducto,
-            Constantes2.servicio_alcantarillado,
-            Constantes2.servicio_electrico,
-            Constantes2.servicio_internet,
-            Constantes2.tipo_techo,
-            Constantes2.tipo_pared,
-            Constantes2.numero_banios,
-            Constantes2.tipo_piso,
-            datos_cocina
-        )
-
-
-        val datosTrabajadores = DatosTrabajadorres(
-            Constantes2.cantidad_trabajadores_contratados,
-            Constantes2.tipo_contratacion,
-            Constantes2.cant_pago_dinero,
-            Constantes2.cant_pago_especie,
-            Constantes2.horario_laboral,
-            Constantes2.descripcion_adicional,
-            Constantes2.alojamiento_trabajadores,
-            Constantes2.estado_alojamiento_trabajadores,
-        )
-
-
-        val datosAmbientales = DatosAmbientales(
-            Constantes2.tiene_ecosistema_acuaticos_naturales,
-            Constantes2.ecosistemas_naturales_acuaticos,
-            Constantes2.tiene_ecosistema_acuaticos_artificiales,
-            Constantes2.ecosistemas_artificial_acuaticos,
-            Constantes2.tiene_ecositemas_terrestes_naturales,
-            Constantes2.ecosistemas_terrestre_natural,
-            Constantes2.area_ecosistemas_terrestre_natural,
-            Constantes2.consesion_agua,
-            Constantes2.tipo_arboles_descripcion,
-            Constantes2.tratamiento_basura,
-            Constantes2.separacion_basura,
-            Constantes2.cobertura_suelos,
-            Constantes2.areas_con_erosion,
-            Constantes2.areas_con_evidencias_remocion,
-            Constantes2.animales_silvestres_en_cautivero,
-            Constantes2.captacion_agua_lluvia,
-        )
-
-        val datosSociales = DatosSociales(
-            Constantes2.nombre,
-            Constantes2.identificacion,
-            Constantes2.fechaNacimiento,
-            Constantes2.telefono,
-            Constantes2.correoElectronico,
-            Constantes2.tipoPoblacion,
-            Constantes2.numeroIntegrantes,
-            Constantes2.nivelManejoDispositivos,
-            Constantes2.listaIntegrantes,
-        )
-        val datos_finca = Finca(
-            Constantes2.nombre_finca,
-            Constantes2.idUsuario,
-            Constantes2.encargadoRegistro,
-            false,
-            Constantes2.nombre_finca,
-            Constantes2.coordenada_x,
-            Constantes2.coordenada_y,
-            Constantes2.vereda_finca,
-            Constantes2.zona,
-            Constantes2.antiguedad_finca,
-            Constantes2.historia_finca,
-            Constantes2.realiza_quema,
-            Constantes2.creado,
-            Constantes2.certificaciones,
-            Constantes2.zona_riesgo,
-            Constantes2.tenencia_de_la_tierra,
-            Constantes2.area_total,
-            datos_casa,
-            datosSociales,
-            Constantes2.listaProductivos,
-            Constantes2.listaAnimales,
-            datosTrabajadores,
-            datosAmbientales,
-        )
         dataBase.collection("Fincas").document("Fincas")
             .collection("ActualizacionFinca").document(Constantes2.idFinca.toString())
             .update(
@@ -133,6 +61,7 @@ class DatosAmbintalesModificarViewModel : ViewModel() {
                     "coordenada_y" to Constantes2.coordenada_y,
                     "vereda_finca" to Constantes2.vereda_finca,
                     "zona" to Constantes2.zona,
+                    "municipio" to Constantes2.municipio,
                     "antiguedad_finca" to Constantes2.antiguedad_finca,
                     "historia_finca" to Constantes2.historia_finca,
                     "realiza_quema" to Constantes2.realiza_quema,
@@ -141,7 +70,6 @@ class DatosAmbintalesModificarViewModel : ViewModel() {
                     "zona_riesgo" to Constantes2.zona_riesgo,
                     "tenencia_de_la_tierra" to Constantes2.tenencia_de_la_tierra,
                     "area_total" to Constantes2.area_total,
-                    //"datos_ambientales.animales_silvestres_en_cautivero" to "holaaa",
 
                     "datos_casa.servicio_acueducto" to Constantes2.servicio_acueducto,
                     "datos_casa.servicio_alcantarillado" to Constantes2.servicio_alcantarillado,
@@ -170,15 +98,11 @@ class DatosAmbintalesModificarViewModel : ViewModel() {
                     "datos_sociales.numeroIntegrantes" to Constantes2.numeroIntegrantes,
                     "datos_sociales.nivelManejoDispositivos" to Constantes2.nivelManejoDispositivos,
                     "datos_sociales.otrosIntegrantes" to Constantes2.listaIntegrantes
-
-
                 )
             ).addOnCompleteListener { task ->
                 status = task.isSuccessful
-                Log.e("ASASDF","SuccessFull")
                 Constantes2.idFinca = ""
             }.addOnFailureListener {
-                Log.e("ASASDF","Failed Ecxecute")
                 status = false
             }
 

@@ -2,23 +2,19 @@ package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosAmbientale
 
 import android.os.Bundle
 import android.text.TextUtils
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.asproaca.asproaca.Preferencias
 import com.asproaca.asproaca.R
-import com.asproaca.asproaca.databinding.FragmentAnimalesBinding
 import com.asproaca.asproaca.databinding.FragmentDatosAmbientalesBinding
+import com.asproaca.asproaca.diseño.utilidades.Localizacion
 import com.campo.campocolombiano.design.constantes.Constantes2
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import java.util.*
 
 
 class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
@@ -43,6 +39,8 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
     private var animales_silvestres_en_cautivero: String? = null
     private var captacion_agua_lluvia: String? = null
     private var preferencias: Preferencias? = null
+    lateinit var locationService: Localizacion
+
 
     private var dataBase = Firebase.firestore
 
@@ -55,6 +53,9 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         dataBase.firestoreSettings.cacheSizeBytes
 
         instanciaDatosFormulario()
+
+        locationService = Localizacion(requireContext())
+        locationService.startRequest()
 
         binding.idBtnFinalizaregistro.setOnClickListener {
             registrarFinca()
@@ -263,6 +264,7 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         preferencias = Preferencias(requireContext())
         Constantes2.idUsuario = preferencias!!.obtenerIdUsuario()
         Constantes2.encargadoRegistro = preferencias!!.obtenerRol()
+
     }
 
     private fun validarCamposFormulario(): Boolean {

@@ -119,15 +119,23 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:visibility="gone"
-                        android:id="@+id/idModificarUsuario"
+                        android:id="@+id/idBtnVerFinca"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:layout_marginEnd="20dp"
-                        android:backgroundTint="@color/transparente"
-                        android:text="Tocar finca para actualizar"
-                        android:textColor="@color/black"
-                        android:background="@color/transparente"
+                        android:layout_marginEnd="10dp"
+                        android:backgroundTint="@color/verdeAsproaca"
+                        android:text="Ver"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                    <Button
+                        android:id="@+id/idBtnModificarFincaa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="10dp"
+                        android:backgroundTint="@color/color_hearth"
+                        android:text="@string/modificar"
+                        android:textColor="@color/white"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 

@@ -8,8 +8,6 @@ import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import com.asproaca.asproaca.R
 import com.asproaca.asproaca.databinding.FragmentDatosBasicosBinding
-import com.asproaca.asproaca.modelos.Municipios
-import com.asproaca.asproaca.modelos.ZonasModel
 import com.campo.campocolombiano.design.constantes.Constantes2
 import java.text.SimpleDateFormat
 import java.util.*
@@ -69,6 +67,7 @@ class DatosBasicosFragment : Fragment(R.layout.fragment_datos_basicos) {
             Constantes2.coordenada_y = coordenada_y
             Constantes2.vereda_finca = vereda_finca
             Constantes2.zona = zona
+            Constantes2.municipio = municipio
             Constantes2.antiguedad_finca = antiguedad_finca
             Constantes2.historia_finca = historia_finca
             Constantes2.realiza_quema = realiza_quema

@@ -22,4 +22,9 @@
     <style name="Theme.AsproacaNew.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.AsproacaNew.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="dialog_animationButtonTo">
+        <item name="android:windowEnterAnimation">@anim/anim_button_to_top</item>
+        <item name="android:windowExitAnimation">@anim/anim_top_to_button</item>
+    </style>
 </resources>

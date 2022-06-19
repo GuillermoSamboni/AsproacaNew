@@ -144,7 +144,7 @@ class DatosBasicosModificarFragment : Fragment(R.layout.fragment_datos_basicos) 
             Constantes2.listaMunicipios!!
         )
         spinerMunicipios.adapter = arrayAdapter
-        //municipio = spinerMunicipios.selectedItem.toString()
+        municipio = spinerMunicipios.selectedItem.toString()
 
         val spinerZonas = binding.idSpinerZona
         val arrayAdapterZonas = ArrayAdapter(
@@ -217,7 +217,6 @@ class DatosBasicosModificarFragment : Fragment(R.layout.fragment_datos_basicos) 
             binding.idTxtCordenadaY.setText(Constantes2.listaDatosFinca!!.coordenada_y.toString())
                 .toString()
 
-        //municipio = Constantes2.listaDatosFinca!!. .toString()
         vereda_finca =
             binding.idTxtVeredaFinca.setText(Constantes2.listaDatosFinca!!.vereda_finca.toString())
                 .toString()
@@ -268,6 +267,7 @@ class DatosBasicosModificarFragment : Fragment(R.layout.fragment_datos_basicos) 
         Constantes2.coordenada_y = coordenada_y
         Constantes2.vereda_finca = vereda_finca
         Constantes2.zona = zona
+        Constantes2.municipio = municipio
         Constantes2.antiguedad_finca = antiguedad_finca
         Constantes2.historia_finca = historia_finca
         Constantes2.realiza_quema = realiza_quema

@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/activity_modificar_finca.xml" value="0.22447916666666667" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/activity_nueva_finca_estado.xml" value="0.22447916666666667" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/detalle_finca.xml" value="0.20378250591016547" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/item_fincas.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1565" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable/circulo.xml" value="0.1565" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable/ic_add.xml" value="0.1565" />

@@ -13,6 +13,7 @@ class Constantes2 {
         var EstadoActualizar: Boolean? = null
         var listaDatosFinca: Finca? = null
         var idFinca: String? = null
+        var crearNuevaFinca: Boolean? = false
 
         /**
          * Datos Básicos
@@ -22,6 +23,7 @@ class Constantes2 {
         var coordenada_y: String? = null
         var vereda_finca: String? = null
         var zona: String? = null
+        var municipio: String? = null
         var antiguedad_finca: String? = null
         var historia_finca: String? = null
         var realiza_quema: String? = null

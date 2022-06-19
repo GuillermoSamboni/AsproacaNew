@@ -10,6 +10,7 @@ data class Finca(
     val coordenada_y: String? = null,
     val vereda_finca: String? = null,
     val zona: String? = null,
+    val municipio: String? = null,
     val antiguedad_finca: String? = null,
     val historia_finca: String? = null,
     val realiza_quema: String? = null,

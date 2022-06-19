@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AsproacaNew">
         <activity
+            android:name=".diseño.principal.ui.gestionFincas.nuevaFincaEsatdo.NuevaFincaEstadoActivity"
+            android:exported="false" />
+        <activity
             android:name=".diseño.principal.ui.gestionFincas.ModificarFincaActivity"
             android:exported="false" />
         <activity
@@ -29,7 +32,6 @@
         <activity
             android:name=".diseño.principal.ui.autenticacion.MainActivity"
             android:exported="true" />
-
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -38,7 +40,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

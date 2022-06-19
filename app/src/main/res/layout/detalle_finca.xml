@@ -1,0 +1,2587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="10dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/idNombr4Finca"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="El mirador"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="31sp"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/idBtnCerrar"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:backgroundTint="@color/transparente"
+                    android:src="@drawable/cerrar" />
+            </LinearLayout>
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="@dimen/margin_vertical_global"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="@dimen/margin_vertical_global"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="Vereda"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idVereda"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="El cabula"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="Zona"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idZona"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Zona uno"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="Municipio"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idMunicipio"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Popayán"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="Coordenadas"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_weight="1"
+                                        android:text="latitud"
+                                        android:textColor="@color/black"
+                                        android:textSize="16dp"
+                                        android:textStyle="normal" />
+
+                                    <TextView
+                                        android:id="@+id/idCoordenadaX"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_weight="2"
+                                        android:maxLines="2"
+                                        android:text="-13323"
+                                        android:textColor="@color/black"
+                                        android:textSize="16dp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <androidx.legacy.widget.Space
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_weight="1"
+                                        android:text="Longitud"
+                                        android:textColor="@color/black"
+                                        android:textSize="16dp"
+                                        android:textStyle="normal" />
+
+                                    <TextView
+                                        android:id="@+id/idCoordenadaY"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_weight="2"
+                                        android:maxLines="2"
+                                        android:text="-1332233"
+                                        android:textColor="@color/black"
+                                        android:textSize="16dp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="¿Cuantos años lleva en la finca?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idAniosEnFinca"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="Cambios en la finca"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idCambiosEnFinca"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="Certificaciones"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idCertificaciones"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="Área total de la finca"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idAreaFinca"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="@string/est_en_zona_de_riesgo"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idZonaRiesgo"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="¿Qué tipo de quemas realiza?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idQuemas"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="¿que tipo de tenencia tiene sobre la finca?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idTenenciaFinca"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Datos de la vivienda"
+                            android:textAlignment="center"
+                            android:textColor="@color/verdeAsproaca"
+                            android:textSize="31sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="¿Cuenta con servicio de acueducto?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idServicioAcueducto"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="¿Cuenta con servicio de alcantarillado?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idServicioAlcantarillado"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="¿Cuenta con servicio de energía electrica?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idServicioEnergia"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="¿Cuenta con servicio de internet?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idServicioInternet"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="¿Qué tipo de techo tiene?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idTipoTecho"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="¿Qué tipo de pared tiene?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idTipoPared"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="¿Cuántos baños tiene la vivienda?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idNumeroBanios"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="¿Qué tipo de piso tiene?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/idTipoPiso"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Datos de recursos de la cocina"
+                            android:textAlignment="center"
+                            android:textColor="@color/verdeAsproaca"
+                            android:textSize="31sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Qué sistema para la cocción de alimentos utiliza?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idTipoEstufa"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Qué fuente de energía utiliza para tareas domesticas?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idFuenteEnergiaDomesticas"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Qué fuente de energía utiliza para tareas industriales?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idFuenteEnergiaIndustrial"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Qué fuente de agua utiliza para el consumo domestico?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idFuenteAguaConsumoDomestico"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Qué fuente de agua utiliza para el consumo industrial?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idConsumoAguaIndustrial"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Realiza tratamiento del agua de la ducha?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idTRatamientoAguaDucha"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Realiza tratamiento al agua del lavadero?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idTRatamientoAguaLavadero"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Realiza tratamiento al agua del lavaplatos?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idTRatamientoAguaLavaplatos"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Realiza tratamiento de agjuas residuales?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idTRatamientoAguasResiduales"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Datos de núcleo familiar"
+                            android:textAlignment="center"
+                            android:textColor="@color/verdeAsproaca"
+                            android:textSize="31sp"
+                            android:textStyle="bold" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Nombre"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idNombreFamiliar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Número de identificación"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idNumeroIdentificacion"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Fecha de nacimiento"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idFechaNacimiento"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Teléfono"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idTelefono"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="@string/correo_electr_nico"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idCorreo"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="@string/nivel_de_manejo_de_dispositivos"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idNivelManejoDispositivos"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Tipo de población"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idTipoPoblacion"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Número de integrantes de la finca"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idNumeroIntegrantes"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Datos de producción agrícola"
+                            android:textAlignment="center"
+                            android:textColor="@color/verdeAsproaca"
+                            android:textSize="31sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Nombre del producto"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idNombreProducto"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="@string/area_productiva_total"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idAreaProductivaTotal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Edad del cultivo"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idEdadCultivo"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Tiene bodega de agroquímicos?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idBodegaAgroquimicos"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Proveedor de semilla"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idProveedorSemilla"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Ha tenido plagas?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idAtenidoPlagas"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Plagas"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idPlagas"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Se han presentado enfermades?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idHaTenidoEnfermedades"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Enfermedades"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idEnfermedades"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Datos de producción"
+                            android:textAlignment="center"
+                            android:textColor="@color/verdeAsproaca"
+                            android:textSize="31sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Fertilizantes usados"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idFertilizantesUsados"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Agroquimicos usados"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idAgroquimicosUsados"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Usa equipos de protección?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idUsaEquiposProteccion"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Cual es el estado del equipo de protección?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idEstadoEquipoProteccion"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Cuenta con infraestructura para el manejo de poscosecha?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idInfraestructura"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Cual es el estado de equipos de infraestructura?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idEstadoInfraestructura"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Cual es el proceso de secado del café?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idSecadoCafe"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Equipos indutriales"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idEquiposIndustriales"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Cuantas veces lava el cultivo"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idNumeroLavadosCultivo"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Cantidad de lotes"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idCantidadLotes"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Datos producción pecuaria"
+                            android:textAlignment="center"
+                            android:textColor="@color/verdeAsproaca"
+                            android:textSize="31sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/idVerTxtNoHayDatosAnimales"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="No se han registrado datos producción pecuaria para esta finca"
+                            android:textAlignment="center"
+                            android:textColor="@color/error"
+                            android:textSize="21sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:visibility="visible"
+                            android:id="@+id/idOcultarDatosAnimales"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_weight="2"
+                                    android:text="Nombre del animal"
+                                    android:textColor="@color/black"
+                                    android:textSize="16dp"
+                                    android:textStyle="normal" />
+
+                                <TextView
+                                    android:id="@+id/idNombreAnimal"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_weight="2"
+                                    android:maxLines="2"
+                                    android:text="Hola"
+                                    android:textColor="@color/black"
+                                    android:textSize="16dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_weight="2"
+                                    android:text="Número de animales"
+                                    android:textColor="@color/black"
+                                    android:textSize="16dp"
+                                    android:textStyle="normal" />
+
+                                <TextView
+                                    android:id="@+id/idNumeroAnimales"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_weight="2"
+                                    android:maxLines="2"
+                                    android:text="Hola"
+                                    android:textColor="@color/black"
+                                    android:textSize="16dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_weight="2"
+                                    android:text="Área total de crianza de los animales"
+                                    android:textColor="@color/black"
+                                    android:textSize="16dp"
+                                    android:textStyle="normal" />
+
+                                <TextView
+                                    android:id="@+id/idAreaCrianzaAnimal"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_weight="2"
+                                    android:maxLines="2"
+                                    android:text="Hola"
+                                    android:textColor="@color/black"
+                                    android:textSize="16dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Datos de lo trabajadores"
+                            android:textAlignment="center"
+                            android:textColor="@color/verdeAsproaca"
+                            android:textSize="31sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Tipo de contrato"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idTipoContrato"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Número de trabajadores"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idNumeroTrabajadores"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Cual es la cantidad de pagos por jornada en efectivo?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idCantidadPagoEfectivo"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Cual es la cantidad de pagos por jornada en especie?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idCantidadPagoEspecie"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Cual es la cantidad de horas de jornada laboral al día?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idCantidadHorasLaborales"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Datos adicionales"
+                            android:textAlignment="center"
+                            android:textColor="@color/verdeAsproaca"
+                            android:textSize="31sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Descripción u obervaciones"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idDescripcionObservaciones"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Cuenta con alojamiento para los trabajadores?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idTieneAlojamiento"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Cual es el estado de los espacios de alojamiento de los trabajadores?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idEstadoAlojamiento"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Datos ambientales"
+                            android:textAlignment="center"
+                            android:textColor="@color/verdeAsproaca"
+                            android:textSize="31sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Tiene ecosistemas acuaticos naturales?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idTieneAguaNatural"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Nombre del Ecosistema acuatico natural"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idNombreAguaNatural"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Tiene ecosistemas acuaticos artificial?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idTieneAguaArtificial"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Nombre del Ecosistema acuatico artificial"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idTieneAcuaArtificial"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Nombre del ecosistema terrestre natural"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idNombreAcuaArtificial"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Área del ecosistema terrestre natural"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idAreaEcosistemaTerrestre"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Consesión agua"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idConsesionAgua"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="Tipo de arboles"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idTipoArboles"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Realiza tratamiento de residuos?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idTratamientoResiduos"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Realiza separación de residuos?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idSeparacionResiduos"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Existe cobertura de suelos?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idCoberturaSuelos"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Existe areas con erosión?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idAreasErosion"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Existe areas con evidencia de remoción de suelos?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idEvidenciaRemocion"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Existe animales silvestres en cautiverio?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idAnimalesEnCautiverio"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:text="¿Realiza captación de agua lluvia?"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/idCaptacionAguaLluvia"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="2"
+                                android:maxLines="2"
+                                android:text="Hola"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
