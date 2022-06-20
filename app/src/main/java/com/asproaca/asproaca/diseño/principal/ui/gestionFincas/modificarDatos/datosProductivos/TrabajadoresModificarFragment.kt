@@ -87,7 +87,8 @@ class TrabajadoresModificarFragment : Fragment(R.layout.fragment_trabajadores) {
             Constantes2.alojamiento_trabajadores = alojamiento_trabajadores
             Constantes2.estado_alojamiento_trabajadores = estado_alojamiento_trabajadores
 
-            findNavController().navigate(R.id.action_trabajadoresFragment_to_datosAmbientalesFragment)
+            //findNavController().navigate(R.id.action_trabajadoresFragment_to_datosAmbientalesFragment)
+            findNavController().navigate(R.id.action_trabajadoresFragment_to_datosAmbientalesEditaFragment)
 
         }
     }

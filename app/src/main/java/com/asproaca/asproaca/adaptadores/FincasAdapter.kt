@@ -247,6 +247,12 @@ class FincasAdapter(private val listFarm: ArrayList<Finca>, val context: Context
                     Constantes2.crearNuevaFinca = true
                     Constantes2.listaDatosFinca = event
                     Constantes2.idFinca = event.idFinca
+                    Constantes2.idFincaPadre = event.idFincaPadre!!
+                    Constantes2.modificacionesFincas = event.modificaciones_fincas ?: mutableListOf()
+                    Constantes2.listaDatosFinca = event
+                    Constantes2.listaAnimales = event.datos_animal
+                    Constantes2.listaProductivos = event.datos_productivos
+
 
                     val pasar = Intent(context, ModificarFincaActivity::class.java)
                     //pasar.putExtra("Finca", event.toString())

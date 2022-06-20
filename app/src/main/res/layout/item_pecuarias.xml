@@ -142,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_button_global"
                     android:layout_marginBottom="@dimen/margin_button_global"
-                    android:text="Guardar nuevo"
+                    android:text="Guardar"
                     android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>

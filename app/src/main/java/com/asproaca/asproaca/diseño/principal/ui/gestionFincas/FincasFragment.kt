@@ -2,6 +2,7 @@ package com.asproaca.asproaca.diseño.principal.ui.gestionFincas
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.SearchView
@@ -24,6 +25,14 @@ import com.getkeepsafe.taptargetview.TapTargetSequence
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.*
+import com.google.firebase.firestore.EventListener
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class FincasFragment : Fragment(R.layout.fragment_fincas) {
@@ -117,6 +126,8 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
             val intent = Intent(context, ModificarFincaActivity::class.java)
             Constantes2.listaDatosFinca = event
             Constantes2.idFinca = event.idFinca
+            Constantes2.idFincaPadre = event.idFincaPadre!!
+            Constantes2.modificacionesFincas = event.modificaciones_fincas ?: mutableListOf()
             startActivity(intent)
         }
 
@@ -142,7 +153,10 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
                         for (dc: DocumentChange in value?.documentChanges!!) {
                             if (dc.type == DocumentChange.Type.ADDED) {
                                 try {
-                                    listaFincas.add(dc.document.toObject(Finca::class.java))
+                                    //listaFincas.add(dc.document.toObject(Finca::class.java))
+
+                                    getUltimaEditada(dc.document.toObject(Finca::class.java))
+
                                     listaFincas.forEach {
                                         Constantes2.EstadoActualizar = it.estadoActualizar
                                     }
@@ -154,12 +168,71 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
                                     ).setAction("Action", null).show()
                                 }
                             }
-                            myAdapter.notifyDataSetChanged()
+
                         }
                         _fincasArrayList.clear()
                         _fincasArrayList.addAll(listaFincas)
+                        myAdapter.notifyDataSetChanged()
                     }
                 })
+
+    }
+
+    private fun getUltimaEditada(finca: Finca) {
+
+        var fincaReturn: Finca? = null
+        var ultimaFecha: Date? = null
+
+        if (finca.modificaciones_fincas == null){
+            listaFincas.add(finca)
+            myAdapter.notifyDataSetChanged()
+            return
+        }
+
+        if (finca.modificaciones_fincas.size < 1){
+            listaFincas.add(finca)
+            myAdapter.notifyDataSetChanged()
+            return
+        }
+
+        ultimaFecha = SimpleDateFormat("yyyy/MM/dd HH:mm:ss").parse(finca.modificaciones_fincas[0])
+
+        for (fecha in finca.modificaciones_fincas) {
+            val date = SimpleDateFormat("yyyy/MM/dd HH:mm:ss").parse(fecha)
+            Log.d(
+                "dsdpflsd",
+                "<: ${date < ultimaFecha} ==: ${date == ultimaFecha} >: ${date > ultimaFecha} diff: ${
+                    date.compareTo(ultimaFecha)
+                }"
+            )
+            if (date > ultimaFecha)
+                ultimaFecha = date
+        }
+        Log.d("dsdpflsd", "Ultima fecha ${ultimaFecha!!.toString("yyyy/MM/dd HH:mm:ss")}")
+
+
+
+        dataBase . collection ("Fincas").document("Fincas")
+            .collection("RegistroActualizacionFinca").document(finca.idFincaPadre!!)
+            .collection(ultimaFecha.toString("yyyy/MM/dd HH:mm:ss").replace("/", "-"))
+            .document(finca.idFincaPadre)
+            .get().addOnCompleteListener {
+                if (it.isSuccessful) {
+                    fincaReturn = it.getResult().toObject(Finca::class.java)
+                    listaFincas.add(fincaReturn!!)
+                    _fincasArrayList.clear()
+                    _fincasArrayList.addAll(listaFincas)
+                    myAdapter.notifyDataSetChanged()
+                }
+            }
+
+
+
+    }
+
+    fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
+        val formatter = SimpleDateFormat(format, locale)
+        return formatter.format(this)
     }
 
     private fun eventChangeListenerSuperAdmin() {
@@ -179,7 +252,8 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
                         for (dc: DocumentChange in value?.documentChanges!!) {
                             if (dc.type == DocumentChange.Type.ADDED) {
                                 try {
-                                    listaFincas.add(dc.document.toObject(Finca::class.java))
+                                    //listaFincas.add(dc.document.toObject(Finca::class.java))
+                                        getUltimaEditada(dc.document.toObject(Finca::class.java))
                                     listaFincas.forEach {
                                         Constantes2.EstadoActualizar = it.estadoActualizar
                                     }

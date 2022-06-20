@@ -28,7 +28,7 @@ class DatosAmbintalesViewModel : ViewModel() {
 
     private fun registrarFinca(): Boolean {
         var status = true
-
+        Constantes2.idFincaPadre = Constantes2.nombre_finca
         val datos_cocina = CocinaCasa(
             Constantes2.tipo_estufa,
             Constantes2.tipo_combustible_alimentos,
@@ -122,7 +122,10 @@ class DatosAmbintalesViewModel : ViewModel() {
             Constantes2.listaAnimales,
             datosTrabajadores,
             datosAmbientales,
+            mutableListOf(),
+            Constantes2.nombre_finca
         )
+
         dataBase.collection("Fincas").document("Fincas")
             .collection("ActualizacionFinca").document(Constantes2.nombre_finca.toString())
             .set(datos_finca, SetOptions.merge()).addOnCompleteListener { task ->

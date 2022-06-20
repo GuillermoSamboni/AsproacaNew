@@ -871,8 +871,8 @@ class DatosProductivosModificarFragment : Fragment(R.layout.fragment_datos_produ
         idRecyclerView.adapter = myProductivosAdapter
 
         binding.IdBtnActualizarDatos.setOnClickListener {
-            //findNavController().navigate(R.id.action_datosProductivosFragment_to_datosPecuariosModificarFragment)
-            findNavController().navigate(R.id.action_datosProductivosFragment_to_trabajadoresFragment)
+            findNavController().navigate(R.id.action_datosProductivosFragment_to_datosPecuariosModificarFragment)
+            //findNavController().navigate(R.id.action_datosProductivosFragment_to_trabajadoresFragment)
         }
 
     }

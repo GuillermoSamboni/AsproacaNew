@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.asproaca.asproaca.R
 import com.asproaca.asproaca.adaptadores.DatosPecuariosModificarAdapter
@@ -19,15 +20,23 @@ private lateinit var binding: FragmentDatosPecuariosModificarBinding
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDatosPecuariosModificarBinding.bind(view)
         initRecyclerView()
+        binding.IdBtnActualizarDatos.setOnClickListener {
+            pasarDatos()
+        }
+    }
+
+    private fun pasarDatos() {
+        findNavController().navigate(R.id.action_datosPecuariosModificarFragment_to_trabajadoresFragment)
     }
 
     private fun initRecyclerView() {
 
         binding.idRcyDatosPecuarios.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = DatosPecuariosModificarAdapter(Constantes2.listaDatosFinca!!.datos_animal!!)
+            adapter = DatosPecuariosModificarAdapter(Constantes2.listaDatosFinca!!.datos_animal!!,requireContext())
         }
 
     }
+
 
 }

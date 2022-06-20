@@ -25,4 +25,6 @@ data class Finca(
     val datos_animal: MutableList<Animales>? = null,
     val datos_trabajadores: DatosTrabajadorres? = null,
     val datos_ambientales: DatosAmbientales? = null,
+    val modificaciones_fincas:MutableList<String>? = null,
+    val idFincaPadre:String? = null
 )

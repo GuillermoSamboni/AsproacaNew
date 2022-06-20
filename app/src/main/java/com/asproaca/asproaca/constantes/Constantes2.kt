@@ -9,6 +9,8 @@ class Constantes2 {
         var listaZonas: MutableList<String>? = null
         var listaProveedores: MutableList<String>? = null
         var idUsuario: String? = null
+        var idFincaPadre: String? = null
+        var modificacionesFincas: MutableList<String> = mutableListOf()
         var encargadoRegistro: String? = null
         var EstadoActualizar: Boolean? = null
         var listaDatosFinca: Finca? = null
