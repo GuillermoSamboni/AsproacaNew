@@ -63,6 +63,13 @@ class FincasAdapter(private val listFarm: ArrayList<Finca>, val context: Context
                     binding.idBtnActualizarDatosNuevo.visibility = View.GONE
                 }
 
+                if(event.estadoModificar == true){
+                    binding.idBtnModificarFincaa.visibility = View.VISIBLE
+                }else{
+                    binding.idBtnModificarFincaa.visibility = View.GONE
+                }
+
+
                 binding.idEliminarUsuario.setOnClickListener {
                     val custom_alertDelete =
                         AlertaEliminarFincaBinding.inflate(LayoutInflater.from(context))
@@ -252,6 +259,7 @@ class FincasAdapter(private val listFarm: ArrayList<Finca>, val context: Context
                     Constantes2.listaDatosFinca = event
                     Constantes2.listaAnimales = event.datos_animal
                     Constantes2.listaProductivos = event.datos_productivos
+                    Constantes2.idUsuario = event.idUsuario
 
 
                     val pasar = Intent(context, ModificarFincaActivity::class.java)

@@ -26,10 +26,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.EventListener
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -219,6 +215,10 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     fincaReturn = it.getResult().toObject(Finca::class.java)
+                    if(fincaReturn == null)
+                        return@addOnCompleteListener
+                    fincaReturn!!.estadoActualizar = finca.estadoActualizar
+                    fincaReturn!!.estadoModificar = finca.estadoModificar
                     listaFincas.add(fincaReturn!!)
                     _fincasArrayList.clear()
                     _fincasArrayList.addAll(listaFincas)

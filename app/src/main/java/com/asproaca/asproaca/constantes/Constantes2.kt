@@ -13,6 +13,7 @@ class Constantes2 {
         var modificacionesFincas: MutableList<String> = mutableListOf()
         var encargadoRegistro: String? = null
         var EstadoActualizar: Boolean? = null
+        var estadoModificar = false
         var listaDatosFinca: Finca? = null
         var idFinca: String? = null
         var crearNuevaFinca: Boolean? = false

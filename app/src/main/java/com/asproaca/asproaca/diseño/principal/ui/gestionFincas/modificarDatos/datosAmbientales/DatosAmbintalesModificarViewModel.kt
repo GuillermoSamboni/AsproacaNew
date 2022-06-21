@@ -130,7 +130,8 @@ class DatosAmbintalesModificarViewModel : ViewModel() {
                 datosTrabajadores,
                 datosAmbientales,
                 Constantes2.modificacionesFincas,
-                Constantes2.idFinca
+                Constantes2.idFinca,
+                Constantes2.estadoModificar
             )
 
             _rsultRegister.value = withContext(Dispatchers.IO) {

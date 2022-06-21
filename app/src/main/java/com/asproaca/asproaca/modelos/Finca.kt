@@ -4,7 +4,7 @@ data class Finca(
     val idFinca: String? = null,
     val idUsuario: String? = null,
     val encargadoRegistro: String? = null,
-    val estadoActualizar: Boolean? = null,
+    var estadoActualizar: Boolean? = null,
     val nombre_finca: String? = null,
     val coordenada_x: String? = null,
     val coordenada_y: String? = null,
@@ -26,5 +26,6 @@ data class Finca(
     val datos_trabajadores: DatosTrabajadorres? = null,
     val datos_ambientales: DatosAmbientales? = null,
     val modificaciones_fincas:MutableList<String>? = null,
-    val idFincaPadre:String? = null
+    val idFincaPadre:String? = null,
+    var estadoModificar: Boolean? = null,
 )

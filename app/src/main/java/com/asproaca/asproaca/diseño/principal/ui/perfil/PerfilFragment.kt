@@ -37,6 +37,13 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
         binding.idBtnDesacticar.setOnClickListener {
             desactivarModificaciones()
         }
+        binding.idBtnActivarModificacion.setOnClickListener {
+            activarMods()
+        }
+
+        binding.idBtnDesacticarModificacion.setOnClickListener {
+            desactivarMods()
+        }
     }
 
     private fun obtenerInfomacionPersona() {
@@ -127,7 +134,61 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
                                 if (conteo == 1) {
                                     Toast.makeText(
                                         requireContext(),
-                                        "Estados listos para actualizar",
+                                        "Se han deshabilitado las actualizaciones",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                        }
+                }
+            }
+    }
+
+    private fun activarMods(){
+        dataBase = FirebaseFirestore.getInstance()
+        dataBase.collection("Fincas").document("Fincas").collection("ActualizacionFinca")
+            .whereEqualTo("estadoModificar", false)
+            .get()
+            .addOnSuccessListener {
+                for (i in it) {
+                    dataBase = FirebaseFirestore.getInstance()
+                    dataBase.collection("Fincas").document("Fincas")
+                        .collection("ActualizacionFinca")
+                        .document(i.id)
+                        .update("estadoModificar", true).addOnCompleteListener {
+                            conteo += 1
+                            if (it.isComplete) {
+                                if (conteo == 1) {
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "Estados listos para Modificar",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                        }
+                }
+            }
+    }
+
+    private fun desactivarMods(){
+        dataBase = FirebaseFirestore.getInstance()
+        dataBase.collection("Fincas").document("Fincas").collection("ActualizacionFinca")
+            .whereEqualTo("estadoModificar", true)
+            .get()
+            .addOnSuccessListener {
+                for (i in it) {
+                    dataBase = FirebaseFirestore.getInstance()
+                    dataBase.collection("Fincas").document("Fincas")
+                        .collection("ActualizacionFinca")
+                        .document(i.id)
+                        .update("estadoModificar", false).addOnCompleteListener {
+                            conteo += 1
+                            if (it.isComplete) {
+                                if (conteo == 1) {
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "Se ha deshabilitado la modificacion",
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 }

@@ -123,7 +123,8 @@ class DatosAmbintalesViewModel : ViewModel() {
             datosTrabajadores,
             datosAmbientales,
             mutableListOf(),
-            Constantes2.nombre_finca
+            Constantes2.nombre_finca,
+            Constantes2.estadoModificar
         )
 
         dataBase.collection("Fincas").document("Fincas")
