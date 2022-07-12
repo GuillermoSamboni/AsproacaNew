@@ -4,19 +4,17 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.asproaca.asproaca.R
 import com.asproaca.asproaca.databinding.AlertAnadirProductivosBinding
-import com.asproaca.asproaca.databinding.AlertaIntegrantesBinding
 import com.asproaca.asproaca.databinding.AlertaLotesBinding
 import com.asproaca.asproaca.databinding.FragmentDatosProductivosBinding
-import com.asproaca.asproaca.modelos.IntegrantesFamilia
 import com.asproaca.asproaca.modelos.LotesProduccion
 import com.asproaca.asproaca.modelos.Productivos
 import com.campo.campocolombiano.design.constantes.Constantes2
@@ -50,7 +48,7 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
     private lateinit var lotes: LotesProduccion
     private lateinit var numero_de_arboles: String
     private lateinit var edad_del_lote: String
-    private lateinit var variedad: String
+    private var variedad: String = ""
     var contLotes = 0
 
     private val listaProductos = mutableListOf<Productivos>()
@@ -62,13 +60,46 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
     private lateinit var dialogBinding: AlertaLotesBinding
     private lateinit var productivosBinding: AlertAnadirProductivosBinding
 
+    val itemPrductoCafe = arrayOf(
+        "CASTILLO",
+        "F6",
+        "BORBON ROSADO",
+        "BORBON AMARILLO",
+        "VARIEDAD COLOMBIA",
+        "CENICAFE I",
+        "CATUEY",
+        "GEISHA",
+        "OTRO"
+    )
+    val itemPrductoCania = arrayOf(
+        "COMÚN",
+        "POJ 2878",
+        "DOMINICANA",
+        "RD 75 11",
+        "CP 57",
+        "CAJERA",
+        "CUBANA",
+        "ZC"
+    )
+    val itemPrductoCacao = arrayOf(
+        "CCN51",
+        "ICS95",
+        "ICS 1",
+        "ARAUQITA5",
+        "FEAR5",
+        "FSA11",
+        "FSA12",
+        "TAME 1",
+        "TAME 2",
+        "FSV 41"
+    )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDatosProductivosBinding.bind(view)
         try {
             instanciaDatosFormulario()
-        }catch (e:Exception){
+        } catch (e: Exception) {
             Toast.makeText(requireContext(), "${e.message}", Toast.LENGTH_SHORT).show()
         }
 
@@ -90,24 +121,34 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
             }
         }
 
-        val spinerProducto = binding.idSpinerProductos
+        var spinerProducto = binding.idSpinerProductos
         val itemsProducto = arrayOf(
             "CAFÉ",
             "CAÑA",
             "CACAO",
             "HORTALIZAS",
-            "PAPA",
+            "TUBÉRCULOS",
             "TOMATE",
             "FRUTAL",
             "OTRO",
         )
         val arrayAdapterProducto = ArrayAdapter(
             requireContext(),
-            com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
+            android.R.layout.simple_list_item_1,
             itemsProducto
         )
         spinerProducto.adapter = arrayAdapterProducto
-        nombre_producto = spinerProducto.selectedItem.toString()
+        spinerProducto.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                nombre_producto = itemsProducto[position]
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                //
+            }
+
+        }
+
 
         area_productiva_total = binding.idTxtAreaProductivaTota.text.toString()
 
@@ -230,9 +271,9 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
 
         val spinerTipoSecadoCafe = binding.idSpinerTipoSecadocafe
         val itemsTipoSecadoCafe = arrayOf(
-            "Malo",
-            "Regular",
-            "Bueno"
+            "SOLAR",
+            "COMBUSTIBLE FÓSIL",
+            "OTRO"
         )
         val arrayAdapterTipoSecadoCafe = ArrayAdapter(
             requireContext(),
@@ -340,12 +381,12 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
         alert_persona.setTitle("Añadir datos de producción agricola")
         alert_persona.setMessage("¿Desea agregar otro cultivo?")
         alert_persona.setCancelable(false)
-        alert_persona.setPositiveButton("Agregar") { _, _ ->
+        alert_persona.setPositiveButton("Agregar nuevo producto agrícola") { _, _ ->
             alert_persona.setCancelable(true)
             mostrarFormulario()
 
         }
-        alert_persona.setNegativeButton("No, Continuar") { _, _ ->
+        alert_persona.setNegativeButton("No, Continuar proceso") { _, _ ->
             alert_persona.setCancelable(true)
             //alert_anadirProductivos.dismiss()
             findNavController().navigate(R.id.action_datosProductivosFragment_to_animalesFragment2)
@@ -386,25 +427,27 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
             "CAÑA",
             "CACAO",
             "HORTALIZAS",
-            "PAPA",
+            "TUBÉRCULOS",
             "TOMATE",
             "FRUTAL",
             "OTRO",
         )
-        val arrayAdapterProducto = ArrayAdapter(
-            requireContext(),
-            com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
-            itemsProducto
-        )
+        val arrayAdapterProducto = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, itemsProducto)
         spinerProducto.adapter = arrayAdapterProducto
-        nombre_producto = spinerProducto.selectedItem.toString()
-
+        spinerProducto.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                nombre_producto = itemsProducto[p2]
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                //
+            }
+        }
         area_productiva_total = productivosBinding.idTxtAreaProductivaTotaA.text.toString()
 
         val spinerProveedor = binding.idSpinerProvedorSemilla
         val arrayAdapterProveedor = ArrayAdapter(
             requireContext(),
-            com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
+            android.R.layout.simple_list_item_1,
             Constantes2.listaProveedores!!
         )
         spinerProveedor.adapter = arrayAdapterProveedor
@@ -519,9 +562,9 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
 
         val spinerTipoSecadoCafe = productivosBinding.idSpinerTipoSecadocafeA
         val itemsTipoSecadoCafe = arrayOf(
-            "Malo",
-            "Regular",
-            "Bueno"
+            "SOLAR",
+            "COMBUSTIBLE FÓSIL",
+            "OTRO"
         )
         val arrayAdapterTipoSecadoCafe = ArrayAdapter(
             requireContext(),
@@ -538,6 +581,7 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
 
         productivosBinding.idBtnContinuarProceso.setOnClickListener {
             pasarDatosProductivosAlerta()
+            alert_anadirProductivos.dismiss()
         }
     }
 
@@ -707,29 +751,57 @@ class DatosProductivosFragment : Fragment(R.layout.fragment_datos_productivos) {
         edad_del_lote = dialogBinding.idTxtEdadLoteAlerta.text.toString()
 
         dialogBinding.idConteoAlerta.setText(cantidadLotes)
-
         val spinerVariedad = dialogBinding.idSpinerVariedadAlerta
-        val itemVariedades = arrayOf(
-            "CASTILLO",
-            "F6",
-            "AMARILLO",
-            "BORBON",
-            "ROSADO",
-            "VARIEDAD COLOMBIA",
-            "CENICAFE I",
-            "CATUEY",
-            "GEISHA",
-            "OTRO"
-        )
-        val arrayAdapterGenero = ArrayAdapter(
-            requireContext(),
-            com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
-            itemVariedades
-        )
-        spinerVariedad.adapter = arrayAdapterGenero
-        variedad = spinerVariedad.selectedItem.toString()
-        agregarLotes(numero_de_arboles, edad_del_lote, variedad)
+        if (nombre_producto == "CAFÉ") {
+            val arrayAdapterGenero = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_list_item_1,
+                itemPrductoCafe
+            )
+            spinerVariedad.adapter = arrayAdapterGenero
+            spinerVariedad.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    variedad = itemPrductoCafe[p2]
+                }
 
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                    //
+                }
+            }
+        } else if (nombre_producto == "CAÑA") {
+            val arrayAdapterGenero = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_list_item_1,
+                itemPrductoCania
+            )
+            spinerVariedad.adapter = arrayAdapterGenero
+            spinerVariedad.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    variedad = itemPrductoCania[p2]
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                    //
+                }
+            }
+        } else if (nombre_producto == "CACAO") {
+            val arrayAdapterGenero = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_list_item_1,
+                itemPrductoCacao
+            )
+            spinerVariedad.adapter = arrayAdapterGenero
+            spinerVariedad.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    variedad = itemPrductoCacao[p2]
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                    //
+                }
+            }
+        }
+        agregarLotes(numero_de_arboles, edad_del_lote, variedad)
         dialogBinding.idBtnLoteAlerta.setOnClickListener {
             if (validarFormularioLotes()) {
                 listLotes.addAll(listOf(lotes))

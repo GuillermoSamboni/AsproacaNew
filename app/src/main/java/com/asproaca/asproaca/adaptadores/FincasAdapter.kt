@@ -261,7 +261,6 @@ class FincasAdapter(private val listFarm: ArrayList<Finca>, val context: Context
                     Constantes2.listaProductivos = event.datos_productivos
                     Constantes2.idUsuario = event.idUsuario
 
-
                     val pasar = Intent(context, ModificarFincaActivity::class.java)
                     //pasar.putExtra("Finca", event.toString())
                     context.startActivity(pasar)

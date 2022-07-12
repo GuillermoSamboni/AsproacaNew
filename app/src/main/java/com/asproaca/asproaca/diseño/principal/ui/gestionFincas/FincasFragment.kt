@@ -1,6 +1,5 @@
 package com.asproaca.asproaca.diseño.principal.ui.gestionFincas
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -28,7 +27,6 @@ import com.google.firebase.firestore.*
 import com.google.firebase.firestore.EventListener
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class FincasFragment : Fragment(R.layout.fragment_fincas) {
@@ -52,9 +50,7 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
         Constantes2.encargadoRegistro = preferencia.obtenerRol()
         crearNuevaFinca = false
 
-        if (Constantes2.encargadoRegistro == "Super Administrador") {
-            botonAgregar.visibility = View.GONE
-        }
+
         if (Constantes2.encargadoRegistro == "Administrador") {
             initRecyclerViewAmin()
         }
@@ -78,7 +74,7 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
                 }
             }
         } catch (e: Exception) {
-            Toast.makeText(requireContext(), "Que sera => ${e.message}", Toast.LENGTH_SHORT).show()
+            //
         }
     }
 
@@ -102,6 +98,7 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
         startActivity(intent)
         }*/
 
+        binding.idBtnAnadirFica.visibility = View.VISIBLE
         eventChangeListener()
 
     }
@@ -114,18 +111,18 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
         listaFincas = arrayListOf()
         myAdapter = FincasAdapter(_fincasArrayList as ArrayList<Finca>, requireContext())
         recyclerView.adapter = myAdapter
-
+        /**
         myAdapter.setOnClickListener {
-            val position = binding.idRecyclerViewFincas.getChildAdapterPosition(it)
-            val event = listaFincas[position]
+        val position = binding.idRecyclerViewFincas.getChildAdapterPosition(it)
+        val event = listaFincas[position]
 
-            val intent = Intent(context, ModificarFincaActivity::class.java)
-            Constantes2.listaDatosFinca = event
-            Constantes2.idFinca = event.idFinca
-            Constantes2.idFincaPadre = event.idFincaPadre!!
-            Constantes2.modificacionesFincas = event.modificaciones_fincas ?: mutableListOf()
-            startActivity(intent)
-        }
+        val intent = Intent(context, ModificarFincaActivity::class.java)
+        Constantes2.listaDatosFinca = event
+        Constantes2.idFinca = event.idFinca
+        Constantes2.idFincaPadre = event.idFincaPadre!!
+        Constantes2.modificacionesFincas = event.modificaciones_fincas ?: mutableListOf()
+        startActivity(intent)
+        }*/
 
         eventChangeListenerSuperAdmin()
 
@@ -179,13 +176,13 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
         var fincaReturn: Finca? = null
         var ultimaFecha: Date? = null
 
-        if (finca.modificaciones_fincas == null){
+        if (finca.modificaciones_fincas == null) {
             listaFincas.add(finca)
             myAdapter.notifyDataSetChanged()
             return
         }
 
-        if (finca.modificaciones_fincas.size < 1){
+        if (finca.modificaciones_fincas.size < 1) {
             listaFincas.add(finca)
             myAdapter.notifyDataSetChanged()
             return
@@ -208,14 +205,14 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
 
 
 
-        dataBase . collection ("Fincas").document("Fincas")
+        dataBase.collection("Fincas").document("Fincas")
             .collection("RegistroActualizacionFinca").document(finca.idFincaPadre!!)
             .collection(ultimaFecha.toString("yyyy/MM/dd HH:mm:ss").replace("/", "-"))
             .document(finca.idFincaPadre)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     fincaReturn = it.getResult().toObject(Finca::class.java)
-                    if(fincaReturn == null)
+                    if (fincaReturn == null)
                         return@addOnCompleteListener
                     fincaReturn!!.estadoActualizar = finca.estadoActualizar
                     fincaReturn!!.estadoModificar = finca.estadoModificar
@@ -225,7 +222,6 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
                     myAdapter.notifyDataSetChanged()
                 }
             }
-
 
 
     }
@@ -253,7 +249,7 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
                             if (dc.type == DocumentChange.Type.ADDED) {
                                 try {
                                     //listaFincas.add(dc.document.toObject(Finca::class.java))
-                                        getUltimaEditada(dc.document.toObject(Finca::class.java))
+                                    getUltimaEditada(dc.document.toObject(Finca::class.java))
                                     listaFincas.forEach {
                                         Constantes2.EstadoActualizar = it.estadoActualizar
                                     }
@@ -277,9 +273,11 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
     private fun recargarDatos(): Boolean {
         swipeRefreshLayout!!.setRefreshing(false);
         if (Constantes2.encargadoRegistro == "Administrador") {
+            binding.idBtnAnadirFica.visibility = View.VISIBLE
             initRecyclerViewAmin()
         }
         if (Constantes2.encargadoRegistro == "Super Administrador") {
+            binding.idBtnAnadirFica.visibility = View.GONE
             initRecyclerViewSuperAdmin()
         }
         return true
@@ -334,16 +332,7 @@ class FincasFragment : Fragment(R.layout.fragment_fincas) {
                 transparentTarget(true)
                 targetCircleColor(R.color.white)
                 cancelable(false)
-            },
-            TapTarget.forView(binding.idBtnAnadirFica, "Añadir nueva finca").apply {
-                tintTarget(false)
-                dimColor(R.color.verdeAsproaca)
-                textColor(R.color.white)
-                transparentTarget(true)
-                targetCircleColor(R.color.white)
-                cancelable(false)
             }
-
         )
         TapTargetSequence(requireActivity()).targets(tarjetas).start()
     }

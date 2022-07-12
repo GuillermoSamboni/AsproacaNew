@@ -119,7 +119,7 @@ class TrabajadoresFragment : Fragment(R.layout.fragment_trabajadores) {
 
 
         val spinerEstadoAlojamiento = binding.idSpinerEstadoAlojamientoTrabajadores
-        val itemsEstadoAlojamiento = arrayOf("Malo", "Regular", "Bueno")
+        val itemsEstadoAlojamiento = arrayOf("MALO", "REGULAR", "BUENO")
 
         val arrayAdapterProveedor = ArrayAdapter(
             requireContext(),

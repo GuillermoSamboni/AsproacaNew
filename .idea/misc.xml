@@ -3,6 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AsproacaNew/app/src/main/res/layout-1280x1920/alerta_finalizar.xml" value="0.22447916666666667" />
+        <entry key="..\:/AsproacaNew/app/src/main/res/layout/fragment_fincas.xml" value="0.22447916666666667" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout-1280x1920/alerta_finalizar.xml" value="0.22864583333333333" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/alert_anadir_productivos.xml" value="0.22864583333333333" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/alerta_animales.xml" value="0.22447916666666667" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/alerta_finalizar.xml" value="0.21481481481481482" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/alerta_integrantes.xml" value="0.22447916666666667" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/alerta_lotes.xml" value="0.22447916666666667" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/fragment_animales.xml" value="0.22447916666666667" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/fragment_datos_ambientales.xml" value="0.22864583333333333" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/fragment_datos_basicos.xml" value="0.22864583333333333" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/fragment_datos_pecuarios_modificar.xml" value="0.22864583333333333" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/fragment_datos_productivos.xml" value="0.22447916666666667" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/fragment_datos_productivos_modificar.xml" value="0.22864583333333333" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/fragment_datos_sociales.xml" value="0.22447916666666667" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/fragment_perfil.xml" value="0.25" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/information_dev.xml" value="0.22864583333333333" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/item_pecuarias.xml" value="0.22447916666666667" />
+        <entry key="..\:/CodeLearn/AsproacaNew/app/src/main/res/layout/item_productivos.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1565" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable/circulo.xml" value="0.1565" />
         <entry key="..\:/Users/SENA/AndroidStudioProjects/AsproacaNew/app/src/main/res/drawable/ic_add.xml" value="0.1565" />

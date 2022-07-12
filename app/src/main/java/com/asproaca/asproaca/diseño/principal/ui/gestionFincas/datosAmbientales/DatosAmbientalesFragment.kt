@@ -1,7 +1,9 @@
 package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.datosAmbientales
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
@@ -10,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.asproaca.asproaca.Preferencias
 import com.asproaca.asproaca.R
+import com.asproaca.asproaca.databinding.AlertaFinalizarBinding
 import com.asproaca.asproaca.databinding.FragmentDatosAmbientalesBinding
 import com.asproaca.asproaca.diseño.utilidades.Localizacion
 import com.campo.campocolombiano.design.constantes.Constantes2
@@ -40,6 +43,7 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
     private var captacion_agua_lluvia: String? = null
     private var preferencias: Preferencias? = null
     lateinit var locationService: Localizacion
+    private lateinit var alertaInflater: AlertaFinalizarBinding
 
 
     private var dataBase = Firebase.firestore
@@ -58,25 +62,38 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         locationService.startRequest()
 
         binding.idBtnFinalizaregistro.setOnClickListener {
-            registrarFinca()
+            instanciaDatosFormulario()
+            if (validarCamposFormulario()) {
+                val alertaInflaterr2 =
+                    AlertaFinalizarBinding.inflate(LayoutInflater.from(requireContext()))
+                val alertDialog2 = AlertDialog.Builder(requireContext()).apply {
+                    setView(alertaInflaterr2.root)
+                }.create()
+
+                alertaInflaterr2.idBtnConfirmar.setOnClickListener {
+                    alertDialog2.dismiss()
+                    registrarFinca()
+                }
+                alertaInflaterr2.idBTnCerra.setOnClickListener {
+                    alertDialog2.dismiss()
+                }
+                alertDialog2.window?.setBackgroundDrawableResource(R.color.transparente)
+                alertDialog2.show()
+            }
         }
     }
 
     private fun registrarFinca() {
         instanciaDatosFormulario()
         if (validarCamposFormulario()) {
-            //Constantes2.idFinca = UUID.randomUUID().toString()
             viewModel.clickRegistroFinca()
             viewModel.resultRegister.observe(this@DatosAmbientalesFragment.requireActivity(),
                 Observer { success ->
                     if (success == true) {
                         findNavController().navigate(R.id.action_datosAmbientalesFragment_to_nav_fincas)
-                    } else {
-                        //
                     }
                 })
         }
-
     }
 
     private fun instanciaDatosFormulario() {
@@ -100,7 +117,7 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         )
         val arrayAdapterNatuAcuaticos = ArrayAdapter(
             requireContext(),
-            com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
+            android.R.layout.simple_list_item_1,
             itemsNatuAcuaticos
         )
         spinerNatuAcuaticos.adapter = arrayAdapterNatuAcuaticos
@@ -119,13 +136,11 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         }
 
         val spinerAcuaArtificiales = binding.idSpinerEcosistemaArtificial
-        val itemsAcuaArtificiales = arrayOf(
-            "POZO",
-            "PECES", "RESERVORIO DE AGUA", "OTRO", "NO"
-        )
+        val itemsAcuaArtificiales = arrayOf("POZO", "PECES", "RESERVORIO DE AGUA", "OTRO", "NO")
+
         val arrayAdapterAcuaArtificiales = ArrayAdapter(
             requireContext(),
-            com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
+            android.R.layout.simple_list_item_1,
             itemsAcuaArtificiales
         )
         spinerAcuaArtificiales.adapter = arrayAdapterAcuaArtificiales
@@ -144,7 +159,7 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         }
 
         val spinerTerrestreNaturales = binding.idSpinerEcosistemaTerrestreNatural
-        val itemsTerrestreNaturales = arrayOf("BOSQUES", "GUADULES", "RESERVAS", "NO")
+        val itemsTerrestreNaturales = arrayOf("BOSQUES", "GUADUALES", "RESERVAS", "NO")
         val arrayAdapterTerrestreNaturales = ArrayAdapter(
             requireContext(),
             com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,
@@ -152,7 +167,6 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         )
         spinerTerrestreNaturales.adapter = arrayAdapterTerrestreNaturales
         ecosistemas_terrestre_natural = spinerTerrestreNaturales.selectedItem.toString()
-
 
         area_ecosistemas_terrestre_natural =
             binding.idTxtAreaEcosistemaTerrestreaNATURAL.text.toString()
@@ -243,7 +257,6 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
             }
         }
 
-
         Constantes2.tiene_ecosistema_acuaticos_naturales = tiene_ecosistema_acuaticos_naturales
         Constantes2.ecosistemas_naturales_acuaticos = ecosistemas_naturales_acuaticos
         Constantes2.tiene_ecosistema_acuaticos_artificiales =
@@ -264,7 +277,6 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         preferencias = Preferencias(requireContext())
         Constantes2.idUsuario = preferencias!!.obtenerIdUsuario()
         Constantes2.encargadoRegistro = preferencias!!.obtenerRol()
-
     }
 
     private fun validarCamposFormulario(): Boolean {
@@ -304,7 +316,6 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         } else {
             binding.idErrorSeparaBasu.visibility = View.GONE
         }
-
         if (!(binding.idSiCoverturaSuelos.isChecked || binding.idNoCoverturaSuelos.isChecked)) {
             esValido = false
             binding.idErrorCoverSuelos.visibility = View.VISIBLE
@@ -319,7 +330,7 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
             binding.idErrorAreasErocion.visibility = View.GONE
         }
 
-        if (!(binding.idSiAreasRemcion.isChecked || binding.idSiAreasRemcion.isChecked)) {
+        if (!(binding.idSiAreasRemcion.isChecked || binding.idNoAreasRemcion.isChecked)) {
             esValido = false
             binding.idErrorEvidenciaRemocion.visibility = View.VISIBLE
         } else {
@@ -339,9 +350,6 @@ class DatosAmbientalesFragment : Fragment(R.layout.fragment_datos_ambientales) {
         } else {
             binding.idErrorCapturaAguaLluvia.visibility = View.GONE
         }
-
-
-
 
         if (TextUtils.isEmpty(area_ecosistemas_terrestre_natural)) {
             esValido = false

@@ -5,34 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".diseño.principal.ui.gestionFincas.datosBasicos.DatosBasicosFragment">
-    <!--
-        <LinearLayout
-            android:id="@+id/toolbar3"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/transparente"
-            android:backgroundTint="@color/transparente"
-            android:backgroundTintMode="screen"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/transparente"
-                android:backgroundTint="@color/transparente"
-                android:backgroundTintMode="add"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_add" />
-            </LinearLayout>
-        </LinearLayout>
-    -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -138,7 +110,7 @@
                                 android:maxLength="90" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <Space
+                        <androidx.legacy.widget.Space
                             android:layout_width="10dp"
                             android:layout_height="wrap_content" />
 

@@ -1662,7 +1662,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="10dp"
                                 android:layout_weight="2"
-                                android:text="¿Cual es el proceso de secado del café?"
+                                android:text="¿Cual es el proceso de secado del producto?"
                                 android:textColor="@color/black"
                                 android:textSize="16dp"
                                 android:textStyle="normal" />

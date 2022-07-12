@@ -42,7 +42,11 @@ class DatosBasicosModificarFragment : Fragment(R.layout.fragment_datos_basicos) 
 
 
         val titulo = binding.textView2
-        titulo.apply { this.setText("Modificar informacion de la finca") }
+        if (Constantes2.crearNuevaFinca == true){
+            titulo.apply { this.setText("ACTUALIZAR INFORMACIÓN DE LA FINCA") }
+        }else{
+            titulo.apply { this.setText("MODIFICAR INFORMACIÓN DE LA FINCA") }
+        }
 
         val date = getCurrentDateTime()
         dateInString = date.toString("yyyy/MM/dd HH:mm:ss")

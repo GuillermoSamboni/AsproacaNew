@@ -56,7 +56,12 @@ class DatosSocialesModificarFragment : Fragment(R.layout.fragment_datos_sociales
         referenciaDatosFormulario()
 
 
-        binding.textView2.setText("MODIFICAR DATOS DEL NÚCLEO FAMILIAR")
+        val titulo = binding.textView2
+        if (Constantes2.crearNuevaFinca == true){
+            titulo.apply { this.setText("MODIFICAR DATOS DEL NÚCLEO FAMILIAR") }
+        }else{
+            titulo.apply { this.setText("ACTUALIZAR DATOS DEL NÚCLEO FAMILIAR") }
+        }
 
         binding.idBtnContinuarProceso.setOnClickListener {
             if (validarFormulario()) {

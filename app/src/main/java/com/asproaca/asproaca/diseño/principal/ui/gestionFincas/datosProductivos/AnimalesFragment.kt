@@ -51,15 +51,16 @@ class AnimalesFragment : Fragment(R.layout.fragment_animales) {
 
         val spineraaAnimales = binding.idSpinerAnimalesFinca
         val itemsAnimales = arrayOf(
-            "Vacuno",
-            "Porcicola",
-            "Cuyes",
-            "Cunicultura",
-            "Gallinas de engorde",
-            "ganillas ponedoras",
-            "piscicultura",
-            "Otro"
-        )
+            "VACUNO",
+            "PORCICOLA",
+            "CUYES",
+            "CUNICULTURA",
+            "GALLINAS DE ENGORDE",
+            "GALLINAS PONEDORAS",
+            "PISCICULTURA",
+            "OTRO",
+            "NINGUNO",
+            )
 
         val arrayAdapterAnimales = ArrayAdapter(
             requireContext(),
@@ -124,14 +125,14 @@ class AnimalesFragment : Fragment(R.layout.fragment_animales) {
     private fun instanciaFormularioalerta() {
         val spineraaAnimales = dialogBinding.idSpinerAnimalesFincaA
         val itemsAnimales = arrayOf(
-            "Vacuno",
-            "Porcicola",
-            "Cuyes",
-            "Cunicultura",
-            "Gallinas de engorde",
-            "ganillas ponedoras",
-            "piscicultura",
-            "Otro"
+            "VACUNO",
+            "PORCICOLA",
+            "CUYES",
+            "CUNICULTURA",
+            "GALLINAS DE ENGORDE",
+            "GALLINAS PONEDORAS",
+            "PISCICULTURA",
+            "OTRO"
         )
 
         val arrayAdapterAnimales = ArrayAdapter(

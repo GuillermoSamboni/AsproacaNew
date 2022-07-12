@@ -12,6 +12,9 @@
 
     <dimen name="margin_vertical_global">30dp</dimen>
     <dimen name="margin_button_global">40dp</dimen>
+    <dimen name="margen10dp">10dp</dimen>
+    <dimen name="textosNormales">26dp</dimen>
+    <dimen name="icono32dp">32dp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
 
 </resources>

@@ -2,6 +2,7 @@ package com.asproaca.asproaca.diseño.principal.ui.perfil
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
@@ -9,7 +10,9 @@ import androidx.fragment.app.Fragment
 import com.asproaca.asproaca.R
 import com.asproaca.asproaca.databinding.CustomCargaBinding
 import com.asproaca.asproaca.databinding.FragmentPerfilBinding
+import com.asproaca.asproaca.databinding.InformationDevBinding
 import com.asproaca.asproaca.modelos.Usuario
+import com.campo.campocolombiano.design.constantes.Constantes2
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
@@ -31,18 +34,41 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
         obtenerInfomacionPersona()
         saltarAModificarDatos()
 
-        binding.idBtnActivar.setOnClickListener {
-            activarModificaciones()
-        }
-        binding.idBtnDesacticar.setOnClickListener {
-            desactivarModificaciones()
-        }
-        binding.idBtnActivarModificacion.setOnClickListener {
-            activarMods()
+        if (Constantes2.encargadoRegistro == "Administrador") {
+            binding.idBtnActivar.visibility = View.GONE
+            binding.idBtnDesacticar.visibility = View.GONE
+            binding.idBtnActivarModificacion.visibility = View.GONE
+            binding.idBtnDesacticarModificacion.visibility = View.GONE
+        } else {
+            binding.idBtnActivar.setOnClickListener {
+                activarModificaciones()
+            }
+            binding.idBtnDesacticar.setOnClickListener {
+                desactivarModificaciones()
+            }
+            binding.idBtnActivarModificacion.setOnClickListener {
+                activarMods()
+            }
+            binding.idBtnDesacticarModificacion.setOnClickListener {
+                desactivarMods()
+            }
         }
 
-        binding.idBtnDesacticarModificacion.setOnClickListener {
-            desactivarMods()
+        binding.idBtnbInfo.setOnClickListener {
+            val alertInflater = InformationDevBinding.inflate(LayoutInflater.from(requireContext()))
+            val alertDialog = AlertDialog.Builder(requireContext()).apply {
+                setView(alertInflater.root)
+                setCancelable(true)
+            }.create()
+
+            alertDialog.window?.setBackgroundDrawableResource(R.color.transparente)
+            alertDialog.window?.setWindowAnimations(R.style.dialog_animationButtonTo)
+            alertDialog.window?.setGravity(0)
+            alertDialog.window?.setGravity(Gravity.BOTTOM)
+
+            alertDialog.show()
+
+
         }
     }
 
@@ -58,7 +84,7 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
             if (document != null) {
                 val datosPersona = document.toObject<Usuario>()
                 binding.idNombre.setText(datosPersona?.nombre)
-                binding.idpellido.setText(datosPersona?.apellido)
+                //binding.idpellido.setText(datosPersona?.apellido)
                 binding.idIdentificacion.setText(datosPersona?.identificacion)
                 binding.idCorreo.setText(datosPersona?.correo)
                 binding.idTelefono.setText(datosPersona?.telefono)
@@ -144,7 +170,7 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
             }
     }
 
-    private fun activarMods(){
+    private fun activarMods() {
         dataBase = FirebaseFirestore.getInstance()
         dataBase.collection("Fincas").document("Fincas").collection("ActualizacionFinca")
             .whereEqualTo("estadoModificar", false)
@@ -171,7 +197,7 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
             }
     }
 
-    private fun desactivarMods(){
+    private fun desactivarMods() {
         dataBase = FirebaseFirestore.getInstance()
         dataBase.collection("Fincas").document("Fincas").collection("ActualizacionFinca")
             .whereEqualTo("estadoModificar", true)

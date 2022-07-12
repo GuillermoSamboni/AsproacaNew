@@ -64,10 +64,21 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    android:text="DATOS DE PRODUCCIÓN PECUARIA"
+                    android:text="@string/datos_de_producci_n_pecuaria"
                     android:textAlignment="center"
                     android:textColor="@color/color_primary"
                     android:textSize="@dimen/titulosPrincipales"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/si_no_desea_registrar_una_especie_presione_el_boton_continuar"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
 
@@ -79,7 +90,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Seleccionar animal: "
+                        android:text="Seleccionar especie"
                         android:textColor="@color/blackmode"
                         android:textStyle="bold" />
 

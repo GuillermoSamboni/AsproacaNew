@@ -96,11 +96,19 @@
     <string name="n_mero_de_rbolesx">Número de árboles</string>
     <string name="edad_del_lote">Edad del lote</string>
     <string name="cerrar_sesi_n">Cerrar sesión</string>
-    <string name="introproyecto">" Adopción de prácticas sostenibles, bajas en carbono y con medidas de adaptación al cambio climático en 74 fincas cafeteras "</string>
+    <string name="introproyecto">"Adopción de prácticas sostenibles, bajas en carbono y con medidas de adaptación al cambio climático en 74 fincas cafeteras "</string>
     <string name="introproyecto2">"SISTEMA DE INFORMACIÓN  ORGANIZACIONAL (SIA) "</string>
     <string name="continuar">Continuar</string>
     <string name="listado_de_usuarios">Listado de Usuarios</string>
     <string name="cuenta_con_alojamiento_para_los_trabajadores">¿Cuenta con alojamiento para los trabajadores?</string>
+    <string name="finalizar_registro">Finalizar registro</string>
 
+    <string name="esta_seguro_de_terminar_y_guardar_la_finca">¿Esta seguro de terminar y guardar la finca?</string>
+    <string name="recuerde_que_al_finalizar_el_registrono_se_podr_coregir_la_informaci_n_ingresada_desea_finalizar_y_guardar_el_registro">Recuerde que al finalizar el registro no se podrá corregir la información ingresada, ¿Desea finalizar y guardar el registro?</string>
+    <string name="por_favor_deslice_hacia_abajo_para_recargar_y_obtener_la_informaci_n_esta_acci_n_solo_se_realizar_una_vez">Por favor deslice hacia abajo para recargar y obtener la información, esta acción solo se realizará una vez</string>
+    <string name="si_no_desea_registrar_una_especie_presione_el_boton_continuar">Si no desea registrar una especie presione el botón continuar</string>
+    <string name="datos_de_producci_n_pecuaria">DATOS DE PRODUCCIÓN PECUARIA</string>
+    <string name="creado_por">Creado por:</string>
+    <string name="nueva_ruralidad">Nueva Ruralidad</string>
 
 </resources>

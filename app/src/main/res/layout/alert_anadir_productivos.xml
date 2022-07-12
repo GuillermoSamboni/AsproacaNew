@@ -632,7 +632,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="¿Cuántas veces lava el café?"
+                            android:hint="¿Cuántas veces lava el producto?"
                             android:textColorHint="@color/color_primary"
                             app:boxBackgroundMode="outline"
                             app:boxCornerRadiusBottomEnd="8dp"

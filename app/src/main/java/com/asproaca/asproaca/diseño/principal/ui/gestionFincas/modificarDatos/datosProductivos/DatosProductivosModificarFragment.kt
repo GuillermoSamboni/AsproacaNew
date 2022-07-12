@@ -1,27 +1,20 @@
 package com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosProductivos
 
 import android.app.AlertDialog
-import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.asproaca.asproaca.R
-import com.asproaca.asproaca.adaptadores.IntegrantesAdapter
 import com.asproaca.asproaca.adaptadores.ProduccionAgicolaAdapter
-import com.asproaca.asproaca.databinding.*
-import com.asproaca.asproaca.diseño.principal.PrincipalActivity
+import com.asproaca.asproaca.databinding.AlertAnadirProductivosBinding
+import com.asproaca.asproaca.databinding.AlertaLotesBinding
+import com.asproaca.asproaca.databinding.FragmentDatosProductivosModificarBinding
 import com.asproaca.asproaca.diseño.principal.ui.gestionFincas.modificarDatos.datosAmbientales.DatosAmbintalesModificarViewModel
-import com.asproaca.asproaca.modelos.IntegrantesFamilia
 import com.asproaca.asproaca.modelos.LotesProduccion
 import com.asproaca.asproaca.modelos.Productivos
 import com.campo.campocolombiano.design.constantes.Constantes2
@@ -69,7 +62,13 @@ class DatosProductivosModificarFragment : Fragment(R.layout.fragment_datos_produ
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDatosProductivosModificarBinding.bind(view)
         viewModel = ViewModelProvider(this)[DatosAmbintalesModificarViewModel::class.java]
-        initRecyclerView()
+        if (Constantes2.listaDatosFinca!!.datos_productivos == null){
+//            initRecyclerView()
+            Toast.makeText(requireContext(), "No se han registrado datos de producción agrícola", Toast.LENGTH_SHORT).show()
+        }else{
+            initRecyclerView()
+
+        }
 
         /**try {
         instanciaDatosFormulario()
@@ -81,6 +80,13 @@ class DatosProductivosModificarFragment : Fragment(R.layout.fragment_datos_produ
         binding.idBtnContinuarProceso.setOnClickListener {
         pasarDatosProductivos()
         }*/
+
+        val titulo = binding.idTextView2
+        if (Constantes2.crearNuevaFinca == true){
+            titulo.apply { this.setText("MODIFICAR DATOS  DE PRODUCCIÓN AGRÍCOLA") }
+        }else{
+            titulo.apply { this.setText("ACTUALIZAR DATOS DE PRODUCCIÓN AGRÍCOLA") }
+        }
     }
 /*
     private fun ponerDatos() {
@@ -311,9 +317,9 @@ class DatosProductivosModificarFragment : Fragment(R.layout.fragment_datos_produ
 
         val spinerTipoSecadoCafe = binding.idSpinerTipoSecadocafe
         val itemsTipoSecadoCafe = arrayOf(
-            "Malo",
-            "Regular",
-            "Bueno"
+            "SOLAR",
+            "COMBUSTIBLEFOSIL",
+            "OTRO"
         )
         val arrayAdapterTipoSecadoCafe = ArrayAdapter(
             requireContext(),

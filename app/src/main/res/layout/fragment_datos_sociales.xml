@@ -289,7 +289,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="*No incluir al productor"
+                        android:text="*Incluir al productor"
                         android:textAlignment="textStart"
                         android:textColor="@color/black"
                         android:textStyle="bold" />

@@ -38,7 +38,13 @@ class TrabajadoresModificarFragment : Fragment(R.layout.fragment_trabajadores) {
         binding = FragmentTrabajadoresBinding.bind(view)
 
         instanciaDatosFormuario()
-        binding.textView2.setText("MODIFICAR DATOS DE LOS TRABAJADORES")
+        val titulo = binding.textView2
+        if (Constantes2.crearNuevaFinca == true){
+            titulo.apply { this.setText("MODIFICAR DATOS DE LOS TRABAJADORES") }
+        }else{
+            titulo.apply { this.setText("ACTUALIZAR DATOS DE LOS TRABAJADORES") }
+        }
+
         ponerDatos()
         binding.idBtnContinuarProceso.setOnClickListener {
             pasarDatosFormulari()
@@ -133,7 +139,7 @@ class TrabajadoresModificarFragment : Fragment(R.layout.fragment_trabajadores) {
         horario_laboral = spinerHorarioLavoral.selectedItem.toString()
 
         val spinerEstadoAlojamiento = binding.idSpinerEstadoAlojamientoTrabajadores
-        val itemsEstadoAlojamiento = arrayOf("Malo", "Regular", "Bueno")
+        val itemsEstadoAlojamiento = arrayOf("MALO", "REGULAR", "BUENO")
 
         val arrayAdapterProveedor = ArrayAdapter(
             requireContext(),

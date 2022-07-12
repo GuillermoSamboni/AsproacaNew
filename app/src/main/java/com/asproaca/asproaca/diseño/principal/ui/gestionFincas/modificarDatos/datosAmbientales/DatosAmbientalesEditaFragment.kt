@@ -48,7 +48,7 @@ class DatosAmbientalesEditaFragment : Fragment(R.layout.fragment_datos_ambiental
         viewModel = ViewModelProvider(this)[DatosAmbintalesModificarViewModel::class.java]
         dataBase.firestoreSettings.isPersistenceEnabled
         dataBase.firestoreSettings.cacheSizeBytes
-        Toast.makeText(requireContext(), "hola", Toast.LENGTH_SHORT).show()
+
         instanciaDatosFormulario()
         ponerDatos()
         binding.idBtnFinalizaregistro.setOnClickListener {

@@ -115,7 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:maxLength="3" />
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -174,7 +174,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margenGlobal"
-                android:text="Agregar integrante" />
+                android:text="Agregar lote" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

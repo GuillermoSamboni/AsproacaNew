@@ -25,9 +25,10 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
             <TextView
+                android:id="@+id/idTextView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="MODIFICAR DATOS PRODUCTIVOS"
+                android:text="MODIFICAR DATOS DE PRODUCCIÓN AGRÍCOLA"
                 android:textAlignment="center"
                 android:textColor="@color/verdeAsproaca"
                 android:textSize="@dimen/titulosPrincipales"
